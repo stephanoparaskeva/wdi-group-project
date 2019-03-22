@@ -6,7 +6,7 @@ const categorySchema = new mongoose.Schema({
   description: { type: String },
   usersAssinged: [{ type: mongoose.Schema.ObjectId, ref: 'User'}],
   createdBy: { type: mongoose.Schema.ObjectId, ref: 'User' },
-  groupsAssigned: { type: mongoose.Schema.ObjectId, ref: 'Group' }
+  group: { type: mongoose.Schema.ObjectId, ref: 'Group' }
 }, {
   timestamps: true
 })

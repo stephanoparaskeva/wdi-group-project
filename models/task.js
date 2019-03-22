@@ -11,6 +11,7 @@ const commentSchema = new mongoose.Schema({
 
 const taskSchema = new mongoose.Schema({
   name: { type: String },
+  group: { type: mongoose.Schema.ObjectId, ref: 'Group'},
   description: { type: String },
   priority: { type: String },
   usersAssinged: [{ type: mongoose.Schema.ObjectId, ref: 'User'}],

@@ -1,3 +1,5 @@
+Matthew Whaley-Update2
+=======
 _README_
 
 #Organize - MERN Full Stack App
@@ -129,3 +131,4 @@ ___
   * createdDate: _timeStamp created by mongo_
   * mongo_Id - _assigned by default_
 ___
+>>>>>>> 7b45cf7b2723bd2c0f1b50499d8c2a0c7673ec26
