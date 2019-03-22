@@ -16,7 +16,7 @@ function tasksShowRoute(req, res, next) {
 
 function tasksCreateRoute(req, res, next) {
   Task
-    .create()
+    .create(req.body)
     .then(task => res.status(201).json(task))
     .catch(next)
 }
