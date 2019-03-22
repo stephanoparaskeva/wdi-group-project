@@ -29,7 +29,7 @@ After implementation began, the wireframes were further developed to reflect the
 
 ---
 
-##Overview
+##App Overview
 
 The Organize app is a organizational tool that allows users to create events and add contributors to these events. In short, the tool allows users to effectively manage tasks and assign responsibilities accordingly.
 
@@ -55,7 +55,25 @@ If they do not already have an account, they are directed to click on the link w
 
 ##Backend Overview
 
-_Database - Organize_
+## URL Structure
+
+### organise.net
+  _User Login/Register page for the application_
+
+### organise.net/group
+  _User dashboard showing all groups assigned to that user_
+
+### organise.net/group/group:id
+  _Group specific dashboard showing all categories and in the category widgets the category specific tasks_
+
+### organise.net/group/group:id/tasks?category=category:id
+  _Category specific dashboard showing all tasks in card form of a specific category_
+
+### organise.net/group/group:id/tasks
+  _Filtered tasks page(shows all as standard), used for muliple task views. Eg organise.net/group/group:id/tasks?priority=high&owner=123_
+---
+
+## Database - Organise
 
 The database is broken down into the following Schemas:
 
@@ -64,47 +82,50 @@ The database is broken down into the following Schemas:
 * profileName: - _string_
 * email: _string_
 * password: _string_
-* groupsAssigned: _array of mongo_Id's_
 * createdDate: _timeStamp created by mongo_
 * mongo_Id: _assigned by default_
 * isActive: _boolean_
 * isDormant: _boolean_
+
 ___
 
 ### Group
 * name: _string_
-* description: _string_
+* decription: _string_
 * userAssigned: _array of mongo_Id's_
 * userCreated: _mongo_Id_
 * createdDate: _timeStamp created by Mongo_
 * mongo_Id - _assigned by default_
 
-#### Category
+___
+
+### Category
+* name: _string_
+* decription: _string_
+* userAssigned: _array of mongo_Id's_
+* userCreated: _mongo_Id_
+* groupAssinged: _mongo_Id_
+* createdDate: _timeStamp created by mongo_
+* mongo_Id - _assigned by default_
+
+___
+
+### Task
+* name: _string_
+* decription: _string_
+* priority: _string of high, medium or  low_
+* userAssigned: _array of mongo_Id's_
+* userCreated: _mongo_Id_
+* groupAssinged: _mongo_Id_
+* isCurrent: _boolean_
+* categorieId: _mongo_Id_
+* createdDate: _timeStamp created by mongo_
+* mongo_Id - _assigned by default_
+
+  #### Comments
   * name: _string_
-  * description: _string_
-  * userAssigned: _array of mongo_Id's_
+  * decription: _string_
   * userCreated: _mongo_Id_
-  * groupAssigned: _mongo_Id_
   * createdDate: _timeStamp created by mongo_
   * mongo_Id - _assigned by default_
-
-#### Task
-  * name: _string_
-  * description: _string_
-  * priority: _string of high, medium or low_
-  * userAssigned: _array of mongo_Id's_
-  * userCreated: _mongo_Id_
-  * groupAssigned: _mongo_Id_
-  * isCurrent: _boolean_
-  * categoryId: _mongo_Id_
-  * createdDate: _timeStamp created by mongo_
-  * mongo_Id - _assigned by default_
-
-##### Comments
-    * name: _string_
-    * description: _string_
-    * userCreated: _mongo_Id_
-    * createdDate: _timeStamp created by mongo_
-    * mongo_Id - _assigned by default_
-
----
+___
