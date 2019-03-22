@@ -16,7 +16,7 @@ const App = () => {
         <Switch>
           <Route path="/register" component={Register} />
         </Switch>
-        <hr />
+        <br />
         <Task />
       </div>
     </Browser>
