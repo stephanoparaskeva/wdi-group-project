@@ -6,10 +6,10 @@ const userSchema = new mongoose.Schema({
   username: { type: String, required: true, unique: true },
   email: { type: String, required: true, unique: true },
   password: { type: String, required: true },
-  groupsAssigned: [{ type: mongoose.Schema.ObjectId, ref: 'Group'}],
-  createdDate: { type: Date, default: Date.now },
   isCurrentlyActive: { type: Boolean },
   isDormant: { type: Boolean }
+}, {
+  timestamps: true
 })
 
 userSchema.plugin(require('mongoose-unique-validator'))
