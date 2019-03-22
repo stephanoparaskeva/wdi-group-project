@@ -9,7 +9,6 @@ import Task from './components/task'
 import Register from './components/auth/register'
 import Login from './components/auth/login'
 
-
 const App = () => {
   return (
     <Browser>
