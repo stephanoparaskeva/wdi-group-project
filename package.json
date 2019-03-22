@@ -1,0 +1,26 @@
+{
+  "name": "wdi-group-project",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "git@github.com:MaryCerasa/wdi-group-project.git",
+  "author": "Stephano Paraskeva <stephanokparaskeva@gmail.com>",
+  "scripts": {
+      "start:server": "nodemon",
+      "start:client": "webpack-dev-server --mode=development",
+      "seed": "node db/seeds.js"
+    },
+  "license": "MIT",
+  "dependencies": {
+    "axios": "^0.18.0",
+    "bcrypt": "^3.0.4",
+    "body-parser": "^1.18.3",
+    "bulma": "^0.7.4",
+    "express": "^4.16.4",
+    "jsonwebtoken": "^8.5.0",
+    "mongoose": "^5.4.19",
+    "mongoose-unique-validator": "^2.0.2",
+    "react": "^16.8.4",
+    "react-dom": "^16.8.4",
+    "react-router-dom": "^4.3.1"
+  }
+}
