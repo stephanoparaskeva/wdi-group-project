@@ -1,7 +1,6 @@
 import React from 'react'
 import 'bulma'
 
-
 const Task = () => {
   return(
     <div className="card">
@@ -15,8 +14,8 @@ const Task = () => {
           <p>This task is to do a task</p>
           <br />
           <p>Created by: Jess</p>
-          <p>Priority: high</p>
-          <p>Category: clothes</p>
+          <p>Priority: High</p>
+          <p>Category: Clothes</p>
         </div>
       </div>
       <footer className="card-footer">

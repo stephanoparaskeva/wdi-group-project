@@ -7,6 +7,8 @@ import 'bulma'
 import Nav from './components/nav'
 import Task from './components/task'
 import Register from './components/auth/register'
+import Login from './components/auth/login'
+
 
 const App = () => {
   return (
@@ -15,6 +17,7 @@ const App = () => {
         <Nav />
         <Switch>
           <Route path="/register" component={Register} />
+          <Route path="/login" component={Login} />
         </Switch>
         <hr />
         <Task />

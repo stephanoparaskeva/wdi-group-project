@@ -16,9 +16,15 @@ const Nav = () => {
                 <Link to="/register" className="button is-primary">
                   <strong>Register</strong>
                 </Link>
-                <a className="button is-light" href="/#">
-                  Log in
-                </a>
+
+                <Link to="/login" className="button is-primary">
+                  <strong>Log In</strong>
+                </Link>
+
+                <Link to="/" className="button is-primary">
+                  <strong>Group Page</strong>
+                </Link>
+
               </div>
             </div>
           </div>
@@ -46,7 +52,7 @@ const Nav = () => {
         </div>
         <div className="navbar-item has-dropdown is-hoverable">
           <a className="navbar-link">
-            Priotity
+            Priority
           </a>
           <div className="navbar-dropdown">
             <a className="navbar-item">
