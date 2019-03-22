@@ -15,6 +15,7 @@ function tasksShowRoute(req, res, next) {
 }
 
 function tasksCreateRoute(req, res, next) {
+  req.body.group = req.params.groupId
   Task
     .create(req.body)
     .then(task => res.status(201).json(task))
