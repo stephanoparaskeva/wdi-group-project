@@ -18,7 +18,7 @@ const App = () => {
           <Route path="/register" component={Register} />
           <Route path="/login" component={Login} />
         </Switch>
-        <hr />
+        <br />
         <Task />
       </div>
     </Browser>
