@@ -1,13 +1,20 @@
 import React from 'react'
 import 'bulma'
 
-class Task extends React.Component {
+class CreateTask extends React.Component {
   constructor() {
     super()
 
     this.state = {
-      tasks: []
+      name: '',
+      description: ''
     }
+
+    this.handleChange = this.handleChange.bind(this)
+  }
+
+  handleChange(e) {
+    this.setState({ name: e.target.value})
   }
 
   render() {
@@ -15,7 +22,13 @@ class Task extends React.Component {
       <div className="card">
         <header className="card-header">
           <p className="card-header-title">
-            {this.props.name}
+            <input
+              className="input"
+              name="name"
+              placeholder="Task Name"
+              value={this.state.name}
+              onChange={this.handleChange}
+            />
           </p>
         </header>
         <div className="card-content">
@@ -36,4 +49,4 @@ class Task extends React.Component {
   }
 }
 
-export default Task
+export default CreateTask

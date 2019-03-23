@@ -1,5 +1,6 @@
 const mongoose = require('mongoose')
 const bcrypt = require('bcrypt')
+const friendsPlugin = require('mongoose-friends-plugin')
 
 const userSchema = new mongoose.Schema({
   name: { type: String },
@@ -13,6 +14,7 @@ const userSchema = new mongoose.Schema({
 })
 
 userSchema.plugin(require('mongoose-unique-validator'))
+userSchema.plugin(friendsPlugin({ pathName: 'friends' }))
 
 // anytime my user model is requested I want it to remove the password
 // from what is sent back

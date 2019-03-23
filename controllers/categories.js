@@ -1,4 +1,6 @@
 const Category = require('../models/category')
+const Group = require('../models/group')
+const permissions = require('../lib/permissions')
 
 function categoriesIndexRoute(req, res, next) {
   Category
@@ -14,9 +16,11 @@ function categoriesShowRoute(req, res, next) {
     .catch(next)
 }
 
-
 function categoriesCreateRoute(req, res, next) {
-  req.body.group = req.params.groupId
+  // permissions.groupLevel(req, res, next, Category
+  //   .create(req.body)
+  //   .then(category => res.status(201).json(category))
+  //   .catch(next))
   Category
     .create(req.body)
     .then(category => res.status(201).json(category))
@@ -41,9 +45,9 @@ function categoriesDeleteRoute(req, res, next) {
 }
 
 module.exports = {
-  categoriesIndex: categoriesIndexRoute,
-  categoriesShow: categoriesShowRoute,
-  categoriesCreate: categoriesCreateRoute,
-  categoriesUpdate: categoriesUpdateRoute,
-  categoriesDelete: categoriesDeleteRoute
+  index: categoriesIndexRoute,
+  show: categoriesShowRoute,
+  create: categoriesCreateRoute,
+  update: categoriesUpdateRoute,
+  delete: categoriesDeleteRoute
 }

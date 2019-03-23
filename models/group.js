@@ -2,9 +2,9 @@
 const mongoose = require('mongoose')
 
 const groupSchema = new mongoose.Schema({
-  name: { type: String },
+  name: { type: String, required: true },
   description: { type: String },
-  usersAssinged: [{ type: mongoose.Schema.ObjectId, ref: 'User'}],
+  usersAssigned: [{ type: mongoose.Schema.ObjectId, ref: 'User' }],
   createdBy: { type: mongoose.Schema.ObjectId, ref: 'User' }
 }, {
   timestamps: true

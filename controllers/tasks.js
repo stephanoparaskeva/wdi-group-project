@@ -1,4 +1,6 @@
 const Task = require('../models/task')
+const Group = require('../models/group')
+const permissions = require('../lib/permissions')
 
 function tasksIndexRoute(req, res, next) {
   Task
@@ -15,7 +17,10 @@ function tasksShowRoute(req, res, next) {
 }
 
 function tasksCreateRoute(req, res, next) {
-  req.body.group = req.params.groupId
+  // permissions.groupLevel(req, res, next, Task
+  //   .create(req.body)
+  //   .then(task => res.status(201).json(task))
+  //   .catch(next))
   Task
     .create(req.body)
     .then(task => res.status(201).json(task))
@@ -42,7 +47,7 @@ function tasksDeleteRoute(req, res, next) {
 }
 
 function commentsCreateRoute(req, res, next) {
-  req.body.user = req.currentUser
+  req.body.createdBy = req.currentUser
   Task
     .findById(req.params.taskId)
     .then(task => {
@@ -53,14 +58,28 @@ function commentsCreateRoute(req, res, next) {
     .catch(next)
 }
 
-
+// function commentsDeleteRoute(req, res, next) {
+//   Task
+//     .findById(req.params.taskId)
+//     .then(task => {
+//       task.comments.forEach(comment => {
+//         if (comment.createdBy.equals(req.currentUser._id)) {
+//           const comment = task.comments.id(req.params.commentId)
+//           comment.remove()
+//           return task.save()
+//         }
+//       })
+//     })
+//     .then(task => res.json(task))
+//     .catch(next)
+// }
 
 module.exports = {
-  tasksIndex: tasksIndexRoute,
-  tasksShow: tasksShowRoute,
-  tasksCreate: tasksCreateRoute,
-  tasksUpdate: tasksUpdateRoute,
-  tasksDelete: tasksDeleteRoute,
+  index: tasksIndexRoute,
+  show: tasksShowRoute,
+  create: tasksCreateRoute,
+  update: tasksUpdateRoute,
+  delete: tasksDeleteRoute,
 
   commentsCreate: commentsCreateRoute
 
