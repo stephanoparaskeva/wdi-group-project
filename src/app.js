@@ -5,7 +5,7 @@ import { BrowserRouter as Browser, Route, Switch } from 'react-router-dom'
 import 'bulma'
 
 import Nav from './components/nav'
-import Task from './components/task'
+import Tasks from './components/tasks'
 import Register from './components/auth/register'
 import Login from './components/auth/login'
 
@@ -19,7 +19,7 @@ const App = () => {
           <Route path="/login" component={Login} />
         </Switch>
         <br />
-        <Task />
+        <Tasks />
       </div>
     </Browser>
   )
