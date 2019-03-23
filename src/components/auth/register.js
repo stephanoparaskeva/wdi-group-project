@@ -111,7 +111,7 @@ class Register extends React.Component {
               <button className="button is-success">Register</button>
               <button className="button">Cancel</button>
               <p className="has-text-grey">
-                <a href="../">Login</a> &nbsp;·&nbsp;
+                <a href="../">Login Instead</a> &nbsp;·&nbsp;
               </p>
 
               <script async type="text/javascript" src="http://localhost:4000/login"></script>

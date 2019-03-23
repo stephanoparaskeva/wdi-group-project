@@ -11,11 +11,11 @@ const commentSchema = new mongoose.Schema({
 
 const taskSchema = new mongoose.Schema({
   name: { type: String },
+  group: { type: mongoose.Schema.ObjectId, ref: 'Group'},
   description: { type: String },
   priority: { type: String },
   usersAssinged: [{ type: mongoose.Schema.ObjectId, ref: 'User'}],
   createdBy: { type: mongoose.Schema.ObjectId, ref: 'User' },
-  groupAssigned: { type: mongoose.Schema.ObjectId, ref: 'Group' },
   categoryAssigned: { type: mongoose.Schema.ObjectId, ref: 'Category' },
   isCurrent: { type: Boolean },
   comments: [ commentSchema ]

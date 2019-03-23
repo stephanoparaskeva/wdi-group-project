@@ -16,8 +16,9 @@ function categoriesShowRoute(req, res, next) {
 
 
 function categoriesCreateRoute(req, res, next) {
+  req.body.group = req.params.groupId
   Category
-    .create()
+    .create(req.body)
     .then(category => res.status(201).json(category))
     .catch(next)
 }
