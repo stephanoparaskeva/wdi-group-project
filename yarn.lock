@@ -3877,6 +3877,11 @@ mongodb@3.1.13:
     mongodb-core "3.1.11"
     safe-buffer "^5.1.2"
 
+mongoose-friends-plugin@^0.7.3:
+  version "0.7.3"
+  resolved "https://registry.yarnpkg.com/mongoose-friends-plugin/-/mongoose-friends-plugin-0.7.3.tgz#f7ceb9dac5fba4c1ee2ad75c64a58b14b0259add"
+  integrity sha1-98652sX7pMHuKtdcZKWLFLAlmt0=
+
 mongoose-legacy-pluralize@1.0.2:
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/mongoose-legacy-pluralize/-/mongoose-legacy-pluralize-1.0.2.tgz#3ba9f91fa507b5186d399fb40854bff18fb563e4"
