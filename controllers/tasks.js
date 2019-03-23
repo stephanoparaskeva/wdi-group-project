@@ -15,8 +15,6 @@ function tasksShowRoute(req, res, next) {
     .catch(next)
 }
 
-
-
 function tasksCreateRoute(req, res, next) {
   req.body.group = req.params.groupId
   req.body.createdBy = req.currentUser
@@ -36,7 +34,7 @@ function tasksCreateRoute(req, res, next) {
           return res.json('Unauthorized')
         }
       })
-    })
+    }).catch(next)
 }
 
 function tasksUpdateRoute(req, res, next) {
@@ -59,7 +57,7 @@ function tasksDeleteRoute(req, res, next) {
 }
 
 function commentsCreateRoute(req, res, next) {
-  req.body.user = req.currentUser
+  req.body.createdBy = req.currentUser
   Task
     .findById(req.params.taskId)
     .then(task => {
@@ -70,7 +68,21 @@ function commentsCreateRoute(req, res, next) {
     .catch(next)
 }
 
-
+// function commentsDeleteRoute(req, res, next) {
+//   Task
+//     .findById(req.params.taskId)
+//     .then(task => {
+//       task.comments.forEach(comment => {
+//         if (comment.createdBy.equals(req.currentUser._id)) {
+//           const comment = task.comments.id(req.params.commentId)
+//           comment.remove()
+//           return task.save()
+//         }
+//       })
+//     })
+//     .then(task => res.json(task))
+//     .catch(next)
+// }
 
 module.exports = {
   index: tasksIndexRoute,

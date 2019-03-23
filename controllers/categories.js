@@ -35,7 +35,7 @@ function categoriesCreateRoute(req, res, next) {
           return res.json('Unauthorized')
         }
       })
-    })
+    }).catch(next)
 }
 
 function categoriesUpdateRoute(req, res, next) {

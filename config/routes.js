@@ -36,7 +36,7 @@ router.route('/groups/:groupId/categories/:categoryId')
   .put(secureRoute, categories.update)
   .delete(secureRoute, categories.delete)
 
-router.post('/groups/:groupId/tasks/:tasksId/comments', secureRoute, tasks.commentsCreate)
+router.post('/groups/:groupId/tasks/:taskId/comments', secureRoute, tasks.commentsCreate)
 // router.delete('/groups/:groupId/tasks/:tasksId/comments/:commentId', secureRoute, groups.commentDelete)
 
 router.route('/users')
@@ -49,10 +49,10 @@ router.route('/users/:userId/request')
   .post(secureRoute, users.request)
 
 router.route('/users/pending')
-  .get(secureRoute, users.allPending)
+  .post(secureRoute, users.allPending)
 
 router.route('/users/accepted')
-  .get(secureRoute, users.allAccepted)
+  .post(secureRoute, users.allAccepted)
 
 router.post('/register', register)
 router.post('/login', login)

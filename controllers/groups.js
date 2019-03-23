@@ -3,6 +3,7 @@ const Group = require('../models/group')
 function groupsIndex(req, res, next) {
   Group
     .find()
+    .populate('groupTasks')
     .then(groups => res.status(200).json(groups))
     .catch(next)
 }
@@ -17,6 +18,7 @@ function groupsCreate(req, res, next) {
   req.body.createdBy = req.currentUser
   Group
     .create(req.body)
+    .populate('groupTasks')
     .then(group => res.status(201).json(group))
     .catch(next)
 }
