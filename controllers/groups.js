@@ -7,6 +7,7 @@ function groupsIndex(req, res, next) {
     .then(groups => res.status(200).json(groups))
     .catch(next)
 }
+
 function groupsShow(req, res, next) {
   Group
     .findById(req.params.groupId)
@@ -14,6 +15,7 @@ function groupsShow(req, res, next) {
     .then(group => res.status(200).json(group))
     .catch(next)
 }
+
 function groupsCreate(req, res, next) {
   req.body.createdBy = req.currentUser
   Group
@@ -21,6 +23,7 @@ function groupsCreate(req, res, next) {
     .then(group => res.status(201).json(group))
     .catch(next)
 }
+
 function groupsUpdate(req, res, next) {
   Group
     .findById(req.params.groupId)

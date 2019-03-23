@@ -2,7 +2,6 @@ const Task = require('../models/task')
 const Group = require('../models/group')
 const permissions = require('../lib/permissions')
 
-
 function tasksIndexRoute(req, res, next) {
   Task
     .find()
@@ -27,8 +26,6 @@ function tasksCreateRoute(req, res, next) {
     .then(task => res.status(201).json(task))
     .catch(next)
 }
-
-
 
 function tasksUpdateRoute(req, res, next) {
   Task

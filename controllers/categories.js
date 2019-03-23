@@ -16,7 +16,6 @@ function categoriesShowRoute(req, res, next) {
     .catch(next)
 }
 
-
 function categoriesCreateRoute(req, res, next) {
   // permissions.groupLevel(req, res, next, Category
   //   .create(req.body)
