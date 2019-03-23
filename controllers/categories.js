@@ -1,5 +1,6 @@
 const Category = require('../models/category')
 const Group = require('../models/group')
+const permissions = require('../lib/permissions')
 
 function categoriesIndexRoute(req, res, next) {
   Category
@@ -17,25 +18,14 @@ function categoriesShowRoute(req, res, next) {
 
 
 function categoriesCreateRoute(req, res, next) {
-  req.body.group = req.params.groupId
-  req.body.createdBy = req.currentUser
-  Group
-    .findById(req.body.group)
-    .then(group => {
-      return group.usersAssigned.forEach(user => {
-        console.log(user)
-        console.log(req.body.createdBy._id)
-        if (user.equals(req.body.createdBy._id)) {
-          console.log('true')
-          return Category
-            .create(req.body)
-            .then(category => res.status(201).json(category))
-            .catch(next)
-        } else {
-          return res.json('Unauthorized')
-        }
-      })
-    }).catch(next)
+  // permissions.groupLevel(req, res, next, Category
+  //   .create(req.body)
+  //   .then(category => res.status(201).json(category))
+  //   .catch(next))
+  Category
+    .create(req.body)
+    .then(category => res.status(201).json(category))
+    .catch(next)
 }
 
 function categoriesUpdateRoute(req, res, next) {

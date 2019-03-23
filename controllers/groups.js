@@ -18,7 +18,6 @@ function groupsCreate(req, res, next) {
   req.body.createdBy = req.currentUser
   Group
     .create(req.body)
-    .populate('groupTasks')
     .then(group => res.status(201).json(group))
     .catch(next)
 }
