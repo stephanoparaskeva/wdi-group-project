@@ -18,11 +18,17 @@ class Register extends React.Component {
 
     this.handleChange = this.handleChange.bind(this)
     this.handleSubmit = this.handleSubmit.bind(this)
+    this.handleDone = this.handleDone.bind(this)
   }
 
   handleChange({ target: { name , value }}) {
     const data = {...this.state.data, [name]: value}
     this.setState({ data })
+  }
+
+  handleDone(e){
+    e.preventDefault()
+    this.props.history.push('/')
   }
 
   handleSubmit(e) {
@@ -40,8 +46,8 @@ class Register extends React.Component {
           <div className="modal-background"></div>
           <div className="modal-card">
             <header className="modal-card-head">
-              <p className="modal-card-title">Registration</p>
-              <button className="delete" aria-label="close"></button>
+              <p className="modal-card-title">Hello there!</p>
+              <button className="delete" aria-label="close" onClick={this.handleDone}></button>
             </header>
 
             <section className="modal-card-body">
@@ -108,10 +114,14 @@ class Register extends React.Component {
             </section>
 
             <footer className="modal-card-foot">
-              <button className="button is-success">Register</button>
-              <button className="button">Cancel</button>
+              <button className="button is-success"
+                onClick={this.handleDone}>Done
+              </button>
+              <button className="button"
+                onClick={this.handleDone}>Cancel
+              </button>
               <p className="has-text-grey">
-                <a href="../">Login Instead</a> &nbsp;·&nbsp;
+                <a href="http://localhost:8000/login">Login Instead</a> &nbsp;·&nbsp;
               </p>
 
               <script async type="text/javascript" src="http://localhost:4000/login"></script>
