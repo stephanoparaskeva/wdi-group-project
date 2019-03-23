@@ -6,11 +6,11 @@ const Nav = () => {
   return(
     <div>
       <div className="navbar is-dark">
-        <div className=" navbar-brand is-primary">
+        <div className=" navbar-brand is-primary navbar-start">
           <a className="navbar-item" href="/#">
             <p>Our Logo</p>
           </a>
-          <div className="navbar-end navbar-menu">
+          <div className="navbar-end">
             <div className="navbar-item">
               <div className="buttons">
                 <Link to="/register" className="button is-primary">
