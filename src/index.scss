@@ -27,3 +27,13 @@ input.input {
   min-width: 50%;
   width: 50%;
 }
+
+h1.groupText, p.groupText {
+  text-align: center;
+  border: 3px solid black;
+  padding: 15px;
+  font-size: 20px;
+  background-color: #00d1b2;
+  margin: 20px;
+  font-weight: bold;
+}

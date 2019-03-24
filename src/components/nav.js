@@ -21,7 +21,7 @@ const Nav = () => {
                   <strong>Log In</strong>
                 </Link>
 
-                <Link to="/" className="button is-primary">
+                <Link to="/groups" className="button is-primary">
                   <strong>Group Page</strong>
                 </Link>
 
