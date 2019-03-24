@@ -9,7 +9,8 @@ class CreateGroup extends React.Component {
     this.state = {
       name: '',
       description: '',
-      userAssigned: ''
+      email: '',
+      usersAssigned: ''
     }
 
     this.handleChange = this.handleChange.bind(this)
@@ -18,7 +19,7 @@ class CreateGroup extends React.Component {
   }
 
   handleChange(e) {
-    this.setState({ name: e.target.value})
+    this.setState({ name: e.target.data, email: e.target.data, description: e.target.data})
   }
 
   handleDone(e){
@@ -45,6 +46,7 @@ class CreateGroup extends React.Component {
         <div className="card-content">
           <div className="content">
             <form onSubmit={this.handleSubmit}>
+              <label className="label">Name</label>
               <input
                 className="input"
                 name="name"
@@ -53,19 +55,29 @@ class CreateGroup extends React.Component {
                 onChange={this.handleChange}
               />
               <br />
+              <br />
+              <label className="label">Users To Add</label>
               <input
                 className="input"
                 name="email"
-                placeholder="Users to Add"
+                placeholder="User email address"
                 value={this.state.email}
                 onChange={this.handleChange}
               />
+              <br />
+              <br />
+              <label className="label">Description</label>
+              <input
+                className="input"
+                name="description"
+                placeholder="Event details"
+                value={this.state.description}
+                onChange={this.handleChange}
+              />
             </form>
-            <p>{this.props.description}</p>
+
             <p>{this.props.usersAssigned}</p>
             <br />
-            <p>Created by: Mary</p>
-            <p>{`Priority: ${this.props.priority}`}</p>
           </div>
         </div>
         <footer className="card-footer">
