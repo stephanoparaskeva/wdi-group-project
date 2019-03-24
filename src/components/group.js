@@ -25,13 +25,13 @@ class Group extends React.Component {
             <p>Created by: Mary</p>
             <p>{`Priority: ${this.props.priority}`}</p>
             <p>{`Description: ${this.props.description}`}</p>
-            <p>{`Users: ${this.props.userId}`}</p>
+            <p>{`Users: ${this.props.usersAssigned}`}</p>
           </div>
         </div>
         <footer className="card-footer">
           <a href="#" className="card-footer-item">Edit</a>
           <a href="#" className="card-footer-item">Delete</a>
-          <a href="#" className="card-footer-item">Show Details</a>
+          <a href="./tasks" className="card-footer-item">Show Details</a>
         </footer>
       </div>
     )
