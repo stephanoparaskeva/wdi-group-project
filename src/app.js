@@ -8,6 +8,7 @@ import Nav from './components/nav'
 import Tasks from './components/tasks'
 import Register from './components/auth/register'
 import Login from './components/auth/login'
+import Groups from './components/groups'
 
 const App = () => {
   return (
@@ -17,6 +18,7 @@ const App = () => {
         <Switch>
           <Route path="/register" component={Register} />
           <Route path="/login" component={Login} />
+          <Route path="/groups" component={Groups} />
         </Switch>
         <br />
         <Tasks />
