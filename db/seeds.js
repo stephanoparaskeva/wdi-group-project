@@ -40,6 +40,14 @@ mongoose.connect(dbURI, { useNewUrlParser: true }, (err, db) => {
       password: 'password',
       isCurrentlyActive: true,
       isDormant: false
+    },
+    {
+      name: 'test',
+      username: 'test',
+      email: 'test@email.com',
+      password: 'password',
+      isCurrentlyActive: true,
+      isDormant: false
     }
   ])
     .then(users => {
@@ -69,6 +77,12 @@ mongoose.connect(dbURI, { useNewUrlParser: true }, (err, db) => {
             description: 'Lads, This is a group I set up to help organise Stephano\'s leaving party before he moves to mainland Greece',
             createdBy: users[3],
             usersAssinged: [users[0], users[1], users[2]]
+          },
+          {
+            name: 'test',
+            description: 'test test',
+            createdBy: null,
+            usersAssinged: []
           }
         ]),
         users
@@ -190,6 +204,13 @@ mongoose.connect(dbURI, { useNewUrlParser: true }, (err, db) => {
             usersAssinged: [users[0], users[1], users[2]],
             createdBy: users[3],
             groupsAssigned: groups[3]
+          },
+          {
+            name: 'test',
+            description: 'test',
+            usersAssinged: [],
+            createdBy: null,
+            groupsAssigned: groups[4]
           }
         ]),
         users,
