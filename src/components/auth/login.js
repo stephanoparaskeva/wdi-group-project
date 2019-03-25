@@ -52,11 +52,11 @@ class Login extends React.Component {
 
             <section className="modal-card-body">
               <main className="section">
-                <div className="container">
-                  <section className="hero is-success is-fullheight">
+                <div className="container is-fluid">
+                  <section className="hero is-primary">
                     <div className="hero-body">
                       <div className="container has-text-centered">
-                        <div className="column is-4 is-offset-4">
+                        <div className="column is-4 is-offset-1">
                           <h3 className="title has-text-grey">Login</h3>
                           <p className="subtitle has-text-grey">Please sign in to proceed.</p>
                           <p className="subtitle has-text-blue">You are only one step away from organizing your life!</p>
