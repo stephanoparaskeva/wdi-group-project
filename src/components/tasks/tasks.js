@@ -13,14 +13,15 @@ class Tasks extends React.Component {
     }
   }
 
-  componentDidMount() {
+  componentDidUpdate() {
     console.log(this.props)
     axios.get(`/api/groups/${this.props.match.params.groupId}/tasks`, {
-      // headers: {
-      //   Authorization: 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI1Yzk2NWUxMDIwNDI5NTE1MDA4MDIxNmUiLCJpYXQiOjE1NTMzNTg0MjcsImV4cCI6MTU1MzM4MDAyN30.JBj3mh79ccmcNZ9RaDEw3jG6TlwTyqIsh_38BIfBwMk'
-      // }
     })
       .then(res => this.setState({ tasks: res.data }))
+  }
+
+  filterTask() {
+    return this.state.tasks.filter(task => task.group === this.props.match.params.groupId)
   }
 
 
@@ -28,10 +29,10 @@ class Tasks extends React.Component {
     if(!this.state.tasks) return null
     return(
       <div>
-        {this.state.tasks.map(task =>
+        {this.filterTask().map(task =>
           <Task {...task} key={task._id} />
         )}
-        <CreateTask />
+        <CreateTask {...this.props}/>
       </div>
     )
   }

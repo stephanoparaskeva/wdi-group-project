@@ -17,6 +17,7 @@ function categoriesShowRoute(req, res, next) {
 }
 
 function categoriesCreateRoute(req, res, next) {
+  req.body.group = req.params.groupId
   // permissions.groupLevel(req, res, next, Category
   //   .create(req.body)
   //   .then(category => res.status(201).json(category))

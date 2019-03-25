@@ -1,6 +1,7 @@
 import React from 'react'
 import 'bulma'
 import axios from 'axios'
+import Auth from '../../../lib/auth'
 
 class CreateTask extends React.Component {
   constructor() {
@@ -35,10 +36,11 @@ class CreateTask extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault()
-    axios.post('/api/groups/tasks', this.state.data, {
+    axios.post(`/api/groups/${this.props.match.params.groupId}/tasks`, this.state.data, {
+      headers: {Authorization: `Bearer ${Auth.getToken()}`}
     })
       .then(() => {
-        this.props.history.push('/')
+        this.props.history.push(`/api/groups/${this.props.match.params.groupId}/tasks`)
       })
       .catch(err => console.log(err.message))
   }
