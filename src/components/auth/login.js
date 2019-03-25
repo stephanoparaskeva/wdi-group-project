@@ -1,6 +1,7 @@
 import React from 'react'
 import axios from 'axios'
 import 'bulma'
+import Auth from '../../../lib/auth'
 
 class Login extends React.Component {
   constructor() {
@@ -28,10 +29,10 @@ class Login extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault()
-    axios.post('http://localhost:4000/api/login', this.state.data)
+    axios.post('/api/login', this.state.data)
       .then(res => {
         console.log(res.data.token)
-        this.setState({token: res.data.token})
+        Auth.setToken(res.data.token)
         this.props.history.push('/')
       })
       .catch(() => {
@@ -52,11 +53,11 @@ class Login extends React.Component {
 
             <section className="modal-card-body">
               <main className="section">
-                <div className="container">
-                  <section className="hero is-success is-fullheight">
+                <div className="container is-fluid">
+                  <section className="hero is-primary">
                     <div className="hero-body">
                       <div className="container has-text-centered">
-                        <div className="column is-4 is-offset-4">
+                        <div className="column is-4 is-offset-1">
                           <h3 className="title has-text-grey">Login</h3>
                           <p className="subtitle has-text-grey">Please sign in to proceed.</p>
                           <p className="subtitle has-text-blue">You are only one step away from organizing your life!</p>
@@ -78,9 +79,10 @@ class Login extends React.Component {
                               <div className="field">
                                 <div className="control">
                                   <input
-                                    className="input is-large" type="password"
+                                    className="input is-large"
+                                    type="password"
                                     name="password"
-                                    placeholder="Your Password"
+                                    placeholder="Password"
                                     value={this.state.data.password}
                                     onChange={this.handleChange}/>
                                 </div>

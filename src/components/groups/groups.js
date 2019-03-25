@@ -15,7 +15,7 @@ class Groups extends React.Component {
   }
 
   componentDidMount() {
-    axios.get('/api/groups/user/5c9653df3ca726f655abf849', {
+    axios.get('/api/groups', {
     })
       .then(res => this.setState({ groups: res.data }))
   }
