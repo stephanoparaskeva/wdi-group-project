@@ -1,94 +1,59 @@
 import React from 'react'
 import 'bulma'
-import { Link, withRouter } from 'react-router-dom'
+import { withRouter } from 'react-router-dom'
 
 const Nav = () => {
   return(
-    <div>
-      <div className="navbar is-dark">
-        <div className=" navbar-brand is-primary navbar-start">
-          <a className="navbar-item" href="/#">
-            <p>Our Logo</p>
+    <nav className="navbar">
+      <div className="container">
+        <div className="navbar-brand">
+          <div className="navbar-item">
+            <img src="../images/36x36.png" />
+          </div>
+          <a className="navbar-item" href="http://organise.net">
+            <p className="is-size-4"><strong>Organise</strong></p>
           </a>
+          <span className="navbar-burger burger" data-target="navbarMenu">
+            <span></span>
+            <span></span>
+            <span></span>
+          </span>
+        </div>
+        <div id="navbarMenu" className="navbar-menu">
           <div className="navbar-end">
-            <div className="navbar-item">
-              <div className="buttons">
-                <Link to="/register" className="button is-primary">
-                  <strong>Register</strong>
-                </Link>
-
-                <Link to="/login" className="button is-primary">
-                  <strong>Log In</strong>
-                </Link>
-
-                <Link to="/groups" className="button is-primary">
-                  <strong>Group Page</strong>
-                </Link>
-
+            <a className="navbar-item">About</a>
+            <a className="navbar-item">Pricing</a>
+            <a className="navbar-item">Features</a>
+            <div className="navbar-item has-dropdown is-hoverable">
+              <a className="navbar-link">New</a>
+              <div className="navbar-dropdown">
+                <a className="navbar-item">Task</a>
+                <a className="navbar-item">Category</a>
+                <a className="navbar-item">Group</a>
               </div>
+            </div>
+            <div className="navbar-end">
+              <a className="navbar-item">Login/Register</a>
+            </div>
+            <div className="navbar-item has-dropdown is-hoverable">
+              <a className="navbar-link">Account</a>
+              <div className="navbar-dropdown">
+                <a className="navbar-item">Profile</a>
+                <a className="navbar-item">Friends</a>
+                <a className="navbar-item">Invite a friend</a>
+                <a className="navbar-item">Help</a>
+                <hr className="navbar-divider" />
+                <a className="navbar-item">Logout</a>
+              </div>
+            </div>
+            <div className="navbar-end">
+              <a className="navbar-item is-primary "><strong>New Task</strong></a>
             </div>
           </div>
         </div>
       </div>
-      <nav className="navbar" role="navigation" aria-label="dropdown navigation">
-        <div className="navbar-item has-dropdown is-hoverable">
-          <a className="navbar-link">
-            Categories
-          </a>
-          <div className="navbar-dropdown">
-            <a className="navbar-item">
-              Dress
-            </a>
-            <a className="navbar-item">
-              Travel
-            </a>
-            <a className="navbar-item">
-              Activities
-            </a>
-            <a className="navbar-item">
-              Fun
-            </a>
-          </div>
-        </div>
-        <div className="navbar-item has-dropdown is-hoverable">
-          <a className="navbar-link">
-            Priority
-          </a>
-          <div className="navbar-dropdown">
-            <a className="navbar-item">
-              High
-            </a>
-            <a className="navbar-item">
-              Medium
-            </a>
-            <a className="navbar-item">
-              Low
-            </a>
-          </div>
-        </div>
-        <div className="navbar-item has-dropdown is-hoverable">
-          <a className="navbar-link">
-            User
-          </a>
-          <div className="navbar-dropdown">
-            <a className="navbar-item">
-              Stephano
-            </a>
-            <a className="navbar-item">
-              Mary
-            </a>
-            <a className="navbar-item">
-              Matt
-            </a>
-            <a className="navbar-item">
-              Jess
-            </a>
-          </div>
-        </div>
-      </nav>
-    </div>
+    </nav>
   )
 }
-
 
 export default withRouter(Nav)
