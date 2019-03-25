@@ -10,9 +10,7 @@ class CreateGroup extends React.Component {
     this.state = {
       data: {
         name: '',
-        description: '',
-        email: '',
-        usersAssigned: ''
+        description: ''
       }
     }
 

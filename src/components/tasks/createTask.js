@@ -35,7 +35,7 @@ class CreateTask extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault()
-    axios.post(`/api/groups/${this.props._id}/tasks`, this.state.data, {
+    axios.post('/api/groups/tasks', this.state.data, {
     })
       .then(() => {
         this.props.history.push('/')
