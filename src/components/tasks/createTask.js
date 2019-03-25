@@ -1,16 +1,20 @@
 import React from 'react'
 import 'bulma'
 import axios from 'axios'
+import Auth from '../../../lib/auth'
 
 class CreateTask extends React.Component {
   constructor() {
     super()
 
     this.state = {
-      name: '',
-      description: '',
-      priority: '',
-      category: '',
+      data: {
+        name: '',
+        description: '',
+        priority: '',
+        category: '',
+        error: ''
+      },
 
       priorityMenu: '',
       categoryMenu: ''
@@ -24,13 +28,16 @@ class CreateTask extends React.Component {
     this.assignCategory = this.assignCategory.bind(this)
   }
 
-  handleChange(e) {
-    this.setState({ name: e.target.value})
+  handleChange({ target: { name, value }}) {
+    const data = {...this.state.data, [name]: value }
+    const error = ''
+    this.setState({ data, error })
   }
 
   handleSubmit(e) {
     e.preventDefault()
-    axios.post('/api/groups/5c94ee80a01cb43716fdd397/tasks', this.state.data, {
+    axios.post(`/api/groups/${this.props.match.params.groupId}/tasks`, this.state.data, {
+      headers: {Authorization: `Bearer ${Auth.getToken()}`}
     })
       .then(() => {
         this.props.history.push('/')
@@ -76,7 +83,7 @@ class CreateTask extends React.Component {
                 className="input"
                 name="name"
                 placeholder="Task Name"
-                value={this.state.name}
+                value={this.state.data.name}
                 onChange={this.handleChange}
               />
             </p>
