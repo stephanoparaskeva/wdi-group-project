@@ -40,6 +40,7 @@ const Nav = () => {
               <div className="navbar-dropdown">
                 <a className="navbar-item">Profile</a>
                 <a className="navbar-item">Friends</a>
+                <a className="navbar-item">Find friends</a>
                 <a className="navbar-item">Invite a friend</a>
                 <a className="navbar-item">Help</a>
                 <hr className="navbar-divider" />
