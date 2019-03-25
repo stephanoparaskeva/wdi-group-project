@@ -42,19 +42,10 @@ function groupsDelete(req, res, next) {
     .catch(next)
 }
 
-function groupsByUser(req, res, next) {
-  Group
-    .where('usersAssigned', req.params.userId)
-    .populate('groupTasks')
-    .then(groups => res.status(200).json(groups))
-    .catch(next)
-}
-
 module.exports = {
   index: groupsIndex,
   show: groupsShow,
   create: groupsCreate,
   update: groupsUpdate,
-  delete: groupsDelete,
-  byUserId: groupsByUser
+  delete: groupsDelete
 }

@@ -1,6 +1,7 @@
 import React from 'react'
 import axios from 'axios'
 import 'bulma'
+import Auth from '../../../lib/auth'
 
 class Login extends React.Component {
   constructor() {
@@ -28,10 +29,10 @@ class Login extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault()
-    axios.post('http://localhost:4000/api/login', this.state.data)
+    axios.post('/api/login', this.state.data)
       .then(res => {
         console.log(res.data.token)
-        this.setState({token: res.data.token})
+        Auth.setToken(res.data.token)
         this.props.history.push('/')
       })
       .catch(() => {
@@ -78,9 +79,10 @@ class Login extends React.Component {
                               <div className="field">
                                 <div className="control">
                                   <input
-                                    className="input is-large" type="password"
+                                    className="input is-large"
+                                    type="password"
                                     name="password"
-                                    placeholder="Your Password"
+                                    placeholder="Password"
                                     value={this.state.data.password}
                                     onChange={this.handleChange}/>
                                 </div>

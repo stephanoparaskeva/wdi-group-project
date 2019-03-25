@@ -14,7 +14,8 @@ class Tasks extends React.Component {
   }
 
   componentDidMount() {
-    axios.get('/api/groups/5c94ee80a01cb43716fdd397/tasks', {
+    console.log(this.props)
+    axios.get(`/api/groups/${this.props.match.params.groupId}/tasks`, {
       // headers: {
       //   Authorization: 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI1Yzk2NWUxMDIwNDI5NTE1MDA4MDIxNmUiLCJpYXQiOjE1NTMzNTg0MjcsImV4cCI6MTU1MzM4MDAyN30.JBj3mh79ccmcNZ9RaDEw3jG6TlwTyqIsh_38BIfBwMk'
       // }

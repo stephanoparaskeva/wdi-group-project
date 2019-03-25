@@ -36,9 +36,6 @@ router.route('/groups/:groupId/categories/:categoryId')
   .put(secureRoute, categories.update)
   .delete(secureRoute, categories.delete)
 
-router.route('/groups/user/:userId')
-  .get(groups.byUserId)
-
 router.post('/groups/:groupId/tasks/:taskId/comments', secureRoute, tasks.commentsCreate)
 // router.delete('/groups/:groupId/tasks/:tasksId/comments/:commentId', secureRoute, groups.commentDelete)
 

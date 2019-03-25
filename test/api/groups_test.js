@@ -127,12 +127,12 @@ describe('Groups controller test', () => {
           .catch(done)
       })
 
-      it('should return 3 groups', done => {
+      it('should return 5 groups', done => {
         api
           .get('/api/groups')
           .set('Accept', 'application/json')
           .end((err, res) => {
-            expect(res.body.length).to.equal(4)
+            expect(res.body.length).to.equal(5)
             done()
           })
       })
