@@ -14,14 +14,14 @@ class Users extends React.Component {
 
   componentDidMount() {
     axios
-      .get('/api/users', {
+      .post(`/api/users/${this.props.match.params.userId}/request`, this.state.data, {
         headers: {Authorization: `Bearer ${Auth.getToken()}`}
       })
       .then(users => this.setState({ users }))
   }
 
   render() {
-    
+
     const users = this.state.users.data
 
     return(
