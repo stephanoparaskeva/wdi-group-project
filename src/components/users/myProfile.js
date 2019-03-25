@@ -1,6 +1,7 @@
 import React from 'react'
 import axios from 'axios'
 import Auth from '../../../lib/auth'
+import { Link } from 'react-router-dom'
 
 class Users extends React.Component {
   constructor() {
@@ -23,12 +24,12 @@ class Users extends React.Component {
       .post('/api/users/pending', this.state.user, {
         headers: {Authorization: `Bearer ${Auth.getToken()}`}
       })
-      .then(pendingUsers => this.setState({ pendingUsers }))
+      .then(pending => this.setState({ pending }))
     axios
       .post('/api/users/accepted', this.state.user, {
         headers: {Authorization: `Bearer ${Auth.getToken()}`}
       })
-      .then(acceptedUsers => this.setState({ acceptedUsers }))
+      .then(accepted => this.setState({ accepted }))
   }
 
   render() {
@@ -57,44 +58,44 @@ class Users extends React.Component {
             </div>
           </div>}
         <hr/><h1>Pending</h1><hr/>
-        {pending && pending.map(pendingUser => {
-          <div>
+        {pending && pending.map(user => (
+          <div key={user.friend._id}>
             <div className="card">
               <header className="card-header">
                 <p className="card-header-title">
-                  {pendingUser.username}
+                  {user.friend.username}
                 </p>
               </header>
               <div className="card-content">
                 <div className="content">
-                  <p>{pendingUser.email}</p>
+                  <p>{user.friend.email}</p>
                 </div>
               </div>
               <footer className="card-footer">
               </footer>
+              <Link to={`/users/${user._id}`}>Add</Link>
             </div>
           </div>
-        })}
+        ))}
         <hr/><h1>Friends</h1><hr/>
-        {accepted && accepted.map(friend => {
-          <div>
+        {accepted && accepted.map(user => (
+          <div key={user.friend._id}>
             <div className="card">
               <header className="card-header">
                 <p className="card-header-title">
-                  {friend.username}
+                  {user.friend.username}
                 </p>
               </header>
               <div className="card-content">
                 <div className="content">
-                  <p>{friend.email}</p>
+                  <p>{user.friend.email}</p>
                 </div>
               </div>
               <footer className="card-footer">
               </footer>
             </div>
           </div>
-        })}
-
+        ))}
       </div>
     )
   }

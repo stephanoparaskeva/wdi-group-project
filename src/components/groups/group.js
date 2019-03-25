@@ -56,7 +56,6 @@ class Group extends React.Component {
           <Link to={`/groups/${this.props._id}/tasks`} className="card-footer-item">
             <strong>Tasks</strong>
           </Link>
-        </div>
       </div>
     )
   }
