@@ -4,8 +4,6 @@ import axios from 'axios'
 import Group from './group'
 import CreateGroup from './createGroup'
 
-
-
 class Groups extends React.Component {
   constructor() {
     super()
@@ -20,7 +18,6 @@ class Groups extends React.Component {
     })
       .then(res => this.setState({ groups: res.data }))
   }
-
 
   render() {
     if(!this.state.groups) return null
