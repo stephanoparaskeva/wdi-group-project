@@ -1,5 +1,6 @@
 import React from 'react'
 import 'bulma'
+import { Link } from 'react-router-dom'
 
 class Group extends React.Component {
   constructor() {
@@ -31,7 +32,9 @@ class Group extends React.Component {
         <footer className="card-footer">
           <a href="#" className="card-footer-item">Edit</a>
           <a href="#" className="card-footer-item">Delete</a>
-          <a href="./tasks" className="card-footer-item">Show Details</a>
+          <Link to={`/groups/${this.props._id}/tasks`} className="card-footer-item">
+            <strong>Details</strong>
+          </Link>
         </footer>
       </div>
     )
