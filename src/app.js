@@ -5,10 +5,10 @@ import { BrowserRouter as Browser, Route, Switch } from 'react-router-dom'
 import 'bulma'
 
 import Nav from './components/nav'
-import Tasks from './components/tasks'
+import Tasks from './components/tasks/tasks'
 import Register from './components/auth/register'
 import Login from './components/auth/login'
-import Groups from './components/groups'
+import Groups from './components/groups/groups'
 
 const App = () => {
   return (

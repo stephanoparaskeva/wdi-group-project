@@ -3,7 +3,7 @@ const { dbURI } = require('../config/environment')
 const User = require('../models/user')
 const Group = require('../models/group')
 const Category = require('../models/category')
-const Task = require('..models/task')
+const Task = require('../models/task')
 
 mongoose.connect(dbURI, { useNewUrlParser: true }, (err, db) => {
   db.dropDatabase()
@@ -13,7 +13,8 @@ mongoose.connect(dbURI, { useNewUrlParser: true }, (err, db) => {
       name: 'Matthew Whaley',
       username: 'matthew',
       email: 'matthew@email.com',
-      password: 'password',
+      password: 'Passw0rd!',
+      passwordConfirmation: 'Passw0rd!',
       isCurrentlyActive: true,
       isDormant: false
     },
@@ -21,7 +22,8 @@ mongoose.connect(dbURI, { useNewUrlParser: true }, (err, db) => {
       name: 'Jess Barnes',
       username: 'jess',
       email: 'jess@email.com',
-      password: 'password',
+      password: 'Passw0rd!',
+      passwordConfirmation: 'Passw0rd!',
       isCurrentlyActive: true,
       isDormant: false
     },
@@ -29,7 +31,8 @@ mongoose.connect(dbURI, { useNewUrlParser: true }, (err, db) => {
       name: 'Mary Caresa',
       username: 'mary',
       email: 'mary@email.com',
-      password: 'password',
+      password: 'Passw0rd!',
+      passwordConfirmation: 'Passw0rd!',
       isCurrentlyActive: true,
       isDormant: false
     },
@@ -37,7 +40,8 @@ mongoose.connect(dbURI, { useNewUrlParser: true }, (err, db) => {
       name: 'Stephano Paraskeva',
       username: 'stephano',
       email: 'stephano@email.com',
-      password: 'password',
+      password: 'Passw0rd!',
+      passwordConfirmation: 'Passw0rd!',
       isCurrentlyActive: true,
       isDormant: false
     },
@@ -45,13 +49,13 @@ mongoose.connect(dbURI, { useNewUrlParser: true }, (err, db) => {
       name: 'test',
       username: 'test',
       email: 'test@email.com',
-      password: 'password',
+      password: 'Passw0rd!',
+      passwordConfirmation: 'Passw0rd!',
       isCurrentlyActive: true,
       isDormant: false
     }
   ])
     .then(users => {
-
       return Promise.all([
         Group.create([
           {
@@ -98,119 +102,119 @@ mongoose.connect(dbURI, { useNewUrlParser: true }, (err, db) => {
             description: 'We need to arrange travel from Clapham to Ibiza',
             usersAssinged: [users[1], users[2], users[3]],
             createdBy: users[0],
-            groupsAssigned: groups[0]
+            group: groups[0]
           },
           {
             name: 'Drinks',
             description: 'We need to arrange drinks for the plane and when we are in Ibiza',
             usersAssinged: [users[1], users[2], users[3]],
             createdBy: users[0],
-            groupsAssigned: groups[0]
+            group: groups[0]
           },
           {
             name: 'Food',
             description: 'We need to arrange food for the plane and when we are in Ibiza',
             usersAssinged: [users[1], users[2], users[3]],
             createdBy: users[0],
-            groupsAssigned: groups[0]
+            group: groups[0]
           },
           {
             name: 'Hotel',
             description: 'We need to arrange hotels while in Ibiza',
             usersAssinged: [users[1], users[2], users[3]],
             createdBy: users[0],
-            groupsAssigned: groups[0]
+            group: groups[0]
           },
           {
             name: 'Travel',
             description: 'We need to arrange travel from London to Miami',
             usersAssinged: [users[0], users[2], users[3]],
             createdBy: users[1],
-            groupsAssigned: groups[1]
+            group: groups[1]
           },
           {
             name: 'Drinks',
             description: 'We need to arrange drinks for the plane and when we are in Miami',
             usersAssinged: [users[0], users[2], users[3]],
             createdBy: users[1],
-            groupsAssigned: groups[1]
+            group: groups[1]
           },
           {
             name: 'Food',
             description: 'We need to arrange food for the plane and when we are in Miami',
             usersAssinged: [users[0], users[2], users[3]],
             createdBy: users[1],
-            groupsAssigned: groups[1]
+            group: groups[1]
           },
           {
             name: 'Hotel',
             description: 'We need to arrange hotels while in Miami',
             usersAssinged: [users[0], users[2], users[3]],
             createdBy: users[1],
-            groupsAssigned: groups[1]
+            group: groups[1]
           },
           {
             name: 'Travel',
             description: 'We need to arrange travel to the birthday party',
             usersAssinged: [users[0], users[1], users[3]],
             createdBy: users[2],
-            groupsAssigned: groups[2]
+            group: groups[2]
           },
           {
             name: 'Drinks',
             description: 'We need to arrange drinks for the birthday party',
             usersAssinged: [users[0], users[1], users[3]],
             createdBy: users[2],
-            groupsAssigned: groups[2]
+            group: groups[2]
           },
           {
             name: 'Food',
             description: 'We need to arrange food for the bithday party',
             usersAssinged: [users[0], users[1], users[3]],
             createdBy: users[2],
-            groupsAssigned: groups[2]
+            group: groups[2]
           },
           {
             name: 'Hotel',
             description: 'We need to arrange hotels for the birthday party',
             usersAssinged: [users[0], users[1], users[3]],
             createdBy: users[2],
-            groupsAssigned: groups[2]
+            group: groups[2]
           },
           {
             name: 'Travel',
             description: 'We need to arrange travel to the bar',
             usersAssinged: [users[0], users[1], users[2]],
             createdBy: users[3],
-            groupsAssigned: groups[3]
+            group: groups[3]
           },
           {
             name: 'Drinks',
             description: 'We need to arrange drinks at the bar',
             usersAssinged: [users[0], users[1], users[2]],
             createdBy: users[3],
-            groupsAssigned: groups[3]
+            group: groups[3]
           },
           {
             name: 'Food',
             description: 'We need to arrange food at the bar',
             usersAssinged: [users[0], users[1], users[2]],
             createdBy: users[3],
-            groupsAssigned: groups[3]
+            group: groups[3]
           },
           {
             name: 'Hotel',
             description: 'We need to arrange hotels for after the party',
             usersAssinged: [users[0], users[1], users[2]],
             createdBy: users[3],
-            groupsAssigned: groups[3]
+            group: groups[3]
           },
           {
             name: 'test',
             description: 'test',
             usersAssinged: [],
             createdBy: null,
-            groupsAssigned: groups[4]
+            group: groups[4]
           }
         ]),
         users,
@@ -222,452 +226,138 @@ mongoose.connect(dbURI, { useNewUrlParser: true }, (err, db) => {
 
       return Task.create([
         {
-          name: 'Book flights',
-          description: 'Books flights from London to Ibiza',
+          name: 'Name that super task',
+          description: 'Decription of a great thing that needs doing',
           priority: 'High',
-          usersAssinged: users[0],
-          createdBy: users[0],
-          groupAssigned: groups[0],
+          usersAssinged: users[Math.floor(Math.random()*3)],
+          createdBy: users[Math.floor(Math.random()*3)],
+          groupAssigned: groups[Math.floor(Math.random()*3)],
           isCurrent: true,
-          category: categories[0],
+          category: categories[Math.floor(Math.random()*3)],
           comments: [{
             name: 'Comment Name',
             description: 'Some comment description',
-            createdBy: users[0]
+            createdBy: users[Math.floor(Math.random()*3)]
           }]
-        },{
-          name: 'Book flights',
-          description: 'Books flights from London to Ibiza',
+        },
+        {
+          name: 'Name that super task',
+          description: 'Decription of a great thing that needs doing',
           priority: 'High',
-          usersAssinged: users[0],
-          createdBy: users[0],
-          groupAssigned: groups[0],
+          usersAssinged: users[Math.floor(Math.random()*3)],
+          createdBy: users[Math.floor(Math.random()*3)],
+          groupAssigned: groups[Math.floor(Math.random()*3)],
           isCurrent: true,
-          category: categories[0],
+          category: categories[Math.floor(Math.random()*3)],
           comments: [{
             name: 'Comment Name',
             description: 'Some comment description',
-            createdBy: users[0]
+            createdBy: users[Math.floor(Math.random()*3)]
           }]
-        },{
-          name: 'Book flights',
-          description: 'Books flights from London to Ibiza',
+        },
+        {
+          name: 'Name that super task',
+          description: 'Decription of a great thing that needs doing',
           priority: 'High',
-          usersAssinged: users[0],
-          createdBy: users[0],
-          groupAssigned: groups[0],
+          usersAssinged: users[Math.floor(Math.random()*3)],
+          createdBy: users[Math.floor(Math.random()*3)],
+          groupAssigned: groups[Math.floor(Math.random()*3)],
           isCurrent: true,
-          category: categories[0],
+          category: categories[Math.floor(Math.random()*3)],
           comments: [{
             name: 'Comment Name',
             description: 'Some comment description',
-            createdBy: users[0]
+            createdBy: users[Math.floor(Math.random()*3)]
           }]
-        },{
-          name: 'Book flights',
-          description: 'Books flights from London to Ibiza',
-          priority: 'High',
-          usersAssinged: users[0],
-          createdBy: users[0],
-          groupAssigned: groups[0],
+        },
+        {
+          name: 'Name that super task',
+          description: 'Decription of a great thing that needs doing',
+          priority: 'Medium',
+          usersAssinged: users[Math.floor(Math.random()*3)],
+          createdBy: users[Math.floor(Math.random()*3)],
+          groupAssigned: groups[Math.floor(Math.random()*3)],
           isCurrent: true,
-          category: categories[0],
+          category: categories[Math.floor(Math.random()*3)],
           comments: [{
             name: 'Comment Name',
             description: 'Some comment description',
-            createdBy: users[0]
+            createdBy: users[Math.floor(Math.random()*3)]
           }]
-        },{
-          name: 'Book flights',
-          description: 'Books flights from London to Ibiza',
-          priority: 'High',
-          usersAssinged: users[0],
-          createdBy: users[0],
-          groupAssigned: groups[0],
+        },
+        {
+          name: 'Name that super task',
+          description: 'Decription of a great thing that needs doing',
+          priority: 'Medium',
+          usersAssinged: users[Math.floor(Math.random()*3)],
+          createdBy: users[Math.floor(Math.random()*3)],
+          groupAssigned: groups[Math.floor(Math.random()*3)],
           isCurrent: true,
-          category: categories[0],
+          category: categories[Math.floor(Math.random()*3)],
           comments: [{
             name: 'Comment Name',
             description: 'Some comment description',
-            createdBy: users[0]
+            createdBy: users[Math.floor(Math.random()*3)]
           }]
-        },{
-          name: 'Book flights',
-          description: 'Books flights from London to Ibiza',
-          priority: 'High',
-          usersAssinged: users[0],
-          createdBy: users[0],
-          groupAssigned: groups[0],
+        },
+        {
+          name: 'Name that super task',
+          description: 'Decription of a great thing that needs doing',
+          priority: 'Medium',
+          usersAssinged: users[Math.floor(Math.random()*3)],
+          createdBy: users[Math.floor(Math.random()*3)],
+          groupAssigned: groups[Math.floor(Math.random()*3)],
           isCurrent: true,
-          category: categories[0],
+          category: categories[Math.floor(Math.random()*3)],
           comments: [{
             name: 'Comment Name',
             description: 'Some comment description',
-            createdBy: users[0]
+            createdBy: users[Math.floor(Math.random()*3)]
           }]
-        },{
-          name: 'Book flights',
-          description: 'Books flights from London to Ibiza',
-          priority: 'High',
-          usersAssinged: users[0],
-          createdBy: users[0],
-          groupAssigned: groups[0],
+        },
+        {
+          name: 'Name that super task',
+          description: 'Decription of a great thing that needs doing',
+          priority: 'Low',
+          usersAssinged: users[Math.floor(Math.random()*3)],
+          createdBy: users[Math.floor(Math.random()*3)],
+          groupAssigned: groups[Math.floor(Math.random()*3)],
           isCurrent: true,
-          category: categories[0],
+          category: categories[Math.floor(Math.random()*3)],
           comments: [{
             name: 'Comment Name',
             description: 'Some comment description',
-            createdBy: users[0]
+            createdBy: users[Math.floor(Math.random()*3)]
           }]
-        },{
-          name: 'Book flights',
-          description: 'Books flights from London to Ibiza',
-          priority: 'High',
-          usersAssinged: users[0],
-          createdBy: users[0],
-          groupAssigned: groups[0],
+        },
+        {
+          name: 'Name that super task',
+          description: 'Decription of a great thing that needs doing',
+          priority: 'Low',
+          usersAssinged: users[Math.floor(Math.random()*3)],
+          createdBy: users[Math.floor(Math.random()*3)],
+          groupAssigned: groups[Math.floor(Math.random()*3)],
           isCurrent: true,
-          category: categories[0],
+          category: categories[Math.floor(Math.random()*3)],
           comments: [{
             name: 'Comment Name',
             description: 'Some comment description',
-            createdBy: users[0]
+            createdBy: users[Math.floor(Math.random()*3)]
           }]
-        },{
-          name: 'Book flights',
-          description: 'Books flights from London to Ibiza',
-          priority: 'High',
-          usersAssinged: users[0],
-          createdBy: users[0],
-          groupAssigned: groups[0],
+        },
+        {
+          name: 'Name that super task',
+          description: 'Decription of a great thing that needs doing',
+          priority: 'Low',
+          usersAssinged: users[Math.floor(Math.random()*3)],
+          createdBy: users[Math.floor(Math.random()*3)],
+          groupAssigned: groups[Math.floor(Math.random()*3)],
           isCurrent: true,
-          category: categories[0],
+          category: categories[Math.floor(Math.random()*3)],
           comments: [{
             name: 'Comment Name',
             description: 'Some comment description',
-            createdBy: users[0]
-          }]
-        },{
-          name: 'Book flights',
-          description: 'Books flights from London to Ibiza',
-          priority: 'High',
-          usersAssinged: users[0],
-          createdBy: users[0],
-          groupAssigned: groups[0],
-          isCurrent: true,
-          category: categories[0],
-          comments: [{
-            name: 'Comment Name',
-            description: 'Some comment description',
-            createdBy: users[0]
-          }]
-        },{
-          name: 'Book flights',
-          description: 'Books flights from London to Ibiza',
-          priority: 'High',
-          usersAssinged: users[0],
-          createdBy: users[0],
-          groupAssigned: groups[0],
-          isCurrent: true,
-          category: categories[0],
-          comments: [{
-            name: 'Comment Name',
-            description: 'Some comment description',
-            createdBy: users[0]
-          }]
-        },{
-          name: 'Book flights',
-          description: 'Books flights from London to Ibiza',
-          priority: 'High',
-          usersAssinged: users[0],
-          createdBy: users[0],
-          groupAssigned: groups[0],
-          isCurrent: true,
-          category: categories[0],
-          comments: [{
-            name: 'Comment Name',
-            description: 'Some comment description',
-            createdBy: users[0]
-          }]
-        },{
-          name: 'Book flights',
-          description: 'Books flights from London to Ibiza',
-          priority: 'High',
-          usersAssinged: users[0],
-          createdBy: users[0],
-          groupAssigned: groups[0],
-          isCurrent: true,
-          category: categories[0],
-          comments: [{
-            name: 'Comment Name',
-            description: 'Some comment description',
-            createdBy: users[0]
-          }]
-        },{
-          name: 'Book flights',
-          description: 'Books flights from London to Ibiza',
-          priority: 'High',
-          usersAssinged: users[0],
-          createdBy: users[0],
-          groupAssigned: groups[0],
-          isCurrent: true,
-          category: categories[0],
-          comments: [{
-            name: 'Comment Name',
-            description: 'Some comment description',
-            createdBy: users[0]
-          }]
-        },{
-          name: 'Book flights',
-          description: 'Books flights from London to Ibiza',
-          priority: 'High',
-          usersAssinged: users[0],
-          createdBy: users[0],
-          groupAssigned: groups[0],
-          isCurrent: true,
-          category: categories[0],
-          comments: [{
-            name: 'Comment Name',
-            description: 'Some comment description',
-            createdBy: users[0]
-          }]
-        },{
-          name: 'Book flights',
-          description: 'Books flights from London to Ibiza',
-          priority: 'High',
-          usersAssinged: users[0],
-          createdBy: users[0],
-          groupAssigned: groups[0],
-          isCurrent: true,
-          category: categories[0],
-          comments: [{
-            name: 'Comment Name',
-            description: 'Some comment description',
-            createdBy: users[0]
-          }]
-        },{
-          name: 'Book flights',
-          description: 'Books flights from London to Ibiza',
-          priority: 'High',
-          usersAssinged: users[0],
-          createdBy: users[0],
-          groupAssigned: groups[0],
-          isCurrent: true,
-          category: categories[0],
-          comments: [{
-            name: 'Comment Name',
-            description: 'Some comment description',
-            createdBy: users[0]
-          }]
-        },{
-          name: 'Book flights',
-          description: 'Books flights from London to Ibiza',
-          priority: 'High',
-          usersAssinged: users[0],
-          createdBy: users[0],
-          groupAssigned: groups[0],
-          isCurrent: true,
-          category: categories[0],
-          comments: [{
-            name: 'Comment Name',
-            description: 'Some comment description',
-            createdBy: users[0]
-          }]
-        },{
-          name: 'Book flights',
-          description: 'Books flights from London to Ibiza',
-          priority: 'High',
-          usersAssinged: users[0],
-          createdBy: users[0],
-          groupAssigned: groups[0],
-          isCurrent: true,
-          category: categories[0],
-          comments: [{
-            name: 'Comment Name',
-            description: 'Some comment description',
-            createdBy: users[0]
-          }]
-        },{
-          name: 'Book flights',
-          description: 'Books flights from London to Ibiza',
-          priority: 'High',
-          usersAssinged: users[0],
-          createdBy: users[0],
-          groupAssigned: groups[0],
-          isCurrent: true,
-          category: categories[0],
-          comments: [{
-            name: 'Comment Name',
-            description: 'Some comment description',
-            createdBy: users[0]
-          }]
-        },{
-          name: 'Book flights',
-          description: 'Books flights from London to Ibiza',
-          priority: 'High',
-          usersAssinged: users[0],
-          createdBy: users[0],
-          groupAssigned: groups[0],
-          isCurrent: true,
-          category: categories[0],
-          comments: [{
-            name: 'Comment Name',
-            description: 'Some comment description',
-            createdBy: users[0]
-          }]
-        },{
-          name: 'Book flights',
-          description: 'Books flights from London to Ibiza',
-          priority: 'High',
-          usersAssinged: users[0],
-          createdBy: users[0],
-          groupAssigned: groups[0],
-          isCurrent: true,
-          category: categories[0],
-          comments: [{
-            name: 'Comment Name',
-            description: 'Some comment description',
-            createdBy: users[0]
-          }]
-        },{
-          name: 'Book flights',
-          description: 'Books flights from London to Ibiza',
-          priority: 'High',
-          usersAssinged: users[0],
-          createdBy: users[0],
-          groupAssigned: groups[0],
-          isCurrent: true,
-          category: categories[0],
-          comments: [{
-            name: 'Comment Name',
-            description: 'Some comment description',
-            createdBy: users[0]
-          }]
-        },{
-          name: 'Book flights',
-          description: 'Books flights from London to Ibiza',
-          priority: 'High',
-          usersAssinged: users[0],
-          createdBy: users[0],
-          groupAssigned: groups[0],
-          isCurrent: true,
-          category: categories[0],
-          comments: [{
-            name: 'Comment Name',
-            description: 'Some comment description',
-            createdBy: users[0]
-          }]
-        },{
-          name: 'Book flights',
-          description: 'Books flights from London to Ibiza',
-          priority: 'High',
-          usersAssinged: users[0],
-          createdBy: users[0],
-          groupAssigned: groups[0],
-          isCurrent: true,
-          category: categories[0],
-          comments: [{
-            name: 'Comment Name',
-            description: 'Some comment description',
-            createdBy: users[0]
-          }]
-        },{
-          name: 'Book flights',
-          description: 'Books flights from London to Ibiza',
-          priority: 'High',
-          usersAssinged: users[0],
-          createdBy: users[0],
-          groupAssigned: groups[0],
-          isCurrent: true,
-          category: categories[0],
-          comments: [{
-            name: 'Comment Name',
-            description: 'Some comment description',
-            createdBy: users[0]
-          }]
-        },{
-          name: 'Book flights',
-          description: 'Books flights from London to Ibiza',
-          priority: 'High',
-          usersAssinged: users[0],
-          createdBy: users[0],
-          groupAssigned: groups[0],
-          isCurrent: true,
-          category: categories[0],
-          comments: [{
-            name: 'Comment Name',
-            description: 'Some comment description',
-            createdBy: users[0]
-          }]
-        },{
-          name: 'Book flights',
-          description: 'Books flights from London to Ibiza',
-          priority: 'High',
-          usersAssinged: users[0],
-          createdBy: users[0],
-          groupAssigned: groups[0],
-          isCurrent: true,
-          category: categories[0],
-          comments: [{
-            name: 'Comment Name',
-            description: 'Some comment description',
-            createdBy: users[0]
-          }]
-        },{
-          name: 'Book flights',
-          description: 'Books flights from London to Ibiza',
-          priority: 'High',
-          usersAssinged: users[0],
-          createdBy: users[0],
-          groupAssigned: groups[0],
-          isCurrent: true,
-          category: categories[0],
-          comments: [{
-            name: 'Comment Name',
-            description: 'Some comment description',
-            createdBy: users[0]
-          }]
-        },{
-          name: 'Book flights',
-          description: 'Books flights from London to Ibiza',
-          priority: 'High',
-          usersAssinged: users[0],
-          createdBy: users[0],
-          groupAssigned: groups[0],
-          isCurrent: true,
-          category: categories[0],
-          comments: [{
-            name: 'Comment Name',
-            description: 'Some comment description',
-            createdBy: users[0]
-          }]
-        },{
-          name: 'Book flights',
-          description: 'Books flights from London to Ibiza',
-          priority: 'High',
-          usersAssinged: users[0],
-          createdBy: users[0],
-          groupAssigned: groups[0],
-          isCurrent: true,
-          category: categories[0],
-          comments: [{
-            name: 'Comment Name',
-            description: 'Some comment description',
-            createdBy: users[0]
-          }]
-        },{
-          name: 'Book flights',
-          description: 'Books flights from London to Ibiza',
-          priority: 'High',
-          usersAssinged: users[0],
-          createdBy: users[0],
-          groupAssigned: groups[0],
-          isCurrent: true,
-          category: categories[0],
-          comments: [{
-            name: 'Comment Name',
-            description: 'Some comment description',
-            createdBy: users[0]
+            createdBy: users[Math.floor(Math.random()*3)]
           }]
         }
       ])
