@@ -12,7 +12,7 @@ code {
 }
 
 nav {
-  border-bottom: 2px solid #363636;
+  border-bottom: 1px solid #363636;
 }
 
 header.card-header {
@@ -26,14 +26,4 @@ div.card {
 input {
   min-width: 50%;
   width: 50%;
-}
-
-h1.groupText, p.groupText {
-  text-align: center;
-  border: 3px solid black;
-  padding: 15px;
-  font-size: 20px;
-  background-color: #00d1b2;
-  margin: 20px;
-  font-weight: bold;
 }

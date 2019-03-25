@@ -22,13 +22,15 @@ class Groups extends React.Component {
   render() {
     if(!this.state.groups) return null
     return(
-      <div>
-        <h1 className="groupText">{`${this.props.username}`}s Page</h1>
-        <p className="groupText">My Groups</p>
-        <CreateGroup />
-        {this.state.groups.map(group =>
-          <Group {...group} key={group._id} />
-        )}
+      <div className="section">
+        <div className="container">
+          <div className="columns is-mobile is-multiline">
+            <CreateGroup />
+            {this.state.groups.map(group =>
+              <Group {...group} key={group._id} />
+            )}
+          </div>
+        </div>
       </div>
     )
   }
