@@ -10,17 +10,12 @@ class CreateGroup extends React.Component {
     this.state = {
       data: {
         name: '',
-<<<<<<< HEAD
         description: '',
         email: '',
         usersAssigned: ''
       }
-
-=======
-        description: ''
-      }
->>>>>>> development
     }
+
 
     this.handleChange = this.handleChange.bind(this)
     this.handleDone = this.handleDone.bind(this)
@@ -43,14 +38,11 @@ class CreateGroup extends React.Component {
 
   handleDone(e){
     e.preventDefault()
-<<<<<<< HEAD
     axios.post('/api/groups', this.state.data)
     // then(res => res.data)
       .then(() => this.props.history.push('/'))
       .catch(err => console.log(err.message))
-=======
     this.props.history.push('/')
->>>>>>> development
   }
 
   render() {
