@@ -21,28 +21,27 @@ const Nav = () => {
         </div>
         <div id="navbarMenu" className="navbar-menu">
           <div className="navbar-end">
-            <a className="navbar-item">About</a>
-            <a className="navbar-item">Pricing</a>
-            <a className="navbar-item">Features</a>
+            <a href="/about" className="navbar-item">About</a>
+            <a href="/pricing" className="navbar-item">Pricing</a>
+            <a href="/features" className="navbar-item">Features</a>
             <div className="navbar-item has-dropdown is-hoverable">
               <a className="navbar-link">New</a>
               <div className="navbar-dropdown">
-                <a className="navbar-item">Task</a>
-                <a className="navbar-item">Category</a>
-                <a className="navbar-item">Group</a>
+                <a href="/tasks" className="navbar-item">Task</a>
+                <a href="/categories " className="navbar-item">Category</a>
+                <a href="/groups" className="navbar-item">Group</a>
               </div>
             </div>
             <div className="navbar-end">
-              <a className="navbar-item">Login/Register</a>
+              <a href="/login" className="navbar-item">Login/Register</a>
             </div>
             <div className="navbar-item has-dropdown is-hoverable">
               <a className="navbar-link">Account</a>
               <div className="navbar-dropdown">
-                <a className="navbar-item">Profile</a>
-                <a className="navbar-item">Friends</a>
-                <a className="navbar-item">Find friends</a>
-                <a className="navbar-item">Invite a friend</a>
-                <a className="navbar-item">Help</a>
+                <a href="/friends" className="navbar-item">Friends</a>
+                <a href="/findfriends" className="navbar-item">Find friends</a>
+                <a href="/invitefriends" className="navbar-item">Invite a friend</a>
+                <a href="/help" className="navbar-item">Help</a>
                 <hr className="navbar-divider" />
                 <a className="navbar-item">Logout</a>
               </div>
