@@ -1,16 +1,17 @@
 import React from 'react'
 import axios from 'axios'
 import 'bulma'
+import Auth from '../../../lib/auth'
 
 class CreateGroup extends React.Component {
   constructor() {
     super()
 
     this.state = {
-      name: '',
-      description: '',
-      email: '',
-      usersAssigned: ''
+      data: {
+        name: '',
+        description: ''
+      }
     }
 
     this.handleChange = this.handleChange.bind(this)
@@ -18,21 +19,23 @@ class CreateGroup extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this)
   }
 
-  handleChange(e) {
-    this.setState({ name: e.target.data, email: e.target.data, description: e.target.data})
-  }
-
-  handleDone(e){
-    e.preventDefault()
-    this.props.history.push('/')
+  handleChange({ target: { name, value }}) {
+    const data = {...this.state.data, [name]: value }
+    this.setState({ data })
   }
 
   handleSubmit(e) {
     e.preventDefault()
-    axios.post('http://localhost:4000/api/groups', this.state.data)
-    // then(res => res.data)
-      .then(() => this.props.history.push('/'))
+    axios.post('/api/groups',
+      this.state.data,
+      { headers: {Authorization: `Bearer ${Auth.getToken()}`}})
       .catch(err => console.log(err.message))
+  }
+
+
+  handleDone(e){
+    e.preventDefault()
+    this.props.history.push('/')
   }
 
   render() {
@@ -51,27 +54,18 @@ class CreateGroup extends React.Component {
                 className="input"
                 name="name"
                 placeholder="Group Name"
-                value={this.state.name}
+                value={this.state.data.name}
                 onChange={this.handleChange}
               />
               <br />
               <br />
               <label className="label">Users To Add</label>
-              <input
-                className="input"
-                name="email"
-                placeholder="User email address"
-                value={this.state.email}
-                onChange={this.handleChange}
-              />
-              <br />
-              <br />
               <label className="label">Description</label>
               <input
                 className="input"
                 name="description"
-                placeholder="Event details"
-                value={this.state.description}
+                placeholder="Group Details"
+                value={this.state.data.description}
                 onChange={this.handleChange}
               />
             </form>

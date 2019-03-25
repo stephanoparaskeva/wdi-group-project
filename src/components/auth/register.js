@@ -1,6 +1,7 @@
 import React from 'react'
 import axios from 'axios'
 import 'bulma'
+import Auth from '../../../lib/auth'
 
 
 class Register extends React.Component {
@@ -33,8 +34,10 @@ class Register extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault()
-    axios.post('http://localhost:4000/api/register', this.state.data)
-    // then(res => res.data)
+    axios.post('/api/register', this.state.data)
+      .then(res => {
+        Auth.setToken(res.data.token)
+      })
       .then(() => this.props.history.push('/'))
       .catch(err => console.log(err.message))
   }
@@ -61,7 +64,7 @@ class Register extends React.Component {
                       <label className="label">Username</label>
                       <div className="control">
                         <input
-                          className="input"
+                          className="input is-medium"
                           name="username"
                           placeholder="Username"
                           value={this.state.data.username}
@@ -73,7 +76,7 @@ class Register extends React.Component {
                       <label className="label">Email</label>
                       <div className="control">
                         <input
-                          className="input"
+                          className="input is-medium"
                           name="email"
                           placeholder="Email"
                           value={this.state.data.email}
@@ -85,7 +88,7 @@ class Register extends React.Component {
                       <label className="label">Password</label>
                       <div className="control">
                         <input
-                          className="input"
+                          className="input is-medium"
                           name="password"
                           type="password"
                           placeholder="Password"
@@ -98,7 +101,7 @@ class Register extends React.Component {
                       <label className="label">Password Confirmation</label>
                       <div className="control">
                         <input
-                          className="input"
+                          className="input is-medium"
                           name="passwordConfirmation"
                           type="password"
                           placeholder="Password Confirmation"
