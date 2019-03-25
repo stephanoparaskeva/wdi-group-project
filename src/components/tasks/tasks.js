@@ -11,13 +11,18 @@ class Tasks extends React.Component {
     this.state = {
       tasks: []
     }
+
+    this.getTasksForGroup = this.getTasksForGroup.bind(this)
   }
 
-  componentDidUpdate() {
-    console.log(this.props)
+  getTasksForGroup() {
     axios.get(`/api/groups/${this.props.match.params.groupId}/tasks`, {
     })
       .then(res => this.setState({ tasks: res.data }))
+  }
+
+  componentDidMount() {
+    this.getTasksForGroup()
   }
 
   filterTask() {
@@ -27,6 +32,7 @@ class Tasks extends React.Component {
 
   render() {
     if(!this.state.tasks) return null
+    console.log(this.state.tasks)
     return(
       <div>
         {this.filterTask().map(task =>

@@ -10,19 +10,34 @@ class CreateGroup extends React.Component {
     this.state = {
       data: {
         name: '',
-        description: ''
-      }
+        description: '',
+        usersAssigned: [{ _id: Auth.getPayload().sub }]
+      },
+      accepted: []
     }
 
-
     this.handleChange = this.handleChange.bind(this)
-    this.handleDone = this.handleDone.bind(this)
     this.handleSubmit = this.handleSubmit.bind(this)
+    this.assignUsers = this.assignUsers.bind(this)
+  }
+
+  componentDidMount() {
+    axios
+      .post('/api/users/accepted', this.state.user, {
+        headers: {Authorization: `Bearer ${Auth.getToken()}`}
+      })
+      .then(accepted => this.setState({ accepted }))
   }
 
   handleChange({ target: { name, value }}) {
     const data = {...this.state.data, [name]: value }
     this.setState({ data })
+  }
+
+  assignUsers(value) {
+    const usersAssigned = [...this.state.data.usersAssigned, {_id: value}]
+    this.setState({ data: {usersAssigned} })
+    console.log(this.state.data.usersAssigned)
   }
 
   handleSubmit(e) {
@@ -33,17 +48,8 @@ class CreateGroup extends React.Component {
       .catch(err => console.log(err.message))
   }
 
-
-  handleDone(e){
-    e.preventDefault()
-    axios.post('/api/groups', this.state.data)
-    // then(res => res.data)
-      .then(() => this.props.history.push('/'))
-      .catch(err => console.log(err.message))
-    this.props.history.push('/')
-  }
-
   render() {
+    const accepted = this.state.accepted.data
     return(
       <div className="card">
         <header className="card-header">
@@ -64,7 +70,23 @@ class CreateGroup extends React.Component {
               />
               <br />
               <br />
-              <label className="label">Users To Add</label>
+              <label className="label">Assign Users</label>
+              <div>
+                <div>
+                  {accepted && accepted.map((user, i) => (
+                    <div  key={i}>
+                      <a
+                        className="dropdown-item"
+                        onClick={(e) => {
+                          e.preventDefault()
+                          this.assignUsers(user._id)
+                        }}
+                      >{user.friend.username}
+                      </a>
+                    </div>
+                  ))}
+                </div>
+              </div>
               <label className="label">Description</label>
               <input
                 className="input"
@@ -87,5 +109,8 @@ class CreateGroup extends React.Component {
     )
   }
 }
+
+
+
 
 export default CreateGroup

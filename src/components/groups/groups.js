@@ -11,12 +11,18 @@ class Groups extends React.Component {
     this.state = {
       groups: []
     }
+
+    this.getAllGroups = this.getAllGroups.bind(this)
   }
 
-  componentDidMount() {
+  getAllGroups() {
     axios.get('/api/groups', {
     })
       .then(res => this.setState({ groups: res.data }))
+  }
+
+  componentDidMount() {
+    this.getAllGroups()
   }
 
   render() {

@@ -25,6 +25,7 @@ class Task extends React.Component {
             <p>Created by: Jess</p>
             <p>{`Priority: ${this.props.priority}`}</p>
             <p>{`Catgeory: ${this.props.category}`}</p>
+            <p>{`Catgeory: ${this.props.group}`}</p>
           </div>
         </div>
         <footer className="card-footer">

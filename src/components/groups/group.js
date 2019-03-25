@@ -53,11 +53,11 @@ class Group extends React.Component {
         <div className="card-footer">
           <a href="#" className="card-footer-item">Edit</a>
           <a href="#" className="card-footer-item">Delete</a>
-            <p>{this.props.description}</p>
-            <br />
-            <p>{`Priority: ${this.props.priority}`}</p>
-            <p>{`Description: ${this.props.description}`}</p>
-            <p>{`Users: ${this.props.usersAssigned}`}</p>
+          <p>{this.props.description}</p>
+          <br />
+          <p>{`Priority: ${this.props.priority}`}</p>
+          <p>{`Description: ${this.props.description}`}</p>
+          <p>{`Users: ${this.props.usersAssigned}`}</p>
         </div>
         <footer className="card-footer">
           {this.isOwner() && <a href="#" className="card-footer-item"><strong>Edit</strong></a>}
