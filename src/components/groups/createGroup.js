@@ -50,7 +50,7 @@ class CreateGroup extends React.Component {
               <input
                 className="input"
                 name="name"
-                placeholder="Group Name"
+                placeholder="Event name"
                 value={this.state.name}
                 onChange={this.handleChange}
               />
