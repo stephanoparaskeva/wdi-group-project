@@ -1,6 +1,7 @@
 import React from 'react'
 import axios from 'axios'
 import 'bulma'
+import Auth from '../../../lib/auth'
 
 
 class Register extends React.Component {
@@ -33,8 +34,10 @@ class Register extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault()
-    axios.post('http://localhost:4000/api/register', this.state.data)
-    // then(res => res.data)
+    axios.post('/api/register', this.state.data)
+      .then(res => {
+        Auth.setToken(res.data.token)
+      })
       .then(() => this.props.history.push('/'))
       .catch(err => console.log(err.message))
   }
