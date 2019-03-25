@@ -1,52 +1,41 @@
 import React from 'react'
 import 'bulma'
 
-class CreateTask extends React.Component {
+class Group extends React.Component {
   constructor() {
     super()
 
     this.state = {
-      name: '',
-      description: ''
+      groups: []
     }
-
-    this.handleChange = this.handleChange.bind(this)
-  }
-
-  handleChange(e) {
-    this.setState({ name: e.target.value})
   }
 
   render() {
     return(
       <div className="card">
         <header className="card-header">
-          <p className="card-header-title">
-            <input
-              className="input"
-              name="name"
-              placeholder="Task Name"
-              value={this.state.name}
-              onChange={this.handleChange}
-            />
+          <p className="card-header-title is-centered">
+            {`${this.props.name}`} Group
           </p>
         </header>
         <div className="card-content">
           <div className="content">
             <p>{this.props.description}</p>
             <br />
-            <p>Created by: Jess</p>
+            <p>Created by: Mary</p>
             <p>{`Priority: ${this.props.priority}`}</p>
-            <p>{`Catgeory: ${this.props.category}`}</p>
+            <p>{`Description: ${this.props.description}`}</p>
+            <p>{`Users: ${this.props.usersAssigned}`}</p>
           </div>
         </div>
         <footer className="card-footer">
           <a href="#" className="card-footer-item">Edit</a>
           <a href="#" className="card-footer-item">Delete</a>
+          <a href="./tasks" className="card-footer-item">Show Details</a>
         </footer>
       </div>
     )
   }
 }
 
-export default CreateTask
+export default Group
