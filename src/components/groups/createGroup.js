@@ -14,7 +14,6 @@ class CreateGroup extends React.Component {
       }
     }
 
-
     this.handleChange = this.handleChange.bind(this)
     this.handleDone = this.handleDone.bind(this)
     this.handleSubmit = this.handleSubmit.bind(this)
@@ -32,7 +31,6 @@ class CreateGroup extends React.Component {
       { headers: {Authorization: `Bearer ${Auth.getToken()}`}})
       .catch(err => console.log(err.message))
   }
-
 
   handleDone(e){
     e.preventDefault()
