@@ -36,7 +36,6 @@ class Group extends React.Component {
         </div>
         <div className="card-content">
           <div className="content">
-<<<<<<< HEAD
             <div className="subtitle is-size-4">{this.props.description}</div>
             <hr />
             <div>
@@ -54,18 +53,6 @@ class Group extends React.Component {
         <div className="card-footer">
           <a href="#" className="card-footer-item">Edit</a>
           <a href="#" className="card-footer-item">Delete</a>
-=======
-            <p>{this.props.description}</p>
-            <br />
-            <p>{`Priority: ${this.props.priority}`}</p>
-            <p>{`Description: ${this.props.description}`}</p>
-            <p>{`Users: ${this.props.usersAssigned}`}</p>
-          </div>
-        </div>
-        <footer className="card-footer">
-          {this.isOwner() && <a href="#" className="card-footer-item"><strong>Edit</strong></a>}
-          {this.isOwner() && <a href="/groups" className="card-footer-item" onClick={this.handleDelete}><strong>Delete</strong></a>}
->>>>>>> development
           <Link to={`/groups/${this.props._id}/tasks`} className="card-footer-item">
             <strong>Tasks</strong>
           </Link>
