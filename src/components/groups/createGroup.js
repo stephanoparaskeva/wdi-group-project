@@ -7,10 +7,13 @@ class CreateGroup extends React.Component {
     super()
 
     this.state = {
-      name: '',
-      description: '',
-      email: '',
-      usersAssigned: ''
+      data: {
+        name: '',
+        description: '',
+        email: '',
+        usersAssigned: ''
+      }
+
     }
 
     this.handleChange = this.handleChange.bind(this)
@@ -29,7 +32,7 @@ class CreateGroup extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault()
-    axios.post('http://localhost:4000/api/groups', this.state.data)
+    axios.post('/api/groups', this.state.data)
     // then(res => res.data)
       .then(() => this.props.history.push('/'))
       .catch(err => console.log(err.message))
