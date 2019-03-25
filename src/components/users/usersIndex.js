@@ -1,6 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import axios from 'axios'
+import Auth from '../../../lib/auth'
 
 class Users extends React.Component {
   constructor() {
@@ -13,17 +14,17 @@ class Users extends React.Component {
 
   componentDidMount() {
     axios
-      .get('/users')
+      .get('/api/users', {
+        headers: {Authorization: `Bearer ${Auth.getToken()}`}
+      })
       .then(users => this.setState({ users }))
   }
 
   render() {
-
-    const users = this.state.users
-
+    const users = this.state.users.data
     return(
       <div>
-        {users.map(user =>
+        {users && users.map(user =>
           <div key={user._id} className="card">
             <header className="card-header">
               <p className="card-header-title">
@@ -37,6 +38,7 @@ class Users extends React.Component {
             </div>
             <footer className="card-footer">
               <a href="#" className="card-footer-item">Edit</a>
+              <Link to={`/users/${user._id}`}>Request</Link>
               <a href="#" className="card-footer-item">Delete</a>
             </footer>
           </div>)}
@@ -44,3 +46,5 @@ class Users extends React.Component {
     )
   }
 }
+
+export default Users
