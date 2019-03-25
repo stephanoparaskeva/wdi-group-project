@@ -33,13 +33,13 @@ const Nav = () => {
               </div>
             </div>
             <div className="navbar-end">
-              <a href="/login" className="navbar-item">Login/Register</a>
+              <a href="/register" className="navbar-item">Login/Register</a>
             </div>
             <div className="navbar-item has-dropdown is-hoverable">
               <a className="navbar-link">Account</a>
               <div className="navbar-dropdown">
-                <a href="/friends" className="navbar-item">Friends</a>
-                <a href="/findfriends" className="navbar-item">Find friends</a>
+                <a href="/myProfile" className="navbar-item">My Profile</a>
+                <a href="/users" className="navbar-item">Find friends</a>
                 <a href="/invitefriends" className="navbar-item">Invite a friend</a>
                 <a href="/help" className="navbar-item">Help</a>
                 <hr className="navbar-divider" />
