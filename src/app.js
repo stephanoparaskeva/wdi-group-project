@@ -11,6 +11,7 @@ import Login from './components/auth/login'
 import Groups from './components/groups/groups'
 import Users from './components/users/usersIndex'
 import UsersRequest from './components/users/usersRequest'
+import MyProfile from './components/users/myProfile'
 
 const App = () => {
   return (
@@ -20,6 +21,7 @@ const App = () => {
         <Switch>
           <Route path="/users/:userId" component={UsersRequest}/>
           <Route path="/users" component={Users} />
+          <Route path="/myProfile" component={MyProfile} />
           <Route path="/register" component={Register} />
           <Route path="/login" component={Login} />
           <Route path="/groups/:groupId/tasks" component={Tasks}/>

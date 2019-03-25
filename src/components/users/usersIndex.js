@@ -21,9 +21,7 @@ class Users extends React.Component {
   }
 
   render() {
-    
     const users = this.state.users.data
-
     return(
       <div>
         {users && users.map(user =>

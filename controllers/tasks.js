@@ -21,6 +21,7 @@ function tasksCreateRoute(req, res, next) {
   //   .create(req.body)
   //   .then(task => res.status(201).json(task))
   //   .catch(next))
+  req.body.group = req.params.groupId
   Task
     .create(req.body)
     .then(task => res.status(201).json(task))
