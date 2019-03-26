@@ -19,23 +19,14 @@ class Group extends React.Component {
 
   }
 
-  isOwner() {
-    return this.state.createdBy === Auth.getPayload().sub
-  }
-
-
   handleDelete() {
-    axios
-      .get(`/api/groups/${this.props._id}`)
-      .then(res => {
-        this.setState({createdBy: res.data.createdBy})
-      })
-      .catch(err => console.log(err.message))
-    if (this.isOwner()) {
+    if (this.props.createdBy === Auth.getPayload().sub) {
       axios.delete(`/api/groups/${this.props._id}`,
         { headers: { Authorization: `Bearer ${Auth.getToken()}`}})
-        .then(() => this.props.history.push('/groups'))
+        .then(() => this.props.rerender())
         .catch(err => console.log(err.message))
+    } else {
+      console.log('not yours!')
     }
   }
   reRender() {
@@ -43,11 +34,14 @@ class Group extends React.Component {
     this.setState({ edit: !edit })
   }
 
+  removeFromState(){
+
+  }
 
   render() {
-    console.log(this.state.edit)
+    console.log(this.props)
     if (this.state.edit) {
-      return <EditGroups />
+      return  <EditGroups  group={this.props}/>
     }
     console.log(this.state.createdBy, 'createdBy')
     return(
@@ -64,8 +58,6 @@ class Group extends React.Component {
         </div>
 
         <footer className="card-footer">
-
-
 
           <button className="card-footer-item is-onethird" onClick={this.reRender}>Edit</button>
 
