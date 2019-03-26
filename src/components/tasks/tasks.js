@@ -12,23 +12,25 @@ class Tasks extends React.Component {
       tasks: []
     }
 
-    this.getTasksForGroup = this.getTasksForGroup.bind(this)
+    this.filterTask = this.filterTask.bind(this)
+    this.fetchTasks = this.fetchTasks.bind(this)
   }
 
-  getTasksForGroup() {
+  componentDidMount() {
+    console.log(this.props)
+    this.fetchTasks()
+  }
+
+  fetchTasks() {
     axios.get(`/api/groups/${this.props.match.params.groupId}/tasks`, {
     })
       .then(res => this.setState({ tasks: res.data }))
   }
 
-  componentDidMount() {
-    this.getTasksForGroup()
-  }
-
   filterTask() {
+    console.log(this.state.tasks)
     return this.state.tasks.filter(task => task.group === this.props.match.params.groupId)
   }
-
 
   render() {
     if(!this.state.tasks) return null
@@ -38,7 +40,7 @@ class Tasks extends React.Component {
         {this.filterTask().map(task =>
           <Task {...task} key={task._id} />
         )}
-        <CreateTask {...this.props}/>
+        <CreateTask {...this.props} onFetchTasks={this.fetchTasks} />
       </div>
     )
   }

@@ -107,7 +107,6 @@ class CreateCategory extends React.Component {
             </div>
           </div>
         ))}
-
       </div>
     )
   }

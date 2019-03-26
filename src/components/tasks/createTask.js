@@ -40,7 +40,10 @@ class CreateTask extends React.Component {
       headers: {Authorization: `Bearer ${Auth.getToken()}`}
     })
       .then(() => {
+        
         this.props.history.push(`/groups/${this.props.match.params.groupId}/tasks`)
+        this.props.onFetchTasks()
+        this.props.handleClick()
       })
       .catch(err => console.log(err.message))
   }
