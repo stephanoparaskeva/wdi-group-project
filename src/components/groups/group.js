@@ -2,7 +2,9 @@ import React from 'react'
 import 'bulma'
 import axios from 'axios'
 import { Link } from 'react-router-dom'
+
 import Auth from '../../../lib/auth'
+import CreateCategory from '../categories1/createCategory.js'
 
 class Group extends React.Component {
   constructor() {
@@ -26,7 +28,6 @@ class Group extends React.Component {
   }
 
   render() {
-    console.log(this.state)
     return(
       <div className="card">
         <div className="card-header">
@@ -35,32 +36,20 @@ class Group extends React.Component {
           </div>
         </div>
         <div className="card-content">
-          <div className="content">
-            <div className="subtitle is-size-4">{this.props.description}</div>
-            <hr />
-            <div>
-              <content className="content is-6">{`Users: ${this.props.usersAssigned}`}</content>
-            </div>
-            <div>
-              <content className="subtitle is-6">{`User ID: ${this.props.createdBy}`}</content>
-            </div>
-            <div>
-              <content className="subtitle is-6">{`Created date: ${this.props.createdAt}`}</content>
-            </div>
-
-          </div>
+          <CreateCategory groupId={this.props._id}>Create Category</CreateCategory>
         </div>
         <div className="card-footer">
 
-          {this.isOwner() && <a href="{`/groups/${group._id}/edit`}" className="card-footer-item"><strong>Edit</strong></a>}
-
+          <a href="#" className="card-footer-item">Edit</a>
+          <a href="#" className="card-footer-item">Delete</a>
+        </div>
+        <footer className="card-footer">
+          {this.isOwner() && <a href="#" className="card-footer-item"><strong>Edit</strong></a>}
           {this.isOwner() && <a href="/groups" className="card-footer-item" onClick={this.handleDelete}><strong>Delete</strong></a>}
-
           <Link to={`/groups/${this.props._id}/tasks`} className="card-footer-item">
             <strong>Tasks</strong>
           </Link>
-
-        </div>
+        </footer>
       </div>
     )
   }

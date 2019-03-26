@@ -34,6 +34,7 @@ class Tasks extends React.Component {
 
   render() {
     if(!this.state.tasks) return null
+    console.log(this.state.tasks)
     return(
       <div>
         {this.filterTask().map(task =>

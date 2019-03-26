@@ -1,6 +1,7 @@
 import React from 'react'
 import 'bulma'
 import { withRouter } from 'react-router-dom'
+import Auth from '../../lib/auth'
 
 const Nav = () => {
   return(
@@ -43,11 +44,13 @@ const Nav = () => {
                 <a href="/invitefriends" className="navbar-item">Invite a friend</a>
                 <a href="/help" className="navbar-item">Help</a>
                 <hr className="navbar-divider" />
-                <a className="navbar-item">Logout</a>
+                <a className="navbar-item" onClick={Auth.logout}>Logout</a>
               </div>
             </div>
             <div className="navbar-end">
               <a className="navbar-item is-primary "><strong>New Task</strong></a>
+            </div>
+            <div className="navbar-end">
             </div>
           </div>
         </div>

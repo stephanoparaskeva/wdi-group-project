@@ -10,13 +10,24 @@ class CreateGroup extends React.Component {
     this.state = {
       data: {
         name: '',
-        description: ''
-      }
+        description: '',
+        usersAssigned: [{ _id: Auth.getPayload().sub }]
+      },
+      accepted: [],
+      stateChange: ''
     }
 
     this.handleChange = this.handleChange.bind(this)
-    this.handleDone = this.handleDone.bind(this)
     this.handleSubmit = this.handleSubmit.bind(this)
+    this.assignUsers = this.assignUsers.bind(this)
+  }
+
+  componentDidMount() {
+    axios
+      .post('/api/users/accepted', this.state.user, {
+        headers: {Authorization: `Bearer ${Auth.getToken()}`}
+      })
+      .then(accepted => this.setState({ accepted }))
   }
 
   handleChange({ target: { name, value }}) {
@@ -24,24 +35,25 @@ class CreateGroup extends React.Component {
     this.setState({ data })
   }
 
+  assignUsers(value) {
+    const data = {...this.state.data, usersAssigned: [...this.state.data.usersAssigned, {_id: value}]}
+    this.setState({ data })
+  }
+
   handleSubmit(e) {
     e.preventDefault()
+    console.log(this.state.data.name, 'state')
     axios.post('/api/groups',
       this.state.data,
       { headers: {Authorization: `Bearer ${Auth.getToken()}`}})
+      .then(() => this.props.rerender())
       .catch(err => console.log(err.message))
-  }
 
-  handleDone(e){
-    e.preventDefault()
-    axios.post('/api/groups', this.state.data)
-    // then(res => res.data)
-      .then(() => this.props.history.push('/'))
-      .catch(err => console.log(err.message))
-    this.props.history.push('/')
   }
 
   render() {
+    console.log(this.state.data.name)
+    const accepted = this.state.accepted.data
     return(
       <div className="card">
         <header className="card-header">
@@ -57,22 +69,37 @@ class CreateGroup extends React.Component {
                 className="input"
                 name="name"
                 placeholder="Group Name"
-                value={this.state.data.name}
+                value={this.state.data.name || ''}
                 onChange={this.handleChange}
               />
               <br />
               <br />
-              <label className="label">Users To Add</label>
+              <label className="label">Assign Users</label>
+              <div>
+                <div>
+                  {accepted && accepted.map((user, i) => (
+                    <div  key={i}>
+                      <a
+                        className="dropdown-item"
+                        onClick={(e) => {
+                          e.preventDefault()
+                          this.assignUsers(user._id)
+                        }}
+                      >{user.friend.username}
+                      </a>
+                    </div>
+                  ))}
+                </div>
+              </div>
               <label className="label">Description</label>
               <input
                 className="input"
                 name="description"
                 placeholder="Group Details"
-                value={this.state.data.description}
+                value={this.state.data.description || ''}
                 onChange={this.handleChange}
               />
             </form>
-
             <p>{this.props.usersAssigned}</p>
             <br />
           </div>
@@ -85,5 +112,8 @@ class CreateGroup extends React.Component {
     )
   }
 }
+
+
+
 
 export default CreateGroup
