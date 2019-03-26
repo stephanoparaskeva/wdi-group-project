@@ -52,7 +52,6 @@ class CreateGroup extends React.Component {
   }
 
   render() {
-    console.log(this.state.data.name)
     const accepted = this.state.accepted.data
     return(
       <div className="card">

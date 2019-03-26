@@ -17,17 +17,30 @@ class Group extends React.Component {
   }
 
   handleDelete() {
-    axios.delete(`/api/groups/${this.props.match.params.id}`,
-      { headers: { Authorization: `Bearer ${Auth.getToken()}`}})
-      .then(() => this.props.history.push('/groups'))
-      .catch(err => console.log(err.message))
+    if (this.props.createdBy === Auth.getPayload().sub) {
+      axios.delete(`/api/groups/${this.props._id}`,
+        { headers: { Authorization: `Bearer ${Auth.getToken()}`}})
+        .then(() => this.props.rerender())
+        .catch(err => console.log(err.message))
+    } else {
+      console.log('not yours!')
+    }
+  }
+  reRender() {
+    const { edit } = this.state
+    this.setState({ edit: !edit })
   }
 
-  isOwner() {
-    return Auth.isAuthenticated() && this.state.group.user._id === Auth.getPayload().sub
+  removeFromState(){
+
   }
 
   render() {
+    console.log(this.props)
+    if (this.state.edit) {
+      return  <EditGroups  group={this.props}/>
+    }
+    console.log(this.state.createdBy, 'createdBy')
     return(
       <div className="card">
         <div className="card-header">
