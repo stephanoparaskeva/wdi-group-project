@@ -232,7 +232,7 @@ mongoose.connect(dbURI, { useNewUrlParser: true }, (err, db) => {
           priority: 'High',
           usersAssinged: users[random],
           createdBy: users[random],
-          groupAssigned: groups[random],
+          group: groups[random],
           isCurrent: true,
           category: categories[random],
           comments: [{
@@ -247,7 +247,7 @@ mongoose.connect(dbURI, { useNewUrlParser: true }, (err, db) => {
           priority: 'High',
           usersAssinged: users[random],
           createdBy: users[random],
-          groupAssigned: groups[Math.floor(Math.random()*3)],
+          group: groups[random],
           isCurrent: true,
           category: categories[random],
           comments: [{
@@ -262,7 +262,7 @@ mongoose.connect(dbURI, { useNewUrlParser: true }, (err, db) => {
           priority: 'High',
           usersAssinged: users[random],
           createdBy: users[random],
-          groupAssigned: groups[random],
+          group: groups[random],
           isCurrent: true,
           category: categories[random],
           comments: [{
@@ -277,7 +277,7 @@ mongoose.connect(dbURI, { useNewUrlParser: true }, (err, db) => {
           priority: 'Medium',
           usersAssinged: users[random],
           createdBy: users[random],
-          groupAssigned: groups[random],
+          group: groups[random],
           isCurrent: true,
           category: categories[random],
           comments: [{
@@ -292,7 +292,7 @@ mongoose.connect(dbURI, { useNewUrlParser: true }, (err, db) => {
           priority: 'Medium',
           usersAssinged: users[random],
           createdBy: users[random],
-          groupAssigned: groups[random],
+          group: groups[random],
           isCurrent: true,
           category: categories[random],
           comments: [{
@@ -307,7 +307,7 @@ mongoose.connect(dbURI, { useNewUrlParser: true }, (err, db) => {
           priority: 'Medium',
           usersAssinged: users[random],
           createdBy: users[random],
-          groupAssigned: groups[random],
+          group: groups[random],
           isCurrent: true,
           category: categories[random],
           comments: [{
@@ -322,7 +322,7 @@ mongoose.connect(dbURI, { useNewUrlParser: true }, (err, db) => {
           priority: 'Low',
           usersAssinged: users[random],
           createdBy: users[random],
-          groupAssigned: groups[random],
+          group: groups[random],
           isCurrent: true,
           category: categories[random],
           comments: [{
@@ -337,7 +337,7 @@ mongoose.connect(dbURI, { useNewUrlParser: true }, (err, db) => {
           priority: 'Low',
           usersAssinged: users[random],
           createdBy: users[random],
-          groupAssigned: groups[random],
+          group: groups[random],
           isCurrent: true,
           category: categories[random],
           comments: [{
@@ -352,7 +352,7 @@ mongoose.connect(dbURI, { useNewUrlParser: true }, (err, db) => {
           priority: 'Low',
           usersAssinged: users[random],
           createdBy: users[random],
-          groupAssigned: groups[random],
+          group: groups[random],
           isCurrent: true,
           category: categories[random],
           comments: [{
@@ -367,7 +367,7 @@ mongoose.connect(dbURI, { useNewUrlParser: true }, (err, db) => {
           priority: 'High',
           usersAssinged: users[random],
           createdBy: users[random],
-          groupAssigned: groups[random],
+          group: groups[random],
           isCurrent: true,
           category: categories[random],
           comments: [{
@@ -382,7 +382,7 @@ mongoose.connect(dbURI, { useNewUrlParser: true }, (err, db) => {
           priority: 'High',
           usersAssinged: users[random],
           createdBy: users[random],
-          groupAssigned: groups[Math.floor(Math.random()*3)],
+          group: groups[random],
           isCurrent: true,
           category: categories[random],
           comments: [{
@@ -397,7 +397,7 @@ mongoose.connect(dbURI, { useNewUrlParser: true }, (err, db) => {
           priority: 'High',
           usersAssinged: users[random],
           createdBy: users[random],
-          groupAssigned: groups[random],
+          group: groups[random],
           isCurrent: true,
           category: categories[random],
           comments: [{
@@ -412,7 +412,7 @@ mongoose.connect(dbURI, { useNewUrlParser: true }, (err, db) => {
           priority: 'Medium',
           usersAssinged: users[random],
           createdBy: users[random],
-          groupAssigned: groups[random],
+          group: groups[random],
           isCurrent: true,
           category: categories[random],
           comments: [{
@@ -427,7 +427,7 @@ mongoose.connect(dbURI, { useNewUrlParser: true }, (err, db) => {
           priority: 'Medium',
           usersAssinged: users[random],
           createdBy: users[random],
-          groupAssigned: groups[random],
+          group: groups[random],
           isCurrent: true,
           category: categories[random],
           comments: [{
@@ -442,7 +442,7 @@ mongoose.connect(dbURI, { useNewUrlParser: true }, (err, db) => {
           priority: 'Medium',
           usersAssinged: users[random],
           createdBy: users[random],
-          groupAssigned: groups[random],
+          group: groups[random],
           isCurrent: true,
           category: categories[random],
           comments: [{
@@ -457,7 +457,7 @@ mongoose.connect(dbURI, { useNewUrlParser: true }, (err, db) => {
           priority: 'Low',
           usersAssinged: users[random],
           createdBy: users[random],
-          groupAssigned: groups[random],
+          group: groups[random],
           isCurrent: true,
           category: categories[random],
           comments: [{
@@ -472,7 +472,7 @@ mongoose.connect(dbURI, { useNewUrlParser: true }, (err, db) => {
           priority: 'Low',
           usersAssinged: users[random],
           createdBy: users[random],
-          groupAssigned: groups[random],
+          group: groups[random],
           isCurrent: true,
           category: categories[random],
           comments: [{
@@ -487,7 +487,7 @@ mongoose.connect(dbURI, { useNewUrlParser: true }, (err, db) => {
           priority: 'Low',
           usersAssinged: users[random],
           createdBy: users[random],
-          groupAssigned: groups[random],
+          group: groups[random],
           isCurrent: true,
           category: categories[random],
           comments: [{
@@ -502,7 +502,7 @@ mongoose.connect(dbURI, { useNewUrlParser: true }, (err, db) => {
           priority: 'High',
           usersAssinged: users[random],
           createdBy: users[random],
-          groupAssigned: groups[random],
+          group: groups[random],
           isCurrent: true,
           category: categories[random],
           comments: [{
@@ -517,7 +517,7 @@ mongoose.connect(dbURI, { useNewUrlParser: true }, (err, db) => {
           priority: 'High',
           usersAssinged: users[random],
           createdBy: users[random],
-          groupAssigned: groups[Math.floor(Math.random()*3)],
+          group: groups[random],
           isCurrent: true,
           category: categories[random],
           comments: [{
@@ -532,7 +532,7 @@ mongoose.connect(dbURI, { useNewUrlParser: true }, (err, db) => {
           priority: 'High',
           usersAssinged: users[random],
           createdBy: users[random],
-          groupAssigned: groups[random],
+          group: groups[random],
           isCurrent: true,
           category: categories[random],
           comments: [{
@@ -547,7 +547,7 @@ mongoose.connect(dbURI, { useNewUrlParser: true }, (err, db) => {
           priority: 'Medium',
           usersAssinged: users[random],
           createdBy: users[random],
-          groupAssigned: groups[random],
+          group: groups[random],
           isCurrent: true,
           category: categories[random],
           comments: [{
@@ -562,7 +562,7 @@ mongoose.connect(dbURI, { useNewUrlParser: true }, (err, db) => {
           priority: 'Medium',
           usersAssinged: users[random],
           createdBy: users[random],
-          groupAssigned: groups[random],
+          group: groups[random],
           isCurrent: true,
           category: categories[random],
           comments: [{
@@ -577,7 +577,7 @@ mongoose.connect(dbURI, { useNewUrlParser: true }, (err, db) => {
           priority: 'Medium',
           usersAssinged: users[random],
           createdBy: users[random],
-          groupAssigned: groups[random],
+          group: groups[random],
           isCurrent: true,
           category: categories[random],
           comments: [{
@@ -592,7 +592,7 @@ mongoose.connect(dbURI, { useNewUrlParser: true }, (err, db) => {
           priority: 'Low',
           usersAssinged: users[random],
           createdBy: users[random],
-          groupAssigned: groups[random],
+          group: groups[random],
           isCurrent: true,
           category: categories[random],
           comments: [{
@@ -607,7 +607,7 @@ mongoose.connect(dbURI, { useNewUrlParser: true }, (err, db) => {
           priority: 'Low',
           usersAssinged: users[random],
           createdBy: users[random],
-          groupAssigned: groups[random],
+          group: groups[random],
           isCurrent: true,
           category: categories[random],
           comments: [{
@@ -622,7 +622,7 @@ mongoose.connect(dbURI, { useNewUrlParser: true }, (err, db) => {
           priority: 'Low',
           usersAssinged: users[random],
           createdBy: users[random],
-          groupAssigned: groups[random],
+          group: groups[random],
           isCurrent: true,
           category: categories[random],
           comments: [{
@@ -637,7 +637,7 @@ mongoose.connect(dbURI, { useNewUrlParser: true }, (err, db) => {
           priority: 'High',
           usersAssinged: users[random],
           createdBy: users[random],
-          groupAssigned: groups[random],
+          group: groups[random],
           isCurrent: true,
           category: categories[random],
           comments: [{
@@ -652,7 +652,7 @@ mongoose.connect(dbURI, { useNewUrlParser: true }, (err, db) => {
           priority: 'High',
           usersAssinged: users[random],
           createdBy: users[random],
-          groupAssigned: groups[Math.floor(Math.random()*3)],
+          group: groups[random],
           isCurrent: true,
           category: categories[random],
           comments: [{
@@ -667,7 +667,7 @@ mongoose.connect(dbURI, { useNewUrlParser: true }, (err, db) => {
           priority: 'High',
           usersAssinged: users[random],
           createdBy: users[random],
-          groupAssigned: groups[random],
+          group: groups[random],
           isCurrent: true,
           category: categories[random],
           comments: [{
@@ -682,7 +682,7 @@ mongoose.connect(dbURI, { useNewUrlParser: true }, (err, db) => {
           priority: 'Medium',
           usersAssinged: users[random],
           createdBy: users[random],
-          groupAssigned: groups[random],
+          group: groups[random],
           isCurrent: true,
           category: categories[random],
           comments: [{
@@ -697,7 +697,7 @@ mongoose.connect(dbURI, { useNewUrlParser: true }, (err, db) => {
           priority: 'Medium',
           usersAssinged: users[random],
           createdBy: users[random],
-          groupAssigned: groups[random],
+          group: groups[random],
           isCurrent: true,
           category: categories[random],
           comments: [{
@@ -712,7 +712,7 @@ mongoose.connect(dbURI, { useNewUrlParser: true }, (err, db) => {
           priority: 'Medium',
           usersAssinged: users[random],
           createdBy: users[random],
-          groupAssigned: groups[random],
+          group: groups[random],
           isCurrent: true,
           category: categories[random],
           comments: [{
@@ -727,7 +727,7 @@ mongoose.connect(dbURI, { useNewUrlParser: true }, (err, db) => {
           priority: 'Low',
           usersAssinged: users[random],
           createdBy: users[random],
-          groupAssigned: groups[random],
+          group: groups[random],
           isCurrent: true,
           category: categories[random],
           comments: [{
@@ -742,7 +742,7 @@ mongoose.connect(dbURI, { useNewUrlParser: true }, (err, db) => {
           priority: 'Low',
           usersAssinged: users[random],
           createdBy: users[random],
-          groupAssigned: groups[random],
+          group: groups[random],
           isCurrent: true,
           category: categories[random],
           comments: [{
@@ -757,7 +757,7 @@ mongoose.connect(dbURI, { useNewUrlParser: true }, (err, db) => {
           priority: 'Low',
           usersAssinged: users[random],
           createdBy: users[random],
-          groupAssigned: groups[random],
+          group: groups[random],
           isCurrent: true,
           category: categories[random],
           comments: [{
@@ -772,7 +772,7 @@ mongoose.connect(dbURI, { useNewUrlParser: true }, (err, db) => {
           priority: 'High',
           usersAssinged: users[random],
           createdBy: users[random],
-          groupAssigned: groups[random],
+          group: groups[random],
           isCurrent: true,
           category: categories[random],
           comments: [{
@@ -787,7 +787,7 @@ mongoose.connect(dbURI, { useNewUrlParser: true }, (err, db) => {
           priority: 'High',
           usersAssinged: users[random],
           createdBy: users[random],
-          groupAssigned: groups[Math.floor(Math.random()*3)],
+          group: groups[random],
           isCurrent: true,
           category: categories[random],
           comments: [{
@@ -802,7 +802,7 @@ mongoose.connect(dbURI, { useNewUrlParser: true }, (err, db) => {
           priority: 'High',
           usersAssinged: users[random],
           createdBy: users[random],
-          groupAssigned: groups[random],
+          group: groups[random],
           isCurrent: true,
           category: categories[random],
           comments: [{
@@ -817,7 +817,7 @@ mongoose.connect(dbURI, { useNewUrlParser: true }, (err, db) => {
           priority: 'Medium',
           usersAssinged: users[random],
           createdBy: users[random],
-          groupAssigned: groups[random],
+          group: groups[random],
           isCurrent: true,
           category: categories[random],
           comments: [{
@@ -832,7 +832,7 @@ mongoose.connect(dbURI, { useNewUrlParser: true }, (err, db) => {
           priority: 'Medium',
           usersAssinged: users[random],
           createdBy: users[random],
-          groupAssigned: groups[random],
+          group: groups[random],
           isCurrent: true,
           category: categories[random],
           comments: [{
@@ -847,7 +847,7 @@ mongoose.connect(dbURI, { useNewUrlParser: true }, (err, db) => {
           priority: 'Medium',
           usersAssinged: users[random],
           createdBy: users[random],
-          groupAssigned: groups[random],
+          group: groups[random],
           isCurrent: true,
           category: categories[random],
           comments: [{
@@ -862,7 +862,7 @@ mongoose.connect(dbURI, { useNewUrlParser: true }, (err, db) => {
           priority: 'Low',
           usersAssinged: users[random],
           createdBy: users[random],
-          groupAssigned: groups[random],
+          group: groups[random],
           isCurrent: true,
           category: categories[random],
           comments: [{
@@ -877,7 +877,7 @@ mongoose.connect(dbURI, { useNewUrlParser: true }, (err, db) => {
           priority: 'Low',
           usersAssinged: users[random],
           createdBy: users[random],
-          groupAssigned: groups[random],
+          group: groups[random],
           isCurrent: true,
           category: categories[random],
           comments: [{
@@ -892,7 +892,7 @@ mongoose.connect(dbURI, { useNewUrlParser: true }, (err, db) => {
           priority: 'Low',
           usersAssinged: users[random],
           createdBy: users[random],
-          groupAssigned: groups[random],
+          group: groups[random],
           isCurrent: true,
           category: categories[random],
           comments: [{
@@ -907,7 +907,7 @@ mongoose.connect(dbURI, { useNewUrlParser: true }, (err, db) => {
           priority: 'High',
           usersAssinged: users[random],
           createdBy: users[random],
-          groupAssigned: groups[random],
+          group: groups[random],
           isCurrent: true,
           category: categories[random],
           comments: [{
@@ -922,7 +922,7 @@ mongoose.connect(dbURI, { useNewUrlParser: true }, (err, db) => {
           priority: 'High',
           usersAssinged: users[random],
           createdBy: users[random],
-          groupAssigned: groups[Math.floor(Math.random()*3)],
+          group: groups[random],
           isCurrent: true,
           category: categories[random],
           comments: [{
@@ -937,7 +937,7 @@ mongoose.connect(dbURI, { useNewUrlParser: true }, (err, db) => {
           priority: 'High',
           usersAssinged: users[random],
           createdBy: users[random],
-          groupAssigned: groups[random],
+          group: groups[random],
           isCurrent: true,
           category: categories[random],
           comments: [{
@@ -952,7 +952,7 @@ mongoose.connect(dbURI, { useNewUrlParser: true }, (err, db) => {
           priority: 'Medium',
           usersAssinged: users[random],
           createdBy: users[random],
-          groupAssigned: groups[random],
+          group: groups[random],
           isCurrent: true,
           category: categories[random],
           comments: [{
@@ -967,7 +967,7 @@ mongoose.connect(dbURI, { useNewUrlParser: true }, (err, db) => {
           priority: 'Medium',
           usersAssinged: users[random],
           createdBy: users[random],
-          groupAssigned: groups[random],
+          group: groups[random],
           isCurrent: true,
           category: categories[random],
           comments: [{
@@ -982,7 +982,7 @@ mongoose.connect(dbURI, { useNewUrlParser: true }, (err, db) => {
           priority: 'Medium',
           usersAssinged: users[random],
           createdBy: users[random],
-          groupAssigned: groups[random],
+          group: groups[random],
           isCurrent: true,
           category: categories[random],
           comments: [{
@@ -997,7 +997,7 @@ mongoose.connect(dbURI, { useNewUrlParser: true }, (err, db) => {
           priority: 'Low',
           usersAssinged: users[random],
           createdBy: users[random],
-          groupAssigned: groups[random],
+          group: groups[random],
           isCurrent: true,
           category: categories[random],
           comments: [{
@@ -1012,7 +1012,7 @@ mongoose.connect(dbURI, { useNewUrlParser: true }, (err, db) => {
           priority: 'Low',
           usersAssinged: users[random],
           createdBy: users[random],
-          groupAssigned: groups[random],
+          group: groups[random],
           isCurrent: true,
           category: categories[random],
           comments: [{
@@ -1027,7 +1027,7 @@ mongoose.connect(dbURI, { useNewUrlParser: true }, (err, db) => {
           priority: 'Low',
           usersAssinged: users[random],
           createdBy: users[random],
-          groupAssigned: groups[random],
+          group: groups[random],
           isCurrent: true,
           category: categories[random],
           comments: [{

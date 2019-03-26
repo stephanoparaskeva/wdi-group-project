@@ -13,7 +13,8 @@ class CreateGroup extends React.Component {
         description: '',
         usersAssigned: [{ _id: Auth.getPayload().sub }]
       },
-      accepted: []
+      accepted: [],
+      stateChange: ''
     }
 
     this.handleChange = this.handleChange.bind(this)
@@ -35,20 +36,23 @@ class CreateGroup extends React.Component {
   }
 
   assignUsers(value) {
-    const usersAssigned = [...this.state.data.usersAssigned, {_id: value}]
-    this.setState({ data: {usersAssigned} })
-    console.log(this.state.data.usersAssigned)
+    const data = {...this.state.data, usersAssigned: [...this.state.data.usersAssigned, {_id: value}]}
+    this.setState({ data })
   }
 
   handleSubmit(e) {
     e.preventDefault()
+    console.log(this.state.data.name, 'state')
     axios.post('/api/groups',
       this.state.data,
       { headers: {Authorization: `Bearer ${Auth.getToken()}`}})
+      .then(() => this.props.rerender())
       .catch(err => console.log(err.message))
+
   }
 
   render() {
+    console.log(this.state.data.name)
     const accepted = this.state.accepted.data
     return(
       <div className="card">
@@ -65,7 +69,7 @@ class CreateGroup extends React.Component {
                 className="input"
                 name="name"
                 placeholder="Group Name"
-                value={this.state.data.name}
+                value={this.state.data.name || ''}
                 onChange={this.handleChange}
               />
               <br />
@@ -92,11 +96,10 @@ class CreateGroup extends React.Component {
                 className="input"
                 name="description"
                 placeholder="Group Details"
-                value={this.state.data.description}
+                value={this.state.data.description || ''}
                 onChange={this.handleChange}
               />
             </form>
-
             <p>{this.props.usersAssigned}</p>
             <br />
           </div>
