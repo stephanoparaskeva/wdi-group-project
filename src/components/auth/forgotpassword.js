@@ -1,7 +1,7 @@
 import React from 'react'
 import axios from 'axios'
 import 'bulma'
-import Auth from '../../../lib/auth'
+import Auth from '../../lib/auth'
 
 
 class LostPassword extends React.Component {
