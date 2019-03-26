@@ -1,7 +1,7 @@
 import React from 'react'
 import axios from 'axios'
 
-import Auth from '../../../lib/auth'
+import Auth from '../../lib/auth'
 import CreateGroup from './createGroup'
 
 class EditGroups extends React.Component {
@@ -62,8 +62,8 @@ class EditGroups extends React.Component {
                     <div>
 
 
-                        </div>
                     </div>
+                  </div>
 
                   <label className="label">Description</label>
                   <input
