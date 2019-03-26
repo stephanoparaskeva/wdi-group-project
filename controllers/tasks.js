@@ -5,6 +5,7 @@ const permissions = require('../lib/permissions')
 function tasksIndexRoute(req, res, next) {
   Task
     .find()
+    .populate('category')
     .then(tasks => res.status(200).json(tasks))
     .catch(next)
 }
@@ -12,6 +13,7 @@ function tasksIndexRoute(req, res, next) {
 function tasksShowRoute(req, res, next) {
   Task
     .findById(req.params.taskId)
+    .populate('category')
     .then(task => res.status(200).json(task))
     .catch(next)
 }
@@ -31,6 +33,7 @@ function tasksCreateRoute(req, res, next) {
 function tasksUpdateRoute(req, res, next) {
   Task
     .findById(req.params.taskId)
+    .populate('category')
     .then(task => task.set(req.body))
     .then(task => task.save())
     .then(task => res.status(200).json(task))

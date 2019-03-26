@@ -12,8 +12,7 @@ class CreateTask extends React.Component {
         name: '',
         description: '',
         priority: '',
-        category: '',
-        error: ''
+        categoryAssigned: {}
       },
 
       priorityMenu: '',
@@ -30,17 +29,17 @@ class CreateTask extends React.Component {
 
   handleChange({ target: { name, value }}) {
     const data = {...this.state.data, [name]: value }
-    const error = ''
-    this.setState({ data, error })
+    this.setState({ data })
   }
 
   handleSubmit(e) {
     e.preventDefault()
+    console.log(this.state.data)
     axios.post(`/api/groups/${this.props.match.params.groupId}/tasks`, this.state.data, {
       headers: {Authorization: `Bearer ${Auth.getToken()}`}
     })
       .then(() => {
-        
+
         this.props.history.push(`/groups/${this.props.match.params.groupId}/tasks`)
         this.props.onFetchTasks()
         this.props.handleClick()
@@ -57,9 +56,9 @@ class CreateTask extends React.Component {
   }
 
   assignPriority(value) {
-    this.setState({priority: value})
+    const data = {...this.state.data, priority: value }
     this.togglePriorityClick()
-    console.log(value)
+    this.setState({ data })
   }
 
   toggleCategoryClick() {
@@ -71,9 +70,9 @@ class CreateTask extends React.Component {
   }
 
   assignCategory(value) {
-    this.setState({category: value})
+    const data = {...this.state.data, categoryAssigned: value }
     this.toggleCategoryClick()
-    console.log(value)
+    this.setState({ data })
   }
 
   render() {
@@ -99,7 +98,7 @@ class CreateTask extends React.Component {
               <div className={`dropdown ${this.state.priorityMenu}`}>
                 <div className="dropdown-trigger">
                   <button type="button" className="button" aria-haspopup="true" aria-controls="dropdown-menu" onClick={this.togglePriorityClick}>
-                    <span>{this.state.priority || 'Choose'}</span>
+                    <span>{this.state.data.priority || 'Choose'}</span>
                     <span className="icon is-small">
                       <i className="fas fa-angle-down" aria-hidden="true"></i>
                     </span>
@@ -142,7 +141,7 @@ class CreateTask extends React.Component {
               <div className={`dropdown ${this.state.categoryMenu}`}>
                 <div className="dropdown-trigger">
                   <button type="button" className="button" aria-haspopup="true" aria-controls="dropdown-menu" onClick={this.toggleCategoryClick}>
-                    <span>{this.state.category || 'Choose'}</span>
+                    <span>{this.state.data.categoryAssigned.name || 'Choose'}</span>
                     <span className="icon is-small">
                       <i className="fas fa-angle-down" aria-hidden="true"></i>
                     </span>
@@ -154,7 +153,7 @@ class CreateTask extends React.Component {
                       className="dropdown-item"
                       onClick={(e) => {
                         e.preventDefault()
-                        this.assignCategory('category 1')
+                        this.assignCategory(["5c9932da6c66107990de9029"])
                       }}
                     >
                       Category 1

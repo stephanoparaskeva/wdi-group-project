@@ -10,8 +10,16 @@ class Users extends React.Component {
     this.state = {
       user: {},
       pending: [],
-      accepted: []
+      accepted: [],
+      tasks: []
     }
+
+    this.filterTasks = this.filterTasks.bind(this)
+  }
+
+  filterTasks() {
+    console.log(this.state.tasks)
+    return this.state.tasks.data.filter(task => task.CreatedBy === Auth.getPayload().sub)
   }
 
   componentDidMount() {
@@ -20,6 +28,9 @@ class Users extends React.Component {
         headers: {Authorization: `Bearer ${Auth.getToken()}`}
       })
       .then(user => this.setState({ user }))
+    axios
+      .get('/api/groups/5c9932da6c66107990de9029/tasks')
+      .then(tasks => this.setState({ tasks }))
     axios
       .post('/api/users/pending', this.state.user, {
         headers: {Authorization: `Bearer ${Auth.getToken()}`}
@@ -36,6 +47,8 @@ class Users extends React.Component {
     const user = this.state.user.data
     const pending = this.state.pending.data
     const accepted = this.state.accepted.data
+    const tasks = this.state.tasks.data
+    console.log(tasks)
     return(
       <div>My Profile
         {user &&
@@ -79,6 +92,24 @@ class Users extends React.Component {
         ))}
         <hr/><h1>Friends</h1><hr/>
         {accepted && accepted.map(user => (
+          <div key={user.friend._id}>
+            <div className="card">
+              <header className="card-header">
+                <p className="card-header-title">
+                  {user.friend.username}
+                </p>
+              </header>
+              <div className="card-content">
+                <div className="content">
+                  <p>{user.friend.email}</p>
+                </div>
+              </div>
+              <footer className="card-footer">
+              </footer>
+            </div>
+          </div>
+        ))}
+        {tasks && this.filterTasks().map(user => (
           <div key={user.friend._id}>
             <div className="card">
               <header className="card-header">

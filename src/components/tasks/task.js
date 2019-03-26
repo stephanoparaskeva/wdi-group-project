@@ -13,7 +13,7 @@ class Task extends React.Component {
         name: '',
         description: '',
         priority: '',
-        category: '',
+        categoryAssigned: '',
         error: ''
       },
 
@@ -72,7 +72,7 @@ class Task extends React.Component {
   }
 
   assignCategory(value) {
-    this.setState({category: value})
+    this.setState({categoryAssigned: value})
     this.toggleCategoryClick()
     console.log('catgeory: ' + value)
   }
@@ -142,7 +142,7 @@ class Task extends React.Component {
               <div className={`dropdown ${this.state.categoryMenu}`}>
                 <div className="dropdown-trigger">
                   <button type="button" className="button" aria-haspopup="true" aria-controls="dropdown-menu" onClick={this.toggleCategoryClick}>
-                    <span>{this.state.category || 'Choose'}</span>
+                    <span>{this.state.categoryAssigned || 'Choose'}</span>
                     <span className="icon is-small">
                       <i className="fas fa-angle-down" aria-hidden="true"></i>
                     </span>
@@ -185,8 +185,8 @@ class Task extends React.Component {
             <br />
             <p>Created by: Jess</p>
             <p>{`Priority: ${this.props.priority}`}</p>
-            <p>{`Catgeory: ${this.props.category}`}</p>
-            <p>{`Catgeory: ${this.props.group}`}</p>
+            <p>{`Catgeory: ${this.props.categoryAssigned}`}</p>
+            <p>{`Group: ${this.props.group}`}</p>
           </div>
         </div>
         <footer className="card-footer">
