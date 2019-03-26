@@ -45,6 +45,7 @@ class Group extends React.Component {
 
 
   render() {
+    console.log(this.state.edit)
     if (this.state.edit) {
       <EditGroups />
     }

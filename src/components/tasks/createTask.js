@@ -141,11 +141,8 @@ class CreateTask extends React.Component {
               <div className={`dropdown ${this.state.categoryMenu}`}>
                 <div className="dropdown-trigger">
                   <button type="button" className="button" aria-haspopup="true" aria-controls="dropdown-menu" onClick={this.toggleCategoryClick}>
-<<<<<<< HEAD
                     <span>{this.state.data.categoryAssigned.name || 'Choose'}</span>
-=======
                     <span>{this.state.categoryAssigned || 'Choose'}</span>
->>>>>>> development
                     <span className="icon is-small">
                       <i className="fas fa-angle-down" aria-hidden="true"></i>
                     </span>

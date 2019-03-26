@@ -186,10 +186,7 @@ class Task extends React.Component {
             <p>Created by: Jess</p>
             <p>{`Priority: ${this.props.priority}`}</p>
             <p>{`Catgeory: ${this.props.categoryAssigned}`}</p>
-<<<<<<< HEAD
             <p>{`Group: ${this.props.group}`}</p>
-=======
->>>>>>> development
           </div>
         </div>
         <footer className="card-footer">
