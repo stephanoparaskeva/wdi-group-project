@@ -1,6 +1,6 @@
 import React from 'react'
 import axios from 'axios'
-import Auth from '../../../lib/auth'
+import Auth from '../../lib/auth'
 import { Link } from 'react-router-dom'
 
 class Users extends React.Component {
@@ -18,8 +18,7 @@ class Users extends React.Component {
   }
 
   filterTasks() {
-    console.log(this.state.tasks)
-    return this.state.tasks.data.filter(task => task.CreatedBy === Auth.getPayload().sub)
+    return this.state.tasks.data.filter(task => task.createdBy === Auth.getPayload().sub)
   }
 
   componentDidMount() {
@@ -48,7 +47,6 @@ class Users extends React.Component {
     const pending = this.state.pending.data
     const accepted = this.state.accepted.data
     const tasks = this.state.tasks.data
-    console.log(tasks)
     return(
       <div>My Profile
         {user &&
@@ -109,17 +107,17 @@ class Users extends React.Component {
             </div>
           </div>
         ))}
-        {tasks && this.filterTasks().map(user => (
-          <div key={user.friend._id}>
+        {tasks && this.filterTasks().map(task => (
+          <div key={task._id}>
             <div className="card">
               <header className="card-header">
                 <p className="card-header-title">
-                  {user.friend.username}
+                  {task.name}
                 </p>
               </header>
               <div className="card-content">
                 <div className="content">
-                  <p>{user.friend.email}</p>
+                  <p>{task.description}</p>
                 </div>
               </div>
               <footer className="card-footer">

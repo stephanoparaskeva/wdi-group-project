@@ -1,7 +1,7 @@
 import React from 'react'
 import 'bulma'
 import axios from 'axios'
-import Auth from '../../../lib/auth'
+import Auth from '../../lib/auth'
 
 class CreateTask extends React.Component {
   constructor() {
@@ -12,9 +12,10 @@ class CreateTask extends React.Component {
         name: '',
         description: '',
         priority: '',
-        categoryAssigned: {}
+        categoryAssigned: {},
+        usersAssigned: [{ _id: Auth.getPayload().sub }]
       },
-
+      accepted: [],
       priorityMenu: '',
       categoryMenu: ''
     }
@@ -76,6 +77,8 @@ class CreateTask extends React.Component {
   }
 
   render() {
+    const accepted = this.state.accepted
+    console.log(accepted, 'accepted')
     return(
       <div className="card">
         <form>
@@ -90,6 +93,23 @@ class CreateTask extends React.Component {
               />
             </p>
           </header>
+          <label className="label">Assign Users</label>
+          <div>
+            <div>
+              {accepted && accepted.map((user, i) => (
+                <div  key={i}>
+                  <a
+                    className="dropdown-item"
+                    onClick={(e) => {
+                      e.preventDefault()
+                      this.assignUsers(user._id)
+                    }}
+                  >{user.friend.username}
+                  </a>
+                </div>
+              ))}
+            </div>
+          </div>
           <div className="card-content">
             <div className="content">
               <p>{this.props.description}</p>

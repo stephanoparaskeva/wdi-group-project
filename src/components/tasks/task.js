@@ -1,7 +1,7 @@
 import React from 'react'
 import 'bulma'
 import axios from 'axios'
-import Auth from '../../../lib/auth'
+import Auth from '../../lib/auth'
 
 class Task extends React.Component {
   constructor() {

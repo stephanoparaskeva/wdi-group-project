@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import axios from 'axios'
-import Auth from '../../../lib/auth'
+import Auth from '../../lib/auth'
 
 class Users extends React.Component {
   constructor() {

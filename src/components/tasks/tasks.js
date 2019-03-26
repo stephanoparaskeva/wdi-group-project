@@ -3,28 +3,40 @@ import 'bulma'
 import axios from 'axios'
 import Task from './task'
 import CreateTask from './createTask'
+import Auth from '../../../lib/auth'
 
 class Tasks extends React.Component {
   constructor() {
     super()
 
     this.state = {
-      tasks: []
+      tasks: [],
+      accepted: []
     }
 
     this.filterTask = this.filterTask.bind(this)
     this.fetchTasks = this.fetchTasks.bind(this)
+    this.getFriends = this.getFriends.bind(this)
   }
 
+  getFriends() {
+    axios
+      .post('/api/users/accepted', this.state.user, {
+        headers: {Authorization: `Bearer ${Auth.getToken()}`}
+      })
+      .then(accepted => this.setState({ accepted }))
+  }
+  
   componentDidMount() {
     console.log(this.props)
     this.fetchTasks()
+    this.getFriends()
   }
 
   fetchTasks() {
     axios.get(`/api/groups/${this.props.match.params.groupId}/tasks`, {
     })
-      .then(res => this.setState({ tasks: res.data }))
+      .then(res => console.log(res.data))
   }
 
   filterTask() {

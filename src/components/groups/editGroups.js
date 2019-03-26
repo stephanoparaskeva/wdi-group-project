@@ -8,16 +8,17 @@ class EditGroups extends React.Component {
   constructor() {
     super()
 
-    this.state = { data: {} }
+    this.state = { data: this.props }
 
     this.handleChange = this.handleChange.bind(this)
     this.handleSubmit = this.handleSubmit.bind(this)
   }
 
   componentDidMount(){
-    const props = this.props
-    const data = {...this.state.data, props}
-    this.setState({ data })
+    console.log('123', this.state)
+    // const props = this.props
+    // const data = {...this.state.data, props}
+    // this.setState({ data })
 
   }
 
