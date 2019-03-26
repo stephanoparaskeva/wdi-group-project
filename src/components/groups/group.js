@@ -5,29 +5,51 @@ import { Link } from 'react-router-dom'
 
 import Auth from '../../../lib/auth'
 import CreateCategory from '../categories1/createCategory.js'
+import EditGroups from './editGroups'
 
 class Group extends React.Component {
   constructor() {
     super()
 
     this.state = {
-      groups: []
+      createdBy: {}
     }
     this.handleDelete = this.handleDelete.bind(this)
-  }
+    this.reRender = this.reRender.bind(this)
 
-  handleDelete() {
-    axios.delete(`/api/groups/${this.props.match.params.id}`,
-      { headers: { Authorization: `Bearer ${Auth.getToken()}`}})
-      .then(() => this.props.history.push('/groups'))
-      .catch(err => console.log(err.message))
   }
 
   isOwner() {
-    return Auth.isAuthenticated() && this.state.group.user._id === Auth.getPayload().sub
+    return this.state.createdBy === Auth.getPayload().sub
   }
 
+
+  handleDelete() {
+    axios
+      .get(`/api/groups/${this.props._id}`)
+      .then(res => {
+        this.setState({createdBy: res.data.createdBy})
+      })
+      .catch(err => console.log(err.message))
+    if (this.isOwner()) {
+      axios.delete(`/api/groups/${this.props._id}`,
+        { headers: { Authorization: `Bearer ${Auth.getToken()}`}})
+        .then(() => this.props.history.push('/groups'))
+        .catch(err => console.log(err.message))
+    }
+  }
+  reRender() {
+    const { edit } = this.state
+    this.setState({ edit: !edit })
+  }
+
+
   render() {
+    console.log(this.state.edit)
+    if (this.state.edit) {
+      return <EditGroups />
+    }
+    console.log(this.state.createdBy, 'createdBy')
     return(
       <div className="card">
         <div className="card-header">
@@ -39,16 +61,20 @@ class Group extends React.Component {
           <CreateCategory groupId={this.props._id}>Create Category</CreateCategory>
         </div>
         <div className="card-footer">
-
-          <a href="#" className="card-footer-item">Edit</a>
-          <a href="#" className="card-footer-item">Delete</a>
         </div>
+
         <footer className="card-footer">
-          {this.isOwner() && <a href="#" className="card-footer-item"><strong>Edit</strong></a>}
-          {this.isOwner() && <a href="/groups" className="card-footer-item" onClick={this.handleDelete}><strong>Delete</strong></a>}
-          <Link to={`/groups/${this.props._id}/tasks`} className="card-footer-item">
+
+
+
+          <button className="card-footer-item is-onethird" onClick={this.reRender}>Edit</button>
+
+          <button className="card-footer-item is-onethird" onClick={this.handleDelete}>Delete</button>
+
+          <Link to={`/groups/${this.props._id}/tasks`} className="card-footer-item is-onethird">
             <strong>Tasks</strong>
           </Link>
+
         </footer>
       </div>
     )

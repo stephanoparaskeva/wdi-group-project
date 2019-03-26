@@ -28,11 +28,12 @@ class Tasks extends React.Component {
   }
 
   filterTask() {
-    console.log(this.state.tasks)
+    console.log(this.state.tasks, 'tasks')
     return this.state.tasks.filter(task => task.group === this.props.match.params.groupId)
   }
 
   render() {
+    console.log(this.state.tasks, 'tasks')
     if(!this.state.tasks) return null
     console.log(this.state.tasks)
     return(

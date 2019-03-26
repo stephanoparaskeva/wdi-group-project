@@ -85,7 +85,7 @@ class CreateCategory extends React.Component {
     return(
       <div>
         <form onSubmit={this.handleSubmit}>
-          <label className="label">Name</label>
+          <label className="label">Category Name</label>
           <input
             className="input"
             name="name"
@@ -98,19 +98,21 @@ class CreateCategory extends React.Component {
         {this.state.categories.data && this.filterCategory().map((category, i) => (
           <div key={i}>
             <p>{category.name}</p>
-            <div className="select">
-              <select>
-                { this.state.tasks && this.filterTasks().map((task, j) => (
-                  <option key={j}>{task.name}</option>
-                ))}
-              </select>
-            </div>
+
           </div>
         ))}
       </div>
     )
   }
 }
+
+// <div className="select">
+//   <select>
+//     { this.state.tasks && this.filterTasks().map((task, j) => (
+//       <option key={j}>{task.name}</option>
+//     ))}
+//   </select>
+// </div>
 
 
 
