@@ -74,7 +74,7 @@ class Task extends React.Component {
   assignCategory(value) {
     this.setState({categoryAssigned: value})
     this.toggleCategoryClick()
-    console.log('catgeory: ' + value)
+    console.log('categoryAssigned: ' + value)
   }
 
   handleClick() {
@@ -186,7 +186,10 @@ class Task extends React.Component {
             <p>Created by: Jess</p>
             <p>{`Priority: ${this.props.priority}`}</p>
             <p>{`Catgeory: ${this.props.categoryAssigned}`}</p>
+<<<<<<< HEAD
             <p>{`Group: ${this.props.group}`}</p>
+=======
+>>>>>>> development
           </div>
         </div>
         <footer className="card-footer">
