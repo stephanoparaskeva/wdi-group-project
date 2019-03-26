@@ -71,7 +71,7 @@ class Group extends React.Component {
 
           <button className="card-footer-item is-onethird" onClick={this.handleDelete}>Delete</button>
 
-          <Link to={`/groups/${this.props._id}/tasks`} className="card-footer-item is-onethird">
+          <Link to={`/groups/${this.props._id}`} className="card-footer-item is-onethird">
             <strong>Tasks</strong>
           </Link>
 

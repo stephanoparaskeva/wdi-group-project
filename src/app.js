@@ -27,7 +27,7 @@ const App = () => {
           <Route path="/register" component={Register} />
           <Route path="/login" component={Login} />
           <Route path="/forgotpassword" component={ForgotPassword} />
-          <Route exact path="/groups/:groupId/tasks" component={Tasks}/>
+          <Route exact path="/groups/:groupId" component={Tasks}/>
           <Route path="/groups" component={Groups} />
         </Switch>
         <br />
