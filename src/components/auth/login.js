@@ -82,7 +82,7 @@ class Login extends React.Component {
               </div>
               <p className="has-text-grey">
                 <a href="/register">Sign Up</a> &nbsp;·&nbsp;
-                <a href="/forgot">Forgot Password</a>
+                <a href="/forgotpassword">Forgot Password</a>
               </p>
             </div>
           </div>

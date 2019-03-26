@@ -11,7 +11,7 @@ const Nav = () => {
           <div className="navbar-item">
             <img src="../images/36x36.png" />
           </div>
-          <a className="navbar-item" href="http://organise.net">
+          <a className="navbar-item" href="/">
             <p className="is-size-4"><strong>Organise</strong></p>
           </a>
           <span className="navbar-burger burger" data-target="navbarMenu">
