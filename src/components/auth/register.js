@@ -13,13 +13,15 @@ class Register extends React.Component {
         username: '',
         email: '',
         password: '',
-        passwordConfirmation: ''
+        passwordConfirmation: '',
+        newsletter: false
       }
     }
 
     this.handleChange = this.handleChange.bind(this)
     this.handleSubmit = this.handleSubmit.bind(this)
     this.handleDone = this.handleDone.bind(this)
+    this.handleChangeRadio = this.handleChangeRadio.bind(this)
   }
 
   handleChange({ target: { name , value }}) {
@@ -31,6 +33,11 @@ class Register extends React.Component {
     e.preventDefault()
     this.props.history.push('/')
   }
+
+  handleChangeRadio() {
+    this.setState({ newsletter: !this.state.newsletter })
+  }
+
 
   handleSubmit(e) {
     e.preventDefault()
@@ -49,85 +56,80 @@ class Register extends React.Component {
           <div className="modal-background"></div>
           <div className="modal-card">
             <header className="modal-card-head">
-              <p className="modal-card-title">Hello there!</p>
+              <p className="modal-card-title"><strong>Start Organising today!</strong></p>
               <button className="delete" aria-label="close" onClick={this.handleDone}></button>
             </header>
 
             <section className="modal-card-body">
-              <main className="section">
-                <div className="container">
-                  <form onSubmit={this.handleSubmit}>
-                    <h1 className="welcome">Welcome to Organize! To register, please fill in the fields below.</h1>
-                    <br />
-                    <h2 className="title">Register</h2>
-                    <div className="field">
-                      <label className="label">Username</label>
-                      <div className="control">
-                        <input
-                          className="input is-medium"
-                          name="username"
-                          placeholder="Username"
-                          value={this.state.data.username}
-                          onChange={this.handleChange}
-                        />
-                      </div>
-                    </div>
-                    <div className="field">
-                      <label className="label">Email</label>
-                      <div className="control">
-                        <input
-                          className="input is-medium"
-                          name="email"
-                          placeholder="Email"
-                          value={this.state.data.email}
-                          onChange={this.handleChange}
-                        />
-                      </div>
-                    </div>
-                    <div className="field">
-                      <label className="label">Password</label>
-                      <div className="control">
-                        <input
-                          className="input is-medium"
-                          name="password"
-                          type="password"
-                          placeholder="Password"
-                          value={this.state.data.password}
-                          onChange={this.handleChange}
-                        />
-                      </div>
-                    </div>
-                    <div className="field">
-                      <label className="label">Password Confirmation</label>
-                      <div className="control">
-                        <input
-                          className="input is-medium"
-                          name="passwordConfirmation"
-                          type="password"
-                          placeholder="Password Confirmation"
-                          value={this.state.data.passwordConfirmation}
-                          onChange={this.handleChange}
-                        />
-                      </div>
-                    </div>
-                    <button className="button is-info">Create A New Account</button>
-                  </form>
+              <form onSubmit={this.handleSubmit}>
+                <h1 className="subtitle is-5">Welcome to Organise! To register, please fill in the fields below.</h1>
+                <br />
+                <div className="field">
+                  <label className="subtitle is-6">Username</label>
+                  <div className="control">
+                    <input
+                      className="input is-medium"
+                      name="username"
+                      placeholder="Username"
+                      value={this.state.data.username}
+                      onChange={this.handleChange}
+                    />
+                  </div>
                 </div>
-              </main>
+                <div className="field">
+                  <label className="subtitle is-6">Email</label>
+                  <div className="control">
+                    <input
+                      className="input is-medium"
+                      name="email"
+                      placeholder="Email"
+                      value={this.state.data.email}
+                      onChange={this.handleChange}
+                    />
+                  </div>
+                </div>
+                <div className="field">
+                  <label className="subtitle is-6">Password</label>
+                  <div className="control">
+                    <input
+                      className="input is-medium"
+                      name="password"
+                      type="password"
+                      placeholder="Password"
+                      value={this.state.data.password}
+                      onChange={this.handleChange}
+                    />
+                  </div>
+                </div>
+                <div className="field">
+                  <label className="subtitle is-6">Password Confirmation</label>
+                  <div className="control">
+                    <input
+                      className="input is-medium"
+                      name="passwordConfirmation"
+                      type="password"
+                      placeholder="Password Confirmation"
+                      value={this.state.data.passwordConfirmation}
+                      onChange={this.handleChange}
+                    />
+                  </div>
+                  <br />
+                  <div className="control">
+                    <p>Sign up to our newsletter
+                      <input
+                        type="checkbox"
+                        name="newsletter"
+                        value={this.state.data.newsletter}
+                        onClick={this.handleChangeRadio}
+                      />
+                    </p>
+                  </div>
+                </div>
+                <button className="button is-info is-fullwidth"><strong>Create A New Account</strong></button>
+              </form>
             </section>
-
             <footer className="modal-card-foot">
-              <button className="button is-success"
-                onClick={this.handleDone}>Done
-              </button>
-              <button className="button"
-                onClick={this.handleDone}>Cancel
-              </button>
-              <p className="has-text-grey">
-                <a href="http://localhost:8000/login">Login Instead</a> &nbsp;·&nbsp;
-              </p>
-
-              <script async type="text/javascript" src="http://localhost:4000/login"></script>
+              <a className="subtitle is-6 has-text-grey-light is-italic" href="/terms">Check out our terms and conditions</a>
             </footer>
           </div>
         </div>

@@ -10,7 +10,8 @@ const userSchema = new mongoose.Schema({
   email: { type: String, unique: true, required: true, validate: email },
   password: { type: String, required: true, validate: password },
   isCurrentlyActive: { type: Boolean },
-  isDormant: { type: Boolean }
+  isDormant: { type: Boolean },
+  newsletter: { type: Boolean }
 }, {
   timestamps: true
 })

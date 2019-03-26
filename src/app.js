@@ -8,6 +8,7 @@ import Nav from './components/nav'
 import Tasks from './components/tasks/tasks'
 import Register from './components/auth/register'
 import Login from './components/auth/login'
+import ForgotPassword from './components/auth/forgotpassword'
 import Groups from './components/groups/groups'
 import Users from './components/users/usersIndex'
 import UsersRequest from './components/users/usersRequest'
@@ -24,6 +25,7 @@ const App = () => {
           <Route path="/myProfile" component={MyProfile} />
           <Route path="/register" component={Register} />
           <Route path="/login" component={Login} />
+          <Route path="/forgotpassword" component={ForgotPassword} />
           <Route exact path="/groups/:groupId/tasks" component={Tasks}/>
           <Route path="/groups" component={Groups} />
         </Switch>
