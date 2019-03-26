@@ -3,7 +3,7 @@ import 'bulma'
 import axios from 'axios'
 import { Link } from 'react-router-dom'
 
-import Auth from '../../../lib/auth'
+import Auth from '../../lib/auth'
 import CreateCategory from '../categories1/createCategory.js'
 import EditGroups from './editGroups'
 

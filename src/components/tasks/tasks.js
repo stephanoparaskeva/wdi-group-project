@@ -24,7 +24,7 @@ class Tasks extends React.Component {
   fetchTasks() {
     axios.get(`/api/groups/${this.props.match.params.groupId}/tasks`, {
     })
-      .then(res => this.setState({ tasks: res.data }))
+      .then(res => console.log(res.data))
   }
 
   filterTask() {

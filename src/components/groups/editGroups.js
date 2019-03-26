@@ -62,8 +62,8 @@ class EditGroups extends React.Component {
                     <div>
 
 
-                        </div>
                     </div>
+                  </div>
 
                   <label className="label">Description</label>
                   <input
