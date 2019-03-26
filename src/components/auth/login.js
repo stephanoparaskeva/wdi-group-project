@@ -41,81 +41,53 @@ class Login extends React.Component {
   }
 
   render() {
+    console.log(this.state.data.email)
     return (
-      <div>
-        <div className="modal is-active">
-          <div className="modal-background"></div>
-          <div className="modal-card">
-            <header className="modal-card-head">
-              <p className="modal-card-title">Welcome!</p>
-              <button className="delete" aria-label="close" onClick={this.handleDone}></button>
-            </header>
-
-            <section className="modal-card-body">
-              <main className="section">
-                <div className="container is-fluid">
-                  <section className="hero is-primary">
-                    <div className="hero-body">
-                      <div className="container has-text-centered">
-                        <div className="column is-4 is-offset-1">
-                          <h3 className="title has-text-grey">Login</h3>
-                          <p className="subtitle has-text-grey">Please sign in to proceed.</p>
-                          <p className="subtitle has-text-blue">You are only one step away from organizing your life!</p>
-                          <div className="box">
-                            <form onSubmit={this.handleSubmit}>
-                              <div className="field">
-                                <div className="control">
-                                  <input
-                                    name="email"
-                                    className="input is-large"
-                                    type="email"
-                                    placeholder="Your Email"
-                                    value={this.state.data.email}
-                                    onChange={this.handleChange}
-                                    autoFocus=""/>
-                                </div>
-                              </div>
-
-                              <div className="field">
-                                <div className="control">
-                                  <input
-                                    className="input is-large"
-                                    type="password"
-                                    name="password"
-                                    placeholder="Password"
-                                    value={this.state.data.password}
-                                    onChange={this.handleChange}/>
-                                </div>
-                              </div>
-                              <button className="button is-block is-info is-large is-fullwidth">Login</button>
-                            </form>
-                          </div>
-                        </div>
-                      </div>
+      <section className="hero is-fullheight">
+        <div className="hero-body">
+          <div className="container has-text-centered">
+            <div className="column is-4 is-offset-4">
+              <h3 className="title has-text-grey">Organise</h3>
+              <p className="subtitle has-text-grey">Please login to proceed.</p>
+              <div className="box">
+                <form onSubmit={this.handleSubmit}>
+                  <div className="field">
+                    <div className="control">
+                      <input
+                        className="input is-large"
+                        type="email"
+                        placeholder="Your Email"
+                        name="email"
+                        value={this.state.data.email}
+                        onChange={this.handleChange}
+                        autoFocus=""
+                      />
                     </div>
-                  </section>
-                </div>
-              </main>
-            </section>
-
-            <footer className="modal-card-foot">
-              <button
-                className="button is-success"
-                onClick={this.handleDone}>Done
-              </button>
-              <button
-                className="button"
-                onClick={this.handleDone}>Cancel
-              </button>
+                  </div>
+                  <div className="field">
+                    <div className="control">
+                      <input
+                        className="input is-large"
+                        type="password"
+                        placeholder="Your Password"
+                        name="password"
+                        value={this.state.data.password}
+                        onChange={this.handleChange}
+                        autoFocus=""
+                      />
+                    </div>
+                  </div>
+                  <button className="button is-block is-info is-large is-fullwidth">Login</button>
+                </form>
+              </div>
               <p className="has-text-grey">
-                <a href="http://localhost:8000/register">Register Instead</a> &nbsp;·&nbsp;
+                <a href="/register">Sign Up</a> &nbsp;·&nbsp;
+                <a href="../">Forgot Password</a>
               </p>
-
-            </footer>
-
+            </div>
           </div>
         </div>
-      </div>
+      </section>
     )
   }
 }

@@ -34,7 +34,7 @@ const Nav = () => {
               </div>
             </div>
             <div className="navbar-end">
-              <a href="/register" className="navbar-item">Login/Register</a>
+              <a href="/login" className="navbar-item">Login/Register</a>
             </div>
             <div className="navbar-item has-dropdown is-hoverable">
               <a className="navbar-link">Account</a>
