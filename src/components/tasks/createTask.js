@@ -12,7 +12,7 @@ class CreateTask extends React.Component {
         name: '',
         description: '',
         priority: '',
-        category: '',
+        categoryAssigned: '',
         error: ''
       },
 
@@ -40,7 +40,7 @@ class CreateTask extends React.Component {
       headers: {Authorization: `Bearer ${Auth.getToken()}`}
     })
       .then(() => {
-        
+
         this.props.history.push(`/groups/${this.props.match.params.groupId}/tasks`)
         this.props.onFetchTasks()
         this.props.handleClick()
@@ -71,7 +71,7 @@ class CreateTask extends React.Component {
   }
 
   assignCategory(value) {
-    this.setState({category: value})
+    this.setState({categoryAssigned: value})
     this.toggleCategoryClick()
     console.log(value)
   }
@@ -142,7 +142,7 @@ class CreateTask extends React.Component {
               <div className={`dropdown ${this.state.categoryMenu}`}>
                 <div className="dropdown-trigger">
                   <button type="button" className="button" aria-haspopup="true" aria-controls="dropdown-menu" onClick={this.toggleCategoryClick}>
-                    <span>{this.state.category || 'Choose'}</span>
+                    <span>{this.state.categoryAssigned || 'Choose'}</span>
                     <span className="icon is-small">
                       <i className="fas fa-angle-down" aria-hidden="true"></i>
                     </span>
