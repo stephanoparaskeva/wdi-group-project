@@ -14,11 +14,11 @@ class EditGroups extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this)
   }
 
-  componentDidMount() {
-    axios.get(`/api/groups/${this.props.match.params.groupId}`)
-      .then(res => this.setState({ data: res.data }))
-      .catch(err => console.log(err.message))
-  }
+  // componentDidMount() {
+  //   axios.get(`/api/groups/${this.props.match.params.groupId}`)
+  //     .then(res => this.setState({ data: res.data }))
+  //     .catch(err => console.log(err.message))
+  // }
 
   handleChange({ target: { name, value }}) {
     const data = {...this.state.data, [name]: value }
@@ -60,20 +60,11 @@ class EditGroups extends React.Component {
                   <label className="label">Assign Users</label>
                   <div>
                     <div>
-                      {accepted && accepted.map((user, i) => (
-                        <div  key={i}>
-                          <a
-                            className="dropdown-item"
-                            onClick={(e) => {
-                              e.preventDefault()
-                              this.assignUsers(user._id)
-                            }}
-                          >{user.friend.username}
-                          </a>
+
+
                         </div>
-                      ))}
                     </div>
-                  </div>
+
                   <label className="label">Description</label>
                   <input
                     className="input"

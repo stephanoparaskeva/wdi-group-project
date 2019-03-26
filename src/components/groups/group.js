@@ -47,7 +47,7 @@ class Group extends React.Component {
   render() {
     console.log(this.state.edit)
     if (this.state.edit) {
-      <EditGroups />
+      return <EditGroups />
     }
     console.log(this.state.createdBy, 'createdBy')
     return(
