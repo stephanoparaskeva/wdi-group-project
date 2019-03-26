@@ -39,6 +39,7 @@ class Group extends React.Component {
           <CreateCategory groupId={this.props._id}>Create Category</CreateCategory>
         </div>
         <div className="card-footer">
+
           <a href="#" className="card-footer-item">Edit</a>
           <a href="#" className="card-footer-item">Delete</a>
         </div>
