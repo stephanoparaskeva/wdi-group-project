@@ -15,7 +15,7 @@ class EditGroups extends React.Component {
   }
 
   componentDidMount() {
-    axios.get(`/api/groups${this.props.match.params.id}`)
+    axios.get(`/api/groups/${this.props.match.params.groupId}`)
       .then(res => this.setState({ data: res.data }))
       .catch(err => console.log(err.message))
   }
@@ -27,7 +27,7 @@ class EditGroups extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault()
-    axios.put(`/api/groups${this.props.match.params.id}`,
+    axios.put(`/api/groups/${this.props.match.params.groupId}`,
       this.state.data,
       { headers: {Authorization: `Bearer ${Auth.getToken()}`}})
       .then(() => this.props.history.push('/groups'))

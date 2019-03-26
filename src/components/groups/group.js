@@ -52,7 +52,7 @@ class Group extends React.Component {
         </div>
         <div className="card-footer">
 
-          {this.isOwner() && <a href="{`/groups/${group._id}/edit`}" className="card-footer-item"><strong>Edit</strong></a>}
+          {this.isOwner() && <a href="{`/groups/${group.user._id}/edit`}" className="card-footer-item"><strong>Edit</strong></a>}
 
           {this.isOwner() && <a href="/groups" className="card-footer-item" onClick={this.handleDelete}><strong>Delete</strong></a>}
 
