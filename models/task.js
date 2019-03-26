@@ -14,7 +14,7 @@ const taskSchema = new mongoose.Schema({
   group: { type: mongoose.Schema.ObjectId, ref: 'Group'},
   description: { type: String },
   priority: { type: String },
-  usersAssinged: [{ type: mongoose.Schema.ObjectId, ref: 'User'}],
+  usersAssigned: [{ type: mongoose.Schema.ObjectId, ref: 'User'}],
   createdBy: { type: mongoose.Schema.ObjectId, ref: 'User' },
   categoryAssigned: { type: mongoose.Schema.ObjectId, ref: 'Category' },
   isCurrent: { type: Boolean },
