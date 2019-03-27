@@ -24,7 +24,6 @@ class Nav extends React.Component {
   }
 
   render() {
-    console.log(Auth.isAuthenticated())
     return(
       <nav className="navbar">
         <div className="container">
@@ -67,7 +66,7 @@ class Nav extends React.Component {
                   <a href="/invitefriends" className="navbar-item">Invite a friend</a>
                   <a href="/help" className="navbar-item">Help</a>
                   <hr className="navbar-divider" />
-                  <a className="navbar-item" onClick={Auth.logout}>Logout</a>
+                  <Link to="/" className="navbar-item" onClick={Auth.logout}>Logout</Link>
                 </div>
               </div>
               <div className="navbar-end">

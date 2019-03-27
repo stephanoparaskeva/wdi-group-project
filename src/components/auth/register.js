@@ -31,7 +31,7 @@ class Register extends React.Component {
 
   handleDone(e){
     e.preventDefault()
-    this.props.history.push('/')
+    this.props.history.push('/login')
   }
 
   handleChangeRadio() {
