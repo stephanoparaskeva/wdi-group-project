@@ -1,7 +1,7 @@
 import React from 'react'
 import 'bulma'
 import axios from 'axios'
-import Task from './task'
+import TaskIndexEdit from './taskIndexEdit'
 import CreateTask from './createTask'
 import Auth from '../../lib/auth'
 
@@ -51,7 +51,7 @@ class Tasks extends React.Component {
     console.log(this.props, 'props')
     return(
       <div>
-        {this.filterTask().map(task => <Task {...task} key={task._id} /> )}
+        {this.filterTask().map(task => <TaskIndexEdit {...task} key={task._id} /> )}
         <CreateTask {...this.props} onFetchTasks={this.fetchTasks} />
       </div>
     )

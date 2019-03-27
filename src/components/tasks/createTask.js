@@ -173,7 +173,7 @@ class CreateTask extends React.Component {
                       className="dropdown-item"
                       onClick={(e) => {
                         e.preventDefault()
-                        this.assignCategory(["5c9932da6c66107990de9029"])
+                        this.assignCategory(['5c9932da6c66107990de9029'])
                       }}
                     >
                       Category 1

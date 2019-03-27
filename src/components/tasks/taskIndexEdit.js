@@ -3,7 +3,7 @@ import 'bulma'
 import axios from 'axios'
 import Auth from '../../lib/auth'
 
-class Task extends React.Component {
+class TaskIndexEdit extends React.Component {
   constructor() {
     super()
 
@@ -203,4 +203,4 @@ class Task extends React.Component {
   }
 }
 
-export default Task
+export default TaskIndexEdit
