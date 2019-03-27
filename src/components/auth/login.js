@@ -51,17 +51,22 @@ class Login extends React.Component {
                 <form onSubmit={this.handleSubmit}>
                   <div className="field">
                     <div className="control">
-                      <input
-                        className="input is-large"
-                        type="email"
-                        placeholder="Your Email"
-                        name="email"
-                        value={this.state.data.email}
-                        onChange={this.handleChange}
-                        autoFocus=""
-                      />
+                      <label className="label">Email</label>
+                      <div class="control has-icons-left has-icons-right">
+                        <input className="input is-danger" type="email" placeholder="Email input" value="hello@">
+                        <span class="icon is-small is-left">
+                          <i class="fas fa-envelope"></i>
+                        </span>
+                        <span class="icon is-small is-right">
+                          <i class="fas fa-exclamation-triangle"></i>
+                        </span>
+                      </div>
+                      <p class="help is-danger">This email is invalid</p>
                     </div>
-                  </div>
+
+
+
+
                   <div className="field">
                     <div className="control">
                       <input
