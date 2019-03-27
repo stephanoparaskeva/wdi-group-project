@@ -4,16 +4,16 @@ import axios from 'axios'
 import Auth from '../../lib/auth'
 
 class TaskIndexEdit extends React.Component {
-  constructor() {
+  constructor(props) {
     super()
 
     this.state = {
       edit: false,
       data: {
-        name: '',
-        description: '',
-        priority: '',
-        categoryAssigned: '',
+        name: props.name,
+        description: props.description,
+        priority: props.priority,
+        categoryAssigned: props.categoryAssigned,
         error: ''
       },
 
@@ -30,10 +30,6 @@ class TaskIndexEdit extends React.Component {
     this.handleClick = this.handleClick.bind(this)
   }
 
-  componentDidMount() {
-    console.log('mounted')
-  }
-
   handleChange({ target: { name, value }}) {
     const data = {...this.state.data, [name]: value }
     const error = ''
@@ -42,13 +38,12 @@ class TaskIndexEdit extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault()
-    axios.put(`/api/groups/${this.props.match.params.groupId}/tasks/${this.props.match.params.taskId}`, this.state.data, {
+    axios.put(`/api/groups/${this.props.group}/tasks/${this.props._id}`, this.state.data, {
       headers: {Authorization: `Bearer ${Auth.getToken()}`}
     })
       .then(() => {
-        this.props.history.push(`/groups/${this.props.match.params.groupId}/tasks/${this.props.match.params.taskId}`)
         this.props.onFetchTasks()
-        this.props.handleClick()
+        this.handleClick()
       })
       .catch(err => console.log(err.message))
   }
@@ -62,7 +57,7 @@ class TaskIndexEdit extends React.Component {
   }
 
   assignPriority(value) {
-    this.setState({priority: value})
+    this.setState({ data: { ...this.state.data, priority: value }})
     this.togglePriorityClick()
     console.log('priority: ' + value)
   }
@@ -76,7 +71,7 @@ class TaskIndexEdit extends React.Component {
   }
 
   assignCategory(value) {
-    this.setState({categoryAssigned: value})
+    this.setState({ data: { ...this.state.data, categoryAssigned: value }})
     this.toggleCategoryClick()
     console.log('categoryAssigned: ' + value)
   }
@@ -88,6 +83,8 @@ class TaskIndexEdit extends React.Component {
 
   render() {
     if (this.state.edit) {
+      const categoryAssigned = this.props.categories.filter(category => category._id === this.state.data.categoryAssigned)
+      const categoryName = categoryAssigned.length > 0 ? categoryAssigned[0].name : 'Choose'
       return(
         <div className="card">
           <header className="card-header">
@@ -118,7 +115,7 @@ class TaskIndexEdit extends React.Component {
                 <div className="dropdown-trigger">
                   <h2>Priority</h2>
                   <button type="button" className="button" aria-haspopup="true" aria-controls="dropdown-menu" onClick={this.togglePriorityClick}>
-                    <span>{this.state.priority || 'Choose'}</span>
+                    <span>{this.state.data.priority || 'Choose'}</span>
                     <span className="icon is-small">
                       <i className="fas fa-angle-down" aria-hidden="true"></i>
                     </span>
@@ -156,11 +153,12 @@ class TaskIndexEdit extends React.Component {
                   </div>
                 </div>
               </div>
+
               <p>Catgeory:</p>
               <div className={`dropdown ${this.state.categoryMenu}`}>
                 <div className="dropdown-trigger">
                   <button type="button" className="button" aria-haspopup="true" aria-controls="dropdown-menu" onClick={this.toggleCategoryClick}>
-                    <span>{this.state.categoryAssigned || 'Choose'}</span>
+                    <span>{categoryName}</span>
                     <span className="icon is-small">
                       <i className="fas fa-angle-down" aria-hidden="true"></i>
                     </span>
@@ -168,27 +166,33 @@ class TaskIndexEdit extends React.Component {
                 </div>
                 <div className="dropdown-menu" id="dropdown-menu" role="menu">
                   <div className="dropdown-content">
-                    <a
-                      className="dropdown-item"
-                      onClick={(e) => {
-                        e.preventDefault()
-                        this.assignCategory('category 1')
-                      }}
-                    >
-                      Category 1
-                    </a>
+                    {this.props.categories.map(category =>
+                      <a
+                        key={category._id}
+                        className="dropdown-item"
+                        onClick={(e) => {
+                          e.preventDefault()
+                          this.assignCategory(category._id)
+                        }}
+                      >
+                        {category.name}
+                      </a>
+                    )}
                   </div>
                 </div>
               </div>
             </div>
           </div>
           <footer className="card-footer">
-            <a className="card-footer-item" name="edit" onClick={this.handleClick}>Save</a>
+            <a className="card-footer-item" name="edit" onClick={this.handleSubmit}>Save</a>
             <a href="#" className="card-footer-item">Delete</a>
           </footer>
         </div>
       )
     }
+
+    const categoryAssigned = this.props.categories.filter(category => category._id === this.props.categoryAssigned)
+    const categoryName = categoryAssigned.length > 0 ? categoryAssigned[0].name : 'choose'
 
     return(
       <div className="column is-one-third">
@@ -203,12 +207,16 @@ class TaskIndexEdit extends React.Component {
           <br />
           <p>{`Created by (Id): ${this.props.createdBy}`}</p>
           <p>{`Priority: ${this.props.priority}`}</p>
-          <p>{`Catgeory: ${this.props.categoryAssigned}`}</p>
+          <p>{`Category: ${categoryName}`}</p>
           <p><strong>Last comment:</strong></p>
-          <p className="is-italic">Title: {this.props.comments[0].name}</p>
-          <p className="is-italic">Comment: {this.props.comments[0].description}</p>
-          <p className="is-italic">CreatedBy: {this.props.comments[0].createdBy}</p>
-          <p className="is-italic">CreatedBy: {this.props.comments[0].createdAt}</p>
+          {this.props.comments > 0 && (
+            <div>
+              <p className="is-italic">Title: {this.props.comments[0].name}</p>
+              <p className="is-italic">Comment: {this.props.comments[0].description}</p>
+              <p className="is-italic">CreatedBy: {this.props.comments[0].createdBy}</p>
+              <p className="is-italic">CreatedBy: {this.props.comments[0].createdAt}</p>
+            </div>
+          )}
           <hr />
           <footer className="card-footer">
             <button className="button is-warning subtitle is-6 is-fullwidth" onClick={this.handleClick}>Edit</button>
