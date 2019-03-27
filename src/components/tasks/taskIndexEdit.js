@@ -93,17 +93,31 @@ class TaskIndexEdit extends React.Component {
         <div className="card">
           <header className="card-header">
             <p className="card-header-title">
-              <input type="text" value={this.props.name} />
+              <input
+                className="input"
+                name="name"
+                placeholder="Task Name"
+                value={this.state.data.name}
+                onChange={this.handleChange}
+              />
             </p>
           </header>
           <div className="card-content">
             <div className="content">
-              <p>{this.props.description}</p>
+              <p className="card-header-title">
+                <h2>Description</h2>
+                <input
+                  className="input"
+                  name="description"
+                  placeholder="Description"
+                  value={this.state.data.description}
+                  onChange={this.handleChange}
+                />
+              </p>
               <br />
-              <p>Created by: Jess</p>
-              <p>Priority</p>
               <div className={`dropdown ${this.state.priorityMenu}`}>
                 <div className="dropdown-trigger">
+                  <h2>Priority</h2>
                   <button type="button" className="button" aria-haspopup="true" aria-controls="dropdown-menu" onClick={this.togglePriorityClick}>
                     <span>{this.state.priority || 'Choose'}</span>
                     <span className="icon is-small">
@@ -191,7 +205,6 @@ class TaskIndexEdit extends React.Component {
             <p>Created by: Jess</p>
             <p>{`Priority: ${this.props.priority}`}</p>
             <p>{`Catgeory: ${this.props.categoryAssigned}`}</p>
-            <p>{`Group: ${this.props.group}`}</p>
           </div>
         </div>
         <footer className="card-footer">

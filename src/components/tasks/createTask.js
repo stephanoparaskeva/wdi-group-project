@@ -76,8 +76,6 @@ class CreateTask extends React.Component {
   }
 
   render() {
-    const accepted = this.state.accepted
-    console.log(accepted, 'accepted')
     return(
       <div className="card">
         <form>
@@ -92,30 +90,19 @@ class CreateTask extends React.Component {
               />
             </p>
           </header>
-          <label className="label">Assign Users</label>
-          <div>
-            <div>
-              {accepted && accepted.map((user, i) => (
-                <div  key={i}>
-                  <a
-                    className="dropdown-item"
-                    onClick={(e) => {
-                      e.preventDefault()
-                      this.assignUsers(user._id)
-                    }}
-                  >{user.friend.username}
-                  </a>
-                </div>
-              ))}
-            </div>
-          </div>
           <div className="card-content">
             <div className="content">
-              <p>{this.props.description}</p>
-              <br />
-              <p>Priority:</p>
+              <h4>Description</h4>
+              <input
+                className="input"
+                name="description"
+                placeholder="Description"
+                value={this.state.data.description}
+                onChange={this.handleChange}
+              />
               <div className={`dropdown ${this.state.priorityMenu}`}>
                 <div className="dropdown-trigger">
+                  <h5>Priority</h5>
                   <button type="button" className="button" aria-haspopup="true" aria-controls="dropdown-menu" onClick={this.togglePriorityClick}>
                     <span>{this.state.data.priority || 'Choose'}</span>
                     <span className="icon is-small">
@@ -156,7 +143,7 @@ class CreateTask extends React.Component {
                 </div>
               </div>
 
-              <p>Catgeory:</p>
+              <h5>Catgeory</h5>
               <div className={`dropdown ${this.state.categoryMenu}`}>
                 <div className="dropdown-trigger">
                   <button type="button" className="button" aria-haspopup="true" aria-controls="dropdown-menu" onClick={this.toggleCategoryClick}>
