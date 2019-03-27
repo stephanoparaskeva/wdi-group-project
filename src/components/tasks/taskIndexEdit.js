@@ -4,16 +4,16 @@ import axios from 'axios'
 import Auth from '../../lib/auth'
 
 class TaskIndexEdit extends React.Component {
-  constructor() {
+  constructor(props) {
     super()
 
     this.state = {
       edit: false,
       data: {
-        name: '',
-        description: '',
-        priority: '',
-        categoryAssigned: '',
+        name: props.name,
+        description: props.description,
+        priority: props.priority,
+        categoryAssigned: props.categoryAssigned,
         error: ''
       },
 

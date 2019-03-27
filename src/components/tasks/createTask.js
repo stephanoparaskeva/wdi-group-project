@@ -12,7 +12,7 @@ class CreateTask extends React.Component {
         name: '',
         description: '',
         priority: '',
-        categoryAssigned: {},
+        categoryAssigned: '',
         usersAssigned: [{ _id: Auth.getPayload().sub }]
       },
       accepted: [],
@@ -27,6 +27,7 @@ class CreateTask extends React.Component {
     this.toggleCategoryClick = this.toggleCategoryClick.bind(this)
     this.assignCategory = this.assignCategory.bind(this)
   }
+
 
   handleChange({ target: { name, value }}) {
     const data = {...this.state.data, [name]: value }
@@ -72,7 +73,12 @@ class CreateTask extends React.Component {
     this.setState({ data })
   }
 
-  //category assigned: filters the prop "categories" sent down from tasks. It then checks 
+  // categoryAssigned: filters the prop "categories" sent down from tasks. It then checks that the Id matches the state of
+  //   categoryAssigned (which is the category id assigned) which is set when a user clicks a category in the drop down and
+  //   returns an aray of that category if so.
+
+  //categoryName: checks that the length of the array is larger than zero to make sure we can get something. If so, we set
+  //    categoryName as the name of the first item in the category assigned array OR we display 'Choose'
 
   render() {
     const categoryAssigned = this.props.categories.filter(category => category._id === this.state.data.categoryAssigned)
