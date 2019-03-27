@@ -40,13 +40,8 @@ class Group extends React.Component {
           <CreateCategory groupId={this.props._id}>Create Category</CreateCategory>
         </div>
         <footer className="card-footer">
-
-
-
-          <button className="card-footer-item is-onethird" onClick={this.reRender}>Edit</button>
-
-          <button className="card-footer-item is-onethird" onClick={this.handleDelete}>Delete</button>
-
+            {this.isOwner() && <button className="card-footer-item is-onethird" onClick={this.reRender}>Edit</button>}
+            {this.isOwner() && <button className="card-footer-item is-onethird" onClick={this.handleDelete}>Delete</button>}
           <Link to={`/groups/${this.props._id}`} className="card-footer-item is-onethird">
             <strong>Tasks</strong>
           </Link>
