@@ -41,9 +41,8 @@ class CreateTask extends React.Component {
     })
       .then(() => {
 
-        this.props.history.push(`/groups/${this.props.match.params.groupId}/tasks`)
+        // this.props.history.push(`/groups/${this.props.match.params.groupId}/tasks`)
         this.props.onFetchTasks()
-        this.props.handleClick()
       })
       .catch(err => console.log(err.message))
   }

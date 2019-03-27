@@ -30,6 +30,10 @@ class Task extends React.Component {
     this.handleClick = this.handleClick.bind(this)
   }
 
+  componentDidMount() {
+    console.log('mounted')
+  }
+
   handleChange({ target: { name, value }}) {
     const data = {...this.state.data, [name]: value }
     const error = ''
@@ -83,6 +87,7 @@ class Task extends React.Component {
   }
 
   render() {
+    console.log('render')
     if (this.state.edit) {
       return(
         <div className="card">
