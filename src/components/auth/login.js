@@ -47,10 +47,12 @@ class Login extends React.Component {
             <div className="column is-4 is-offset-4">
               <h3 className="title has-text-grey">Organise</h3>
               <p className="subtitle has-text-grey">Please login to proceed.</p>
+
+
               <div className="box">
                 <form onSubmit={this.handleSubmit}>
                   <div className="field">
-                    <div className="control">
+                    <div className="control has-icons-left has-icons-right">
                       <input
                         className="input is-large"
                         type="email"
@@ -60,10 +62,17 @@ class Login extends React.Component {
                         onChange={this.handleChange}
                         autoFocus=""
                       />
+                      <span className="icon is-small is-left">
+                        <i className="fas fa-envelope"></i>
+                      </span>
+                      <span className="icon is-small is-right">
+                        <i className="fas fa-check"></i>
+                      </span>
                     </div>
                   </div>
+
                   <div className="field">
-                    <div className="control">
+                    <div className="control has-icons-left has-icons-right">
                       <input
                         className="input is-large"
                         type="password"
@@ -73,6 +82,12 @@ class Login extends React.Component {
                         onChange={this.handleChange}
                         autoFocus=""
                       />
+                      <span className="icon is-small is-left">
+                        <i className="fas fa-lock"></i>
+                      </span>
+                      <span className="icon is-small is-right">
+                        <i className="fas fa-check"></i>
+                      </span>
                     </div>
                   </div>
                   <button className="button is-block is-info is-large is-fullwidth">Login</button>

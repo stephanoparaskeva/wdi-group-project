@@ -65,53 +65,85 @@ class Register extends React.Component {
                 <h1 className="subtitle is-5">Welcome to Organise! To register, please fill in the fields below.</h1>
                 <br />
                 <div className="field">
-                  <label className="subtitle is-6">Username</label>
-                  <div className="control">
-                    <input
-                      className="input is-medium"
-                      name="username"
-                      placeholder="Username"
-                      value={this.state.data.username}
-                      onChange={this.handleChange}
-                    />
+                  <div className="control has-icons-left has-icons-right">
+                    <label className="subtitle is-6"><strong>Username</strong></label>
+                    <div className="control">
+                      <input
+                        className="input is-medium"
+                        name="username"
+                        placeholder="Username"
+                        value={this.state.data.username}
+                        onChange={this.handleChange}
+                      />
+                      <span className="icon is-small is-left">
+                        <i className="fas fa-user"></i>
+                      </span>
+                      <span className="icon is-small is-right">
+                        <i className="fas fa-check"></i>
+                      </span>
+                    </div>
                   </div>
                 </div>
                 <div className="field">
-                  <label className="subtitle is-6">Email</label>
-                  <div className="control">
-                    <input
-                      className="input is-medium"
-                      name="email"
-                      placeholder="Email"
-                      value={this.state.data.email}
-                      onChange={this.handleChange}
-                    />
+                  <div className="control has-icons-left has-icons-right">
+                    <label className="subtitle is-6"><strong>Email</strong></label>
+                    <div className="control">
+                      <input
+                        className="input is-medium"
+                        name="email"
+                        placeholder="Email"
+                        value={this.state.data.email}
+                        onChange={this.handleChange}
+                      />
+                      <span className="icon is-small is-left">
+                        <i className="fas fa-envelope"></i>
+                      </span>
+                      <span className="icon is-small is-right">
+                        <i className="fas fa-check"></i>
+                      </span>
+                    </div>
                   </div>
                 </div>
                 <div className="field">
-                  <label className="subtitle is-6">Password</label>
-                  <div className="control">
-                    <input
-                      className="input is-medium"
-                      name="password"
-                      type="password"
-                      placeholder="Password"
-                      value={this.state.data.password}
-                      onChange={this.handleChange}
-                    />
+                  <div className="control has-icons-left has-icons-right">
+                    <label className="subtitle is-6"><strong>Password</strong></label>
+                    <div className="control">
+                      <input
+                        className="input is-medium"
+                        name="password"
+                        type="password"
+                        placeholder="Password"
+                        value={this.state.data.password}
+                        onChange={this.handleChange}
+                      />
+                      <span className="icon is-small is-left">
+                        <i className="fas fa-lock"></i>
+                      </span>
+                      <span className="icon is-small is-right">
+                        <i className="fas fa-check"></i>
+                      </span>
+                    </div>
                   </div>
                 </div>
                 <div className="field">
-                  <label className="subtitle is-6">Password Confirmation</label>
-                  <div className="control">
-                    <input
-                      className="input is-medium"
-                      name="passwordConfirmation"
-                      type="password"
-                      placeholder="Password Confirmation"
-                      value={this.state.data.passwordConfirmation}
-                      onChange={this.handleChange}
-                    />
+                  <div className="control has-icons-left has-icons-right">
+                    <label className="subtitle is-6"><strong>Password Confirmation</strong></label>
+                    <div className="control">
+                      <input
+                        className="input is-medium"
+                        name="passwordConfirmation"
+                        type="password"
+                        placeholder="Password Confirmation"
+                        value={this.state.data.passwordConfirmation}
+                        onChange={this.handleChange}
+                      />
+                      <span className="icon is-small is-left">
+                        <i className="fas fa-lock"></i>
+                      </span>
+                      <span className="icon is-small is-right">
+                        <i className="fas fa-check"></i>
+                      </span>
+                    </div>
                   </div>
                   <br />
                   <div className="control">
