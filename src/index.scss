@@ -11,8 +11,13 @@ code {
     monospace;
 }
 
-nav {
+nav:not(.tasks-nav) {
   border-bottom: 1px solid #363636;
+  z-index: 100;
+}
+
+.tasks-nav .navbar-link:not(.is-arrowless)::after {
+  border-color: white;
 }
 
 img.logo {

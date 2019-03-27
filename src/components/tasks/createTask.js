@@ -84,105 +84,107 @@ class CreateTask extends React.Component {
     const categoryAssigned = this.props.categories.filter(category => category._id === this.state.data.categoryAssigned)
     const categoryName = categoryAssigned.length > 0 ? categoryAssigned[0].name : 'Choose'
     return(
-      <div className="card">
-        <form>
-          <header className="card-header">
-            <p className="card-header-title">
-              <input
-                className="input"
-                name="name"
-                placeholder="Task Name"
-                value={this.state.data.name}
-                onChange={this.handleChange}
-              />
-            </p>
-          </header>
-          <div className="card-content">
-            <div className="content">
-              <h4>Description</h4>
-              <input
-                className="input"
-                name="description"
-                placeholder="Description"
-                value={this.state.data.description}
-                onChange={this.handleChange}
-              />
-              <div className={`dropdown ${this.state.priorityMenu}`}>
-                <div className="dropdown-trigger">
-                  <h5>Priority</h5>
-                  <button type="button" className="button" aria-haspopup="true" aria-controls="dropdown-menu" onClick={this.togglePriorityClick}>
-                    <span>{this.state.data.priority || 'Choose'}</span>
-                    <span className="icon is-small">
-                      <i className="fas fa-angle-down" aria-hidden="true"></i>
-                    </span>
-                  </button>
-                </div>
-                <div className="dropdown-menu" id="dropdown-menu" role="menu">
-                  <div className="dropdown-content">
-                    <a
-                      className="dropdown-item"
-                      onClick={(e) => {
-                        e.preventDefault()
-                        this.assignPriority('high')
-                      }}
-                    >
-                      High
-                    </a>
-                    <a
-                      className="dropdown-item"
-                      onClick={(e) => {
-                        e.preventDefault()
-                        this.assignPriority('medium')
-                      }}
-                    >
-                      Medium
-                    </a>
-                    <a
-                      className="dropdown-item"
-                      onClick={(e) => {
-                        e.preventDefault()
-                        this.assignPriority('low')
-                      }}
-                    >
-                      Low
-                    </a>
+      <div className="column is-one-third">
+        <div className="card">
+          <form>
+            <header className="card-header">
+              <p className="card-header-title">
+                <input
+                  className="input"
+                  name="name"
+                  placeholder="Task Name"
+                  value={this.state.data.name}
+                  onChange={this.handleChange}
+                />
+              </p>
+            </header>
+            <div className="card-content">
+              <div className="content">
+                <h4>Description</h4>
+                <input
+                  className="input"
+                  name="description"
+                  placeholder="Description"
+                  value={this.state.data.description}
+                  onChange={this.handleChange}
+                />
+                <div className={`dropdown ${this.state.priorityMenu}`}>
+                  <div className="dropdown-trigger">
+                    <h5>Priority</h5>
+                    <button type="button" className="button" aria-haspopup="true" aria-controls="dropdown-menu" onClick={this.togglePriorityClick}>
+                      <span>{this.state.data.priority || 'Choose'}</span>
+                      <span className="icon is-small">
+                        <i className="fas fa-angle-down" aria-hidden="true"></i>
+                      </span>
+                    </button>
                   </div>
-                </div>
-              </div>
-
-              <h5>Catgeory</h5>
-              <div className={`dropdown ${this.state.categoryMenu}`}>
-                <div className="dropdown-trigger">
-                  <button type="button" className="button" aria-haspopup="true" aria-controls="dropdown-menu" onClick={this.toggleCategoryClick}>
-                    <span>{categoryName}</span>
-                    <span className="icon is-small">
-                      <i className="fas fa-angle-down" aria-hidden="true"></i>
-                    </span>
-                  </button>
-                </div>
-                <div className="dropdown-menu" id="dropdown-menu" role="menu">
-                  <div className="dropdown-content">
-                    {this.props.categories.map(category =>
+                  <div className="dropdown-menu" id="dropdown-menu" role="menu">
+                    <div className="dropdown-content">
                       <a
-                        key={category._id}
                         className="dropdown-item"
                         onClick={(e) => {
                           e.preventDefault()
-                          this.assignCategory(category._id)
+                          this.assignPriority('high')
                         }}
                       >
-                        {category.name}
+                        High
                       </a>
-                    )}
+                      <a
+                        className="dropdown-item"
+                        onClick={(e) => {
+                          e.preventDefault()
+                          this.assignPriority('medium')
+                        }}
+                      >
+                        Medium
+                      </a>
+                      <a
+                        className="dropdown-item"
+                        onClick={(e) => {
+                          e.preventDefault()
+                          this.assignPriority('low')
+                        }}
+                      >
+                        Low
+                      </a>
+                    </div>
+                  </div>
+                </div>
+
+                <h5>Catgeory</h5>
+                <div className={`dropdown ${this.state.categoryMenu}`}>
+                  <div className="dropdown-trigger">
+                    <button type="button" className="button" aria-haspopup="true" aria-controls="dropdown-menu" onClick={this.toggleCategoryClick}>
+                      <span>{categoryName}</span>
+                      <span className="icon is-small">
+                        <i className="fas fa-angle-down" aria-hidden="true"></i>
+                      </span>
+                    </button>
+                  </div>
+                  <div className="dropdown-menu" id="dropdown-menu" role="menu">
+                    <div className="dropdown-content">
+                      {this.props.categories.map(category =>
+                        <a
+                          key={category._id}
+                          className="dropdown-item"
+                          onClick={(e) => {
+                            e.preventDefault()
+                            this.assignCategory(category._id)
+                          }}
+                        >
+                          {category.name}
+                        </a>
+                      )}
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
-          </div>
-          <footer className="card-footer">
-            <a className="card-footer-item" onClick={this.handleSubmit}>Create</a>
-          </footer>
-        </form>
+            <footer className="card-footer">
+              <a className="card-footer-item" onClick={this.handleSubmit}>Create</a>
+            </footer>
+          </form>
+        </div>
       </div>
     )
   }

@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {Fragment} from 'react'
 import 'bulma'
 import axios from 'axios'
 import TaskIndexEdit from './taskIndexEdit'
@@ -37,42 +37,95 @@ class Tasks extends React.Component {
   }
 
   componentDidMount() {
-    console.log(this.props)
     this.fetchTasks()
     this.getFriends()
     this.fetchCategories()
   }
 
   fetchTasks() {
-    console.log('runs')
     axios.get(`/api/groups/${this.props.match.params.groupId}/tasks`, {
     })
       .then(res => this.setState({ tasks: res.data }))
   }
 
   filterTask() {
-    console.log(this.state.tasks, 'tasks')
-    return this.state.tasks.filter(task => task.group === this.props.match.params.groupId)
+    return this.state.tasks
+      .filter(task => task.group === this.props.match.params.groupId)
+      .filter(task => {
+        if (!this.state.selectedCategory) return true
+        console.log(task)
+        return this.state.selectedCategory === task.categoryAssigned
+      })
   }
 
   filterCategories() {
-    console.log(this.state.categories, 'categories')
     return this.state.categories.filter(category => category.group === this.props.match.params.groupId)
   }
 
   render() {
-    console.log(this.state.tasks, 'tasks')
     if(!this.state.tasks) return null
-    console.log(this.props, 'props')
+    const categoryAssigned = this.state.categories.filter(category => category._id === this.state.selectedCategory)
+    const categoryName = categoryAssigned.length > 0 ? categoryAssigned[0].name : 'All Categories'
     return(
-      <div className="container">
-        <div className="section">
-          <div className="columns is-multiline">
-            <CreateTask {...this.props} onFetchTasks={this.fetchTasks} categories={this.filterCategories()} />
-            {this.filterTask().map(task => <TaskIndexEdit {...task} categories={this.filterCategories()} key={task._id} onFetchTasks={this.fetchTasks} /> )}
+      <Fragment>
+        <nav className="navbar is-warning tasks-nav">
+          <div className="container">
+            <div className="navbar-item has-dropdown is-hoverable">
+              <a className="navbar-link">
+                {categoryName}
+              </a>
+              <div className="navbar-dropdown">
+                <a
+                  onClick={() => this.setState({ selectedCategory: null })}
+                  className="navbar-item">
+                  All Categories
+                </a>
+                {this.filterCategories().map(category =>
+                  <a
+                    onClick={() => this.setState({ selectedCategory: category._id })}
+                    key={category._id}
+                    className="navbar-item">
+                    {category.name}
+                  </a>
+                )}
+              </div>
+            </div>
+            <div className="navbar-item has-dropdown is-hoverable">
+              <a className="navbar-link">
+                Your Priorities
+              </a>
+              <div className="navbar-dropdown">
+                <a className="navbar-item">
+                  High
+                </a>
+                <a className="navbar-item">
+                  Medium
+                </a>
+                <a className="navbar-item">
+                  Low
+                </a>
+              </div>
+            </div>
+          </div>
+        </nav>
+        <section className="hero">
+          <div className="hero-body">
+            <div className="container has-text-centered">
+              <h1 className="title">
+                {categoryName}
+              </h1>
+            </div>
+          </div>
+        </section>
+        <div className="container">
+          <div className="section">
+            <div className="columns is-multiline">
+              <CreateTask {...this.props} onFetchTasks={this.fetchTasks} categories={this.filterCategories()} />
+              {this.filterTask().map(task => <TaskIndexEdit {...task} categories={this.filterCategories()} key={task._id} onFetchTasks={this.fetchTasks} /> )}
+            </div>
           </div>
         </div>
-      </div>
+      </Fragment>
     )
   }
 }
