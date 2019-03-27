@@ -11,11 +11,14 @@ class Tasks extends React.Component {
 
     this.state = {
       tasks: [],
-      accepted: []
+      accepted: [],
+      categories: []
     }
 
     this.filterTask = this.filterTask.bind(this)
+    this.filterCategories = this.filterCategories.bind(this)
     this.fetchTasks = this.fetchTasks.bind(this)
+    this.fetchCategories = this.fetchCategories.bind(this)
     this.getFriends = this.getFriends.bind(this)
   }
 
@@ -27,10 +30,17 @@ class Tasks extends React.Component {
       .then(accepted => this.setState({ accepted }))
   }
 
+  fetchCategories() {
+    axios
+      .get(`/api/groups/${this.props.match.params.groupId}/categories`)
+      .then(res => this.setState({ categories: res.data }))
+  }
+
   componentDidMount() {
     console.log(this.props)
     this.fetchTasks()
     this.getFriends()
+    this.fetchCategories()
   }
 
   fetchTasks() {
@@ -45,6 +55,11 @@ class Tasks extends React.Component {
     return this.state.tasks.filter(task => task.group === this.props.match.params.groupId)
   }
 
+  filterCategories() {
+    console.log(this.state.categories, 'categories')
+    return this.state.categories.filter(category => category.group === this.props.match.params.groupId)
+  }
+
   render() {
     console.log(this.state.tasks, 'tasks')
     if(!this.state.tasks) return null
@@ -53,8 +68,8 @@ class Tasks extends React.Component {
       <div className="container">
         <div className="section">
           <div className="columns is-multiline">
-            {this.filterTask().map(task => <TaskIndexEdit {...task} key={task._id} onFetchTasks={this.fetchTasks} /> )}
-            <CreateTask {...this.props} onFetchTasks={this.fetchTasks} />
+            {this.filterTask().map(task => <TaskIndexEdit {...task} categories={this.filterCategories()} key={task._id} onFetchTasks={this.fetchTasks} /> )}
+            <CreateTask {...this.props} onFetchTasks={this.fetchTasks} categories={this.filterCategories()} />
           </div>
         </div>
       </div>

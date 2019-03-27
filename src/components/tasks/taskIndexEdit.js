@@ -83,6 +83,8 @@ class TaskIndexEdit extends React.Component {
 
   render() {
     if (this.state.edit) {
+      const categoryAssigned = this.props.categories.filter(category => category._id === this.state.data.categoryAssigned)
+      const categoryName = categoryAssigned.length > 0 ? categoryAssigned[0].name : 'Choose'
       return(
         <div className="card">
           <header className="card-header">
@@ -151,11 +153,12 @@ class TaskIndexEdit extends React.Component {
                   </div>
                 </div>
               </div>
+
               <p>Catgeory:</p>
               <div className={`dropdown ${this.state.categoryMenu}`}>
                 <div className="dropdown-trigger">
                   <button type="button" className="button" aria-haspopup="true" aria-controls="dropdown-menu" onClick={this.toggleCategoryClick}>
-                    <span>{this.state.data.categoryAssigned || 'Choose'}</span>
+                    <span>{categoryName}</span>
                     <span className="icon is-small">
                       <i className="fas fa-angle-down" aria-hidden="true"></i>
                     </span>
@@ -163,15 +166,18 @@ class TaskIndexEdit extends React.Component {
                 </div>
                 <div className="dropdown-menu" id="dropdown-menu" role="menu">
                   <div className="dropdown-content">
-                    <a
-                      className="dropdown-item"
-                      onClick={(e) => {
-                        e.preventDefault()
-                        this.assignCategory(['5c9932da6c66107990de9029'])
-                      }}
-                    >
-                      Category 1
-                    </a>
+                    {this.props.categories.map(category =>
+                      <a
+                        key={category._id}
+                        className="dropdown-item"
+                        onClick={(e) => {
+                          e.preventDefault()
+                          this.assignCategory(category._id)
+                        }}
+                      >
+                        {category.name}
+                      </a>
+                    )}
                   </div>
                 </div>
               </div>
@@ -184,6 +190,9 @@ class TaskIndexEdit extends React.Component {
         </div>
       )
     }
+
+    const categoryAssigned = this.props.categories.filter(category => category._id === this.props.categoryAssigned)
+    const categoryName = categoryAssigned.length > 0 ? categoryAssigned[0].name : 'choose'
 
     return(
       <div className="column is-one-third">
@@ -198,7 +207,7 @@ class TaskIndexEdit extends React.Component {
           <br />
           <p>{`Created by (Id): ${this.props.createdBy}`}</p>
           <p>{`Priority: ${this.props.priority}`}</p>
-          <p>{`Catgeory: ${this.props.categoryAssigned}`}</p>
+          <p>{`Category: ${categoryName}`}</p>
           <p><strong>Last comment:</strong></p>
           {this.props.comments > 0 && (
             <div>

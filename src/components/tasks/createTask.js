@@ -35,13 +35,10 @@ class CreateTask extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault()
-    console.log(this.state.data)
     axios.post(`/api/groups/${this.props.match.params.groupId}/tasks`, this.state.data, {
       headers: {Authorization: `Bearer ${Auth.getToken()}`}
     })
       .then(() => {
-
-        // this.props.history.push(`/groups/${this.props.match.params.groupId}/tasks`)
         this.props.onFetchTasks()
       })
       .catch(err => console.log(err.message))
@@ -75,7 +72,11 @@ class CreateTask extends React.Component {
     this.setState({ data })
   }
 
+  //category assigned: filters the prop "categories" sent down from tasks. It then checks 
+
   render() {
+    const categoryAssigned = this.props.categories.filter(category => category._id === this.state.data.categoryAssigned)
+    const categoryName = categoryAssigned.length > 0 ? categoryAssigned[0].name : 'Choose'
     return(
       <div className="card">
         <form>
@@ -147,8 +148,7 @@ class CreateTask extends React.Component {
               <div className={`dropdown ${this.state.categoryMenu}`}>
                 <div className="dropdown-trigger">
                   <button type="button" className="button" aria-haspopup="true" aria-controls="dropdown-menu" onClick={this.toggleCategoryClick}>
-                    <span>{this.state.data.categoryAssigned.name || 'Choose'}</span>
-                    <span>{this.state.categoryAssigned || 'Choose'}</span>
+                    <span>{categoryName}</span>
                     <span className="icon is-small">
                       <i className="fas fa-angle-down" aria-hidden="true"></i>
                     </span>
@@ -156,15 +156,18 @@ class CreateTask extends React.Component {
                 </div>
                 <div className="dropdown-menu" id="dropdown-menu" role="menu">
                   <div className="dropdown-content">
-                    <a
-                      className="dropdown-item"
-                      onClick={(e) => {
-                        e.preventDefault()
-                        this.assignCategory(['5c9932da6c66107990de9029'])
-                      }}
-                    >
-                      Category 1
-                    </a>
+                    {this.props.categories.map(category =>
+                      <a
+                        key={category._id}
+                        className="dropdown-item"
+                        onClick={(e) => {
+                          e.preventDefault()
+                          this.assignCategory(category._id)
+                        }}
+                      >
+                        {category.name}
+                      </a>
+                    )}
                   </div>
                 </div>
               </div>
