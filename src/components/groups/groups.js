@@ -50,10 +50,10 @@ class Groups extends React.Component {
       <div className="container">
         <div className="section">
           <div className="columns is-multiline">
+            <CreateGroup rerender={this.childRerendersPage}/>
             {this.state.groups.map(group =>
               <Group {...group} key={group._id} rerender={this.childRerendersPage} />
             )}
-            <CreateGroup rerender={this.childRerendersPage}/>
           </div>
         </div>
       </div>
