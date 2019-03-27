@@ -50,9 +50,13 @@ class Tasks extends React.Component {
     if(!this.state.tasks) return null
     console.log(this.props, 'props')
     return(
-      <div>
-        {this.filterTask().map(task => <TaskIndexEdit {...task} key={task._id} /> )}
-        <CreateTask {...this.props} onFetchTasks={this.fetchTasks} />
+      <div className="container">
+        <div className="section">
+          <div className="columns is-multiline">
+            {this.filterTask().map(task => <TaskIndexEdit {...task} key={task._id} /> )}
+            <CreateTask {...this.props} onFetchTasks={this.fetchTasks} />
+          </div>
+        </div>
       </div>
     )
   }

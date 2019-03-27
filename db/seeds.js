@@ -224,816 +224,815 @@ mongoose.connect(dbURI, { useNewUrlParser: true }, (err, db) => {
     })
     .then(data => {
       const [ categories, groups, users ] = data
-      const random = Math.floor(Math.random()*3)
       return Task.create([
         {
           name: 'Name that super task',
           description: 'Decription of a great thing that needs doing',
           priority: 'High',
-          usersAssigned: users[random],
-          createdBy: users[random],
-          group: groups[random],
+          usersAssigned: users[Math.floor(Math.random()*4)],
+          createdBy: users[Math.floor(Math.random()*4)],
+          group: groups[Math.floor(Math.random()*4)],
           isCurrent: true,
-          category: categories[random],
+          categoryAssigned: categories[Math.floor(Math.random()*4)],
           comments: [{
             name: 'Comment Name',
             description: 'Some comment description',
-            createdBy: users[random]
+            createdBy: users[Math.floor(Math.random()*4)]
           }]
         },
         {
           name: 'Name that super task',
           description: 'Decription of a great thing that needs doing',
           priority: 'High',
-          usersAssigned: users[random],
-          createdBy: users[random],
-          group: groups[random],
+          usersAssigned: users[Math.floor(Math.random()*4)],
+          createdBy: users[Math.floor(Math.random()*4)],
+          group: groups[Math.floor(Math.random()*4)],
           isCurrent: true,
-          category: categories[random],
+          categoryAssigned: categories[Math.floor(Math.random()*4)],
           comments: [{
             name: 'Comment Name',
             description: 'Some comment description',
-            createdBy: users[random]
+            createdBy: users[Math.floor(Math.random()*4)]
           }]
         },
         {
           name: 'Name that super task',
           description: 'Decription of a great thing that needs doing',
           priority: 'High',
-          usersAssigned: users[random],
-          createdBy: users[random],
-          group: groups[random],
+          usersAssigned: users[Math.floor(Math.random()*4)],
+          createdBy: users[Math.floor(Math.random()*4)],
+          group: groups[Math.floor(Math.random()*4)],
           isCurrent: true,
-          category: categories[random],
+          categoryAssigned: categories[Math.floor(Math.random()*4)],
           comments: [{
             name: 'Comment Name',
             description: 'Some comment description',
-            createdBy: users[random]
+            createdBy: users[Math.floor(Math.random()*4)]
           }]
         },
         {
           name: 'Name that super task',
           description: 'Decription of a great thing that needs doing',
           priority: 'Medium',
-          usersAssigned: users[random],
-          createdBy: users[random],
-          group: groups[random],
+          usersAssigned: users[Math.floor(Math.random()*4)],
+          createdBy: users[Math.floor(Math.random()*4)],
+          group: groups[Math.floor(Math.random()*4)],
           isCurrent: true,
-          category: categories[random],
+          categoryAssigned: categories[Math.floor(Math.random()*4)],
           comments: [{
             name: 'Comment Name',
             description: 'Some comment description',
-            createdBy: users[random]
+            createdBy: users[Math.floor(Math.random()*4)]
           }]
         },
         {
           name: 'Name that super task',
           description: 'Decription of a great thing that needs doing',
           priority: 'Medium',
-          usersAssigned: users[random],
-          createdBy: users[random],
-          group: groups[random],
+          usersAssigned: users[Math.floor(Math.random()*4)],
+          createdBy: users[Math.floor(Math.random()*4)],
+          group: groups[Math.floor(Math.random()*4)],
           isCurrent: true,
-          category: categories[random],
+          categoryAssigned: categories[Math.floor(Math.random()*4)],
           comments: [{
             name: 'Comment Name',
             description: 'Some comment description',
-            createdBy: users[random]
+            createdBy: users[Math.floor(Math.random()*4)]
           }]
         },
         {
           name: 'Name that super task',
           description: 'Decription of a great thing that needs doing',
           priority: 'Medium',
-          usersAssigned: users[random],
-          createdBy: users[random],
-          group: groups[random],
+          usersAssigned: users[Math.floor(Math.random()*4)],
+          createdBy: users[Math.floor(Math.random()*4)],
+          group: groups[Math.floor(Math.random()*4)],
           isCurrent: true,
-          category: categories[random],
+          categoryAssigned: categories[Math.floor(Math.random()*4)],
           comments: [{
             name: 'Comment Name',
             description: 'Some comment description',
-            createdBy: users[random]
+            createdBy: users[Math.floor(Math.random()*4)]
           }]
         },
         {
           name: 'Name that super task',
           description: 'Decription of a great thing that needs doing',
           priority: 'Low',
-          usersAssigned: users[random],
-          createdBy: users[random],
-          group: groups[random],
+          usersAssigned: users[Math.floor(Math.random()*4)],
+          createdBy: users[Math.floor(Math.random()*4)],
+          group: groups[Math.floor(Math.random()*4)],
           isCurrent: true,
-          category: categories[random],
+          categoryAssigned: categories[Math.floor(Math.random()*4)],
           comments: [{
             name: 'Comment Name',
             description: 'Some comment description',
-            createdBy: users[random]
+            createdBy: users[Math.floor(Math.random()*4)]
           }]
         },
         {
           name: 'Name that super task',
           description: 'Decription of a great thing that needs doing',
           priority: 'Low',
-          usersAssigned: users[random],
-          createdBy: users[random],
-          group: groups[random],
+          usersAssigned: users[Math.floor(Math.random()*4)],
+          createdBy: users[Math.floor(Math.random()*4)],
+          group: groups[Math.floor(Math.random()*4)],
           isCurrent: true,
-          category: categories[random],
+          categoryAssigned: categories[Math.floor(Math.random()*4)],
           comments: [{
             name: 'Comment Name',
             description: 'Some comment description',
-            createdBy: users[random]
+            createdBy: users[Math.floor(Math.random()*4)]
           }]
         },
         {
           name: 'Name that super task',
           description: 'Decription of a great thing that needs doing',
           priority: 'Low',
-          usersAssigned: users[random],
-          createdBy: users[random],
-          group: groups[random],
+          usersAssigned: users[Math.floor(Math.random()*4)],
+          createdBy: users[Math.floor(Math.random()*4)],
+          group: groups[Math.floor(Math.random()*4)],
           isCurrent: true,
-          category: categories[random],
+          categoryAssigned: categories[Math.floor(Math.random()*4)],
           comments: [{
             name: 'Comment Name',
             description: 'Some comment description',
-            createdBy: users[random]
+            createdBy: users[Math.floor(Math.random()*4)]
           }]
         },
         {
           name: 'Name that super task',
           description: 'Decription of a great thing that needs doing',
           priority: 'High',
-          usersAssigned: users[random],
-          createdBy: users[random],
-          group: groups[random],
+          usersAssigned: users[Math.floor(Math.random()*4)],
+          createdBy: users[Math.floor(Math.random()*4)],
+          group: groups[Math.floor(Math.random()*4)],
           isCurrent: true,
-          category: categories[random],
+          categoryAssigned: categories[Math.floor(Math.random()*4)],
           comments: [{
             name: 'Comment Name',
             description: 'Some comment description',
-            createdBy: users[random]
+            createdBy: users[Math.floor(Math.random()*4)]
           }]
         },
         {
           name: 'Name that super task',
           description: 'Decription of a great thing that needs doing',
           priority: 'High',
-          usersAssigned: users[random],
-          createdBy: users[random],
-          group: groups[random],
+          usersAssigned: users[Math.floor(Math.random()*4)],
+          createdBy: users[Math.floor(Math.random()*4)],
+          group: groups[Math.floor(Math.random()*4)],
           isCurrent: true,
-          category: categories[random],
+          categoryAssigned: categories[Math.floor(Math.random()*4)],
           comments: [{
             name: 'Comment Name',
             description: 'Some comment description',
-            createdBy: users[random]
+            createdBy: users[Math.floor(Math.random()*4)]
           }]
         },
         {
           name: 'Name that super task',
           description: 'Decription of a great thing that needs doing',
           priority: 'High',
-          usersAssigned: users[random],
-          createdBy: users[random],
-          group: groups[random],
+          usersAssigned: users[Math.floor(Math.random()*4)],
+          createdBy: users[Math.floor(Math.random()*4)],
+          group: groups[Math.floor(Math.random()*4)],
           isCurrent: true,
-          category: categories[random],
+          categoryAssigned: categories[Math.floor(Math.random()*4)],
           comments: [{
             name: 'Comment Name',
             description: 'Some comment description',
-            createdBy: users[random]
+            createdBy: users[Math.floor(Math.random()*4)]
           }]
         },
         {
           name: 'Name that super task',
           description: 'Decription of a great thing that needs doing',
           priority: 'Medium',
-          usersAssigned: users[random],
-          createdBy: users[random],
-          group: groups[random],
+          usersAssigned: users[Math.floor(Math.random()*4)],
+          createdBy: users[Math.floor(Math.random()*4)],
+          group: groups[Math.floor(Math.random()*4)],
           isCurrent: true,
-          category: categories[random],
+          categoryAssigned: categories[Math.floor(Math.random()*4)],
           comments: [{
             name: 'Comment Name',
             description: 'Some comment description',
-            createdBy: users[random]
+            createdBy: users[Math.floor(Math.random()*4)]
           }]
         },
         {
           name: 'Name that super task',
           description: 'Decription of a great thing that needs doing',
           priority: 'Medium',
-          usersAssigned: users[random],
-          createdBy: users[random],
-          group: groups[random],
+          usersAssigned: users[Math.floor(Math.random()*4)],
+          createdBy: users[Math.floor(Math.random()*4)],
+          group: groups[Math.floor(Math.random()*4)],
           isCurrent: true,
-          category: categories[random],
+          categoryAssigned: categories[Math.floor(Math.random()*4)],
           comments: [{
             name: 'Comment Name',
             description: 'Some comment description',
-            createdBy: users[random]
+            createdBy: users[Math.floor(Math.random()*4)]
           }]
         },
         {
           name: 'Name that super task',
           description: 'Decription of a great thing that needs doing',
           priority: 'Medium',
-          usersAssigned: users[random],
-          createdBy: users[random],
-          group: groups[random],
+          usersAssigned: users[Math.floor(Math.random()*4)],
+          createdBy: users[Math.floor(Math.random()*4)],
+          group: groups[Math.floor(Math.random()*4)],
           isCurrent: true,
-          category: categories[random],
+          categoryAssigned: categories[Math.floor(Math.random()*4)],
           comments: [{
             name: 'Comment Name',
             description: 'Some comment description',
-            createdBy: users[random]
+            createdBy: users[Math.floor(Math.random()*4)]
           }]
         },
         {
           name: 'Name that super task',
           description: 'Decription of a great thing that needs doing',
           priority: 'Low',
-          usersAssigned: users[random],
-          createdBy: users[random],
-          group: groups[random],
+          usersAssigned: users[Math.floor(Math.random()*4)],
+          createdBy: users[Math.floor(Math.random()*4)],
+          group: groups[Math.floor(Math.random()*4)],
           isCurrent: true,
-          category: categories[random],
+          categoryAssigned: categories[Math.floor(Math.random()*4)],
           comments: [{
             name: 'Comment Name',
             description: 'Some comment description',
-            createdBy: users[random]
+            createdBy: users[Math.floor(Math.random()*4)]
           }]
         },
         {
           name: 'Name that super task',
           description: 'Decription of a great thing that needs doing',
           priority: 'Low',
-          usersAssigned: users[random],
-          createdBy: users[random],
-          group: groups[random],
+          usersAssigned: users[Math.floor(Math.random()*4)],
+          createdBy: users[Math.floor(Math.random()*4)],
+          group: groups[Math.floor(Math.random()*4)],
           isCurrent: true,
-          category: categories[random],
+          categoryAssigned: categories[Math.floor(Math.random()*4)],
           comments: [{
             name: 'Comment Name',
             description: 'Some comment description',
-            createdBy: users[random]
+            createdBy: users[Math.floor(Math.random()*4)]
           }]
         },
         {
           name: 'Name that super task',
           description: 'Decription of a great thing that needs doing',
           priority: 'Low',
-          usersAssigned: users[random],
-          createdBy: users[random],
-          group: groups[random],
+          usersAssigned: users[Math.floor(Math.random()*4)],
+          createdBy: users[Math.floor(Math.random()*4)],
+          group: groups[Math.floor(Math.random()*4)],
           isCurrent: true,
-          category: categories[random],
+          categoryAssigned: categories[Math.floor(Math.random()*4)],
           comments: [{
             name: 'Comment Name',
             description: 'Some comment description',
-            createdBy: users[random]
+            createdBy: users[Math.floor(Math.random()*4)]
           }]
         },
         {
           name: 'Name that super task',
           description: 'Decription of a great thing that needs doing',
           priority: 'High',
-          usersAssigned: users[random],
-          createdBy: users[random],
-          group: groups[random],
+          usersAssigned: users[Math.floor(Math.random()*4)],
+          createdBy: users[Math.floor(Math.random()*4)],
+          group: groups[Math.floor(Math.random()*4)],
           isCurrent: true,
-          category: categories[random],
+          categoryAssigned: categories[Math.floor(Math.random()*4)],
           comments: [{
             name: 'Comment Name',
             description: 'Some comment description',
-            createdBy: users[random]
+            createdBy: users[Math.floor(Math.random()*4)]
           }]
         },
         {
           name: 'Name that super task',
           description: 'Decription of a great thing that needs doing',
           priority: 'High',
-          usersAssigned: users[random],
-          createdBy: users[random],
-          group: groups[random],
+          usersAssigned: users[Math.floor(Math.random()*4)],
+          createdBy: users[Math.floor(Math.random()*4)],
+          group: groups[Math.floor(Math.random()*4)],
           isCurrent: true,
-          category: categories[random],
+          categoryAssigned: categories[Math.floor(Math.random()*4)],
           comments: [{
             name: 'Comment Name',
             description: 'Some comment description',
-            createdBy: users[random]
+            createdBy: users[Math.floor(Math.random()*4)]
           }]
         },
         {
           name: 'Name that super task',
           description: 'Decription of a great thing that needs doing',
           priority: 'High',
-          usersAssigned: users[random],
-          createdBy: users[random],
-          group: groups[random],
+          usersAssigned: users[Math.floor(Math.random()*4)],
+          createdBy: users[Math.floor(Math.random()*4)],
+          group: groups[Math.floor(Math.random()*4)],
           isCurrent: true,
-          category: categories[random],
+          categoryAssigned: categories[Math.floor(Math.random()*4)],
           comments: [{
             name: 'Comment Name',
             description: 'Some comment description',
-            createdBy: users[random]
+            createdBy: users[Math.floor(Math.random()*4)]
           }]
         },
         {
           name: 'Name that super task',
           description: 'Decription of a great thing that needs doing',
           priority: 'Medium',
-          usersAssigned: users[random],
-          createdBy: users[random],
-          group: groups[random],
+          usersAssigned: users[Math.floor(Math.random()*4)],
+          createdBy: users[Math.floor(Math.random()*4)],
+          group: groups[Math.floor(Math.random()*4)],
           isCurrent: true,
-          category: categories[random],
+          categoryAssigned: categories[Math.floor(Math.random()*4)],
           comments: [{
             name: 'Comment Name',
             description: 'Some comment description',
-            createdBy: users[random]
+            createdBy: users[Math.floor(Math.random()*4)]
           }]
         },
         {
           name: 'Name that super task',
           description: 'Decription of a great thing that needs doing',
           priority: 'Medium',
-          usersAssigned: users[random],
-          createdBy: users[random],
-          group: groups[random],
+          usersAssigned: users[Math.floor(Math.random()*4)],
+          createdBy: users[Math.floor(Math.random()*4)],
+          group: groups[Math.floor(Math.random()*4)],
           isCurrent: true,
-          category: categories[random],
+          categoryAssigned: categories[Math.floor(Math.random()*4)],
           comments: [{
             name: 'Comment Name',
             description: 'Some comment description',
-            createdBy: users[random]
+            createdBy: users[Math.floor(Math.random()*4)]
           }]
         },
         {
           name: 'Name that super task',
           description: 'Decription of a great thing that needs doing',
           priority: 'Medium',
-          usersAssigned: users[random],
-          createdBy: users[random],
-          group: groups[random],
+          usersAssigned: users[Math.floor(Math.random()*4)],
+          createdBy: users[Math.floor(Math.random()*4)],
+          group: groups[Math.floor(Math.random()*4)],
           isCurrent: true,
-          category: categories[random],
+          categoryAssigned: categories[Math.floor(Math.random()*4)],
           comments: [{
             name: 'Comment Name',
             description: 'Some comment description',
-            createdBy: users[random]
+            createdBy: users[Math.floor(Math.random()*4)]
           }]
         },
         {
           name: 'Name that super task',
           description: 'Decription of a great thing that needs doing',
           priority: 'Low',
-          usersAssigned: users[random],
-          createdBy: users[random],
-          group: groups[random],
+          usersAssigned: users[Math.floor(Math.random()*4)],
+          createdBy: users[Math.floor(Math.random()*4)],
+          group: groups[Math.floor(Math.random()*4)],
           isCurrent: true,
-          category: categories[random],
+          categoryAssigned: categories[Math.floor(Math.random()*4)],
           comments: [{
             name: 'Comment Name',
             description: 'Some comment description',
-            createdBy: users[random]
+            createdBy: users[Math.floor(Math.random()*4)]
           }]
         },
         {
           name: 'Name that super task',
           description: 'Decription of a great thing that needs doing',
           priority: 'Low',
-          usersAssigned: users[random],
-          createdBy: users[random],
-          group: groups[random],
+          usersAssigned: users[Math.floor(Math.random()*4)],
+          createdBy: users[Math.floor(Math.random()*4)],
+          group: groups[Math.floor(Math.random()*4)],
           isCurrent: true,
-          category: categories[random],
+          categoryAssigned: categories[Math.floor(Math.random()*4)],
           comments: [{
             name: 'Comment Name',
             description: 'Some comment description',
-            createdBy: users[random]
+            createdBy: users[Math.floor(Math.random()*4)]
           }]
         },
         {
           name: 'Name that super task',
           description: 'Decription of a great thing that needs doing',
           priority: 'Low',
-          usersAssigned: users[random],
-          createdBy: users[random],
-          group: groups[random],
+          usersAssigned: users[Math.floor(Math.random()*4)],
+          createdBy: users[Math.floor(Math.random()*4)],
+          group: groups[Math.floor(Math.random()*4)],
           isCurrent: true,
-          category: categories[random],
+          categoryAssigned: categories[Math.floor(Math.random()*4)],
           comments: [{
             name: 'Comment Name',
             description: 'Some comment description',
-            createdBy: users[random]
+            createdBy: users[Math.floor(Math.random()*4)]
           }]
         },
         {
           name: 'Name that super task',
           description: 'Decription of a great thing that needs doing',
           priority: 'High',
-          usersAssigned: users[random],
-          createdBy: users[random],
-          group: groups[random],
+          usersAssigned: users[Math.floor(Math.random()*4)],
+          createdBy: users[Math.floor(Math.random()*4)],
+          group: groups[Math.floor(Math.random()*4)],
           isCurrent: true,
-          category: categories[random],
+          categoryAssigned: categories[Math.floor(Math.random()*4)],
           comments: [{
             name: 'Comment Name',
             description: 'Some comment description',
-            createdBy: users[random]
+            createdBy: users[Math.floor(Math.random()*4)]
           }]
         },
         {
           name: 'Name that super task',
           description: 'Decription of a great thing that needs doing',
           priority: 'High',
-          usersAssigned: users[random],
-          createdBy: users[random],
-          group: groups[random],
+          usersAssigned: users[Math.floor(Math.random()*4)],
+          createdBy: users[Math.floor(Math.random()*4)],
+          group: groups[Math.floor(Math.random()*4)],
           isCurrent: true,
-          category: categories[random],
+          categoryAssigned: categories[Math.floor(Math.random()*4)],
           comments: [{
             name: 'Comment Name',
             description: 'Some comment description',
-            createdBy: users[random]
+            createdBy: users[Math.floor(Math.random()*4)]
           }]
         },
         {
           name: 'Name that super task',
           description: 'Decription of a great thing that needs doing',
           priority: 'High',
-          usersAssigned: users[random],
-          createdBy: users[random],
-          group: groups[random],
+          usersAssigned: users[Math.floor(Math.random()*4)],
+          createdBy: users[Math.floor(Math.random()*4)],
+          group: groups[Math.floor(Math.random()*4)],
           isCurrent: true,
-          category: categories[random],
+          categoryAssigned: categories[Math.floor(Math.random()*4)],
           comments: [{
             name: 'Comment Name',
             description: 'Some comment description',
-            createdBy: users[random]
+            createdBy: users[Math.floor(Math.random()*4)]
           }]
         },
         {
           name: 'Name that super task',
           description: 'Decription of a great thing that needs doing',
           priority: 'Medium',
-          usersAssigned: users[random],
-          createdBy: users[random],
-          group: groups[random],
+          usersAssigned: users[Math.floor(Math.random()*4)],
+          createdBy: users[Math.floor(Math.random()*4)],
+          group: groups[Math.floor(Math.random()*4)],
           isCurrent: true,
-          category: categories[random],
+          categoryAssigned: categories[Math.floor(Math.random()*4)],
           comments: [{
             name: 'Comment Name',
             description: 'Some comment description',
-            createdBy: users[random]
+            createdBy: users[Math.floor(Math.random()*4)]
           }]
         },
         {
           name: 'Name that super task',
           description: 'Decription of a great thing that needs doing',
           priority: 'Medium',
-          usersAssigned: users[random],
-          createdBy: users[random],
-          group: groups[random],
+          usersAssigned: users[Math.floor(Math.random()*4)],
+          createdBy: users[Math.floor(Math.random()*4)],
+          group: groups[Math.floor(Math.random()*4)],
           isCurrent: true,
-          category: categories[random],
+          categoryAssigned: categories[Math.floor(Math.random()*4)],
           comments: [{
             name: 'Comment Name',
             description: 'Some comment description',
-            createdBy: users[random]
+            createdBy: users[Math.floor(Math.random()*4)]
           }]
         },
         {
           name: 'Name that super task',
           description: 'Decription of a great thing that needs doing',
           priority: 'Medium',
-          usersAssigned: users[random],
-          createdBy: users[random],
-          group: groups[random],
+          usersAssigned: users[Math.floor(Math.random()*4)],
+          createdBy: users[Math.floor(Math.random()*4)],
+          group: groups[Math.floor(Math.random()*4)],
           isCurrent: true,
-          category: categories[random],
+          categoryAssigned: categories[Math.floor(Math.random()*4)],
           comments: [{
             name: 'Comment Name',
             description: 'Some comment description',
-            createdBy: users[random]
+            createdBy: users[Math.floor(Math.random()*4)]
           }]
         },
         {
           name: 'Name that super task',
           description: 'Decription of a great thing that needs doing',
           priority: 'Low',
-          usersAssigned: users[random],
-          createdBy: users[random],
-          group: groups[random],
+          usersAssigned: users[Math.floor(Math.random()*4)],
+          createdBy: users[Math.floor(Math.random()*4)],
+          group: groups[Math.floor(Math.random()*4)],
           isCurrent: true,
-          category: categories[random],
+          categoryAssigned: categories[Math.floor(Math.random()*4)],
           comments: [{
             name: 'Comment Name',
             description: 'Some comment description',
-            createdBy: users[random]
+            createdBy: users[Math.floor(Math.random()*4)]
           }]
         },
         {
           name: 'Name that super task',
           description: 'Decription of a great thing that needs doing',
           priority: 'Low',
-          usersAssigned: users[random],
-          createdBy: users[random],
-          group: groups[random],
+          usersAssigned: users[Math.floor(Math.random()*4)],
+          createdBy: users[Math.floor(Math.random()*4)],
+          group: groups[Math.floor(Math.random()*4)],
           isCurrent: true,
-          category: categories[random],
+          categoryAssigned: categories[Math.floor(Math.random()*4)],
           comments: [{
             name: 'Comment Name',
             description: 'Some comment description',
-            createdBy: users[random]
+            createdBy: users[Math.floor(Math.random()*4)]
           }]
         },
         {
           name: 'Name that super task',
           description: 'Decription of a great thing that needs doing',
           priority: 'Low',
-          usersAssigned: users[random],
-          createdBy: users[random],
-          group: groups[random],
+          usersAssigned: users[Math.floor(Math.random()*4)],
+          createdBy: users[Math.floor(Math.random()*4)],
+          group: groups[Math.floor(Math.random()*4)],
           isCurrent: true,
-          category: categories[random],
+          categoryAssigned: categories[Math.floor(Math.random()*4)],
           comments: [{
             name: 'Comment Name',
             description: 'Some comment description',
-            createdBy: users[random]
+            createdBy: users[Math.floor(Math.random()*4)]
           }]
         },
         {
           name: 'Name that super task',
           description: 'Decription of a great thing that needs doing',
           priority: 'High',
-          usersAssigned: users[random],
-          createdBy: users[random],
-          group: groups[random],
+          usersAssigned: users[Math.floor(Math.random()*4)],
+          createdBy: users[Math.floor(Math.random()*4)],
+          group: groups[Math.floor(Math.random()*4)],
           isCurrent: true,
-          category: categories[random],
+          categoryAssigned: categories[Math.floor(Math.random()*4)],
           comments: [{
             name: 'Comment Name',
             description: 'Some comment description',
-            createdBy: users[random]
+            createdBy: users[Math.floor(Math.random()*4)]
           }]
         },
         {
           name: 'Name that super task',
           description: 'Decription of a great thing that needs doing',
           priority: 'High',
-          usersAssigned: users[random],
-          createdBy: users[random],
-          group: groups[random],
+          usersAssigned: users[Math.floor(Math.random()*4)],
+          createdBy: users[Math.floor(Math.random()*4)],
+          group: groups[Math.floor(Math.random()*4)],
           isCurrent: true,
-          category: categories[random],
+          categoryAssigned: categories[Math.floor(Math.random()*4)],
           comments: [{
             name: 'Comment Name',
             description: 'Some comment description',
-            createdBy: users[random]
+            createdBy: users[Math.floor(Math.random()*4)]
           }]
         },
         {
           name: 'Name that super task',
           description: 'Decription of a great thing that needs doing',
           priority: 'High',
-          usersAssigned: users[random],
-          createdBy: users[random],
-          group: groups[random],
+          usersAssigned: users[Math.floor(Math.random()*4)],
+          createdBy: users[Math.floor(Math.random()*4)],
+          group: groups[Math.floor(Math.random()*4)],
           isCurrent: true,
-          category: categories[random],
+          categoryAssigned: categories[Math.floor(Math.random()*4)],
           comments: [{
             name: 'Comment Name',
             description: 'Some comment description',
-            createdBy: users[random]
+            createdBy: users[Math.floor(Math.random()*4)]
           }]
         },
         {
           name: 'Name that super task',
           description: 'Decription of a great thing that needs doing',
           priority: 'Medium',
-          usersAssigned: users[random],
-          createdBy: users[random],
-          group: groups[random],
+          usersAssigned: users[Math.floor(Math.random()*4)],
+          createdBy: users[Math.floor(Math.random()*4)],
+          group: groups[Math.floor(Math.random()*4)],
           isCurrent: true,
-          category: categories[random],
+          categoryAssigned: categories[Math.floor(Math.random()*4)],
           comments: [{
             name: 'Comment Name',
             description: 'Some comment description',
-            createdBy: users[random]
+            createdBy: users[Math.floor(Math.random()*4)]
           }]
         },
         {
           name: 'Name that super task',
           description: 'Decription of a great thing that needs doing',
           priority: 'Medium',
-          usersAssigned: users[random],
-          createdBy: users[random],
-          group: groups[random],
+          usersAssigned: users[Math.floor(Math.random()*4)],
+          createdBy: users[Math.floor(Math.random()*4)],
+          group: groups[Math.floor(Math.random()*4)],
           isCurrent: true,
-          category: categories[random],
+          categoryAssigned: categories[Math.floor(Math.random()*4)],
           comments: [{
             name: 'Comment Name',
             description: 'Some comment description',
-            createdBy: users[random]
+            createdBy: users[Math.floor(Math.random()*4)]
           }]
         },
         {
           name: 'Name that super task',
           description: 'Decription of a great thing that needs doing',
           priority: 'Medium',
-          usersAssigned: users[random],
-          createdBy: users[random],
-          group: groups[random],
+          usersAssigned: users[Math.floor(Math.random()*4)],
+          createdBy: users[Math.floor(Math.random()*4)],
+          group: groups[Math.floor(Math.random()*4)],
           isCurrent: true,
-          category: categories[random],
+          categoryAssigned: categories[Math.floor(Math.random()*4)],
           comments: [{
             name: 'Comment Name',
             description: 'Some comment description',
-            createdBy: users[random]
+            createdBy: users[Math.floor(Math.random()*4)]
           }]
         },
         {
           name: 'Name that super task',
           description: 'Decription of a great thing that needs doing',
           priority: 'Low',
-          usersAssigned: users[random],
-          createdBy: users[random],
-          group: groups[random],
+          usersAssigned: users[Math.floor(Math.random()*4)],
+          createdBy: users[Math.floor(Math.random()*4)],
+          group: groups[Math.floor(Math.random()*4)],
           isCurrent: true,
-          category: categories[random],
+          categoryAssigned: categories[Math.floor(Math.random()*4)],
           comments: [{
             name: 'Comment Name',
             description: 'Some comment description',
-            createdBy: users[random]
+            createdBy: users[Math.floor(Math.random()*4)]
           }]
         },
         {
           name: 'Name that super task',
           description: 'Decription of a great thing that needs doing',
           priority: 'Low',
-          usersAssigned: users[random],
-          createdBy: users[random],
-          group: groups[random],
+          usersAssigned: users[Math.floor(Math.random()*4)],
+          createdBy: users[Math.floor(Math.random()*4)],
+          group: groups[Math.floor(Math.random()*4)],
           isCurrent: true,
-          category: categories[random],
+          categoryAssigned: categories[Math.floor(Math.random()*4)],
           comments: [{
             name: 'Comment Name',
             description: 'Some comment description',
-            createdBy: users[random]
+            createdBy: users[Math.floor(Math.random()*4)]
           }]
         },
         {
           name: 'Name that super task',
           description: 'Decription of a great thing that needs doing',
           priority: 'Low',
-          usersAssigned: users[random],
-          createdBy: users[random],
-          group: groups[random],
+          usersAssigned: users[Math.floor(Math.random()*4)],
+          createdBy: users[Math.floor(Math.random()*4)],
+          group: groups[Math.floor(Math.random()*4)],
           isCurrent: true,
-          category: categories[random],
+          categoryAssigned: categories[Math.floor(Math.random()*4)],
           comments: [{
             name: 'Comment Name',
             description: 'Some comment description',
-            createdBy: users[random]
+            createdBy: users[Math.floor(Math.random()*4)]
           }]
         },
         {
           name: 'Name that super task',
           description: 'Decription of a great thing that needs doing',
           priority: 'High',
-          usersAssigned: users[random],
-          createdBy: users[random],
-          group: groups[random],
+          usersAssigned: users[Math.floor(Math.random()*4)],
+          createdBy: users[Math.floor(Math.random()*4)],
+          group: groups[Math.floor(Math.random()*4)],
           isCurrent: true,
-          category: categories[random],
+          categoryAssigned: categories[Math.floor(Math.random()*4)],
           comments: [{
             name: 'Comment Name',
             description: 'Some comment description',
-            createdBy: users[random]
+            createdBy: users[Math.floor(Math.random()*4)]
           }]
         },
         {
           name: 'Name that super task',
           description: 'Decription of a great thing that needs doing',
           priority: 'High',
-          usersAssigned: users[random],
-          createdBy: users[random],
-          group: groups[random],
+          usersAssigned: users[Math.floor(Math.random()*4)],
+          createdBy: users[Math.floor(Math.random()*4)],
+          group: groups[Math.floor(Math.random()*4)],
           isCurrent: true,
-          category: categories[random],
+          categoryAssigned: categories[Math.floor(Math.random()*4)],
           comments: [{
             name: 'Comment Name',
             description: 'Some comment description',
-            createdBy: users[random]
+            createdBy: users[Math.floor(Math.random()*4)]
           }]
         },
         {
           name: 'Name that super task',
           description: 'Decription of a great thing that needs doing',
           priority: 'High',
-          usersAssigned: users[random],
-          createdBy: users[random],
-          group: groups[random],
+          usersAssigned: users[Math.floor(Math.random()*4)],
+          createdBy: users[Math.floor(Math.random()*4)],
+          group: groups[Math.floor(Math.random()*4)],
           isCurrent: true,
-          category: categories[random],
+          categoryAssigned: categories[Math.floor(Math.random()*4)],
           comments: [{
             name: 'Comment Name',
             description: 'Some comment description',
-            createdBy: users[random]
+            createdBy: users[Math.floor(Math.random()*4)]
           }]
         },
         {
           name: 'Name that super task',
           description: 'Decription of a great thing that needs doing',
           priority: 'Medium',
-          usersAssigned: users[random],
-          createdBy: users[random],
-          group: groups[random],
+          usersAssigned: users[Math.floor(Math.random()*4)],
+          createdBy: users[Math.floor(Math.random()*4)],
+          group: groups[Math.floor(Math.random()*4)],
           isCurrent: true,
-          category: categories[random],
+          categoryAssigned: categories[Math.floor(Math.random()*4)],
           comments: [{
             name: 'Comment Name',
             description: 'Some comment description',
-            createdBy: users[random]
+            createdBy: users[Math.floor(Math.random()*4)]
           }]
         },
         {
           name: 'Name that super task',
           description: 'Decription of a great thing that needs doing',
           priority: 'Medium',
-          usersAssigned: users[random],
-          createdBy: users[random],
-          group: groups[random],
+          usersAssigned: users[Math.floor(Math.random()*4)],
+          createdBy: users[Math.floor(Math.random()*4)],
+          group: groups[Math.floor(Math.random()*4)],
           isCurrent: true,
-          category: categories[random],
+          categoryAssigned: categories[Math.floor(Math.random()*4)],
           comments: [{
             name: 'Comment Name',
             description: 'Some comment description',
-            createdBy: users[random]
+            createdBy: users[Math.floor(Math.random()*4)]
           }]
         },
         {
           name: 'Name that super task',
           description: 'Decription of a great thing that needs doing',
           priority: 'Medium',
-          usersAssigned: users[random],
-          createdBy: users[random],
-          group: groups[random],
+          usersAssigned: users[Math.floor(Math.random()*4)],
+          createdBy: users[Math.floor(Math.random()*4)],
+          group: groups[Math.floor(Math.random()*4)],
           isCurrent: true,
-          category: categories[random],
+          categoryAssigned: categories[Math.floor(Math.random()*4)],
           comments: [{
             name: 'Comment Name',
             description: 'Some comment description',
-            createdBy: users[random]
+            createdBy: users[Math.floor(Math.random()*4)]
           }]
         },
         {
           name: 'Name that super task',
           description: 'Decription of a great thing that needs doing',
           priority: 'Low',
-          usersAssigned: users[random],
-          createdBy: users[random],
-          group: groups[random],
+          usersAssigned: users[Math.floor(Math.random()*4)],
+          createdBy: users[Math.floor(Math.random()*4)],
+          group: groups[Math.floor(Math.random()*4)],
           isCurrent: true,
-          category: categories[random],
+          categoryAssigned: categories[Math.floor(Math.random()*4)],
           comments: [{
             name: 'Comment Name',
             description: 'Some comment description',
-            createdBy: users[random]
+            createdBy: users[Math.floor(Math.random()*4)]
           }]
         },
         {
           name: 'Name that super task',
           description: 'Decription of a great thing that needs doing',
           priority: 'Low',
-          usersAssigned: users[random],
-          createdBy: users[random],
-          group: groups[random],
+          usersAssigned: users[Math.floor(Math.random()*4)],
+          createdBy: users[Math.floor(Math.random()*4)],
+          group: groups[Math.floor(Math.random()*4)],
           isCurrent: true,
-          category: categories[random],
+          categoryAssigned: categories[Math.floor(Math.random()*4)],
           comments: [{
             name: 'Comment Name',
             description: 'Some comment description',
-            createdBy: users[random]
+            createdBy: users[Math.floor(Math.random()*4)]
           }]
         },
         {
           name: 'Name that super task',
           description: 'Decription of a great thing that needs doing',
           priority: 'Low',
-          usersAssigned: users[random],
-          createdBy: users[random],
-          group: groups[random],
+          usersAssigned: users[Math.floor(Math.random()*4)],
+          createdBy: users[Math.floor(Math.random()*4)],
+          group: groups[Math.floor(Math.random()*4)],
           isCurrent: true,
-          category: categories[random],
+          category: categories[Math.floor(Math.random()*4)],
           comments: [{
             name: 'Comment Name',
             description: 'Some comment description',
-            createdBy: users[random]
+            createdBy: users[Math.floor(Math.random()*4)]
           }]
         }
       ])

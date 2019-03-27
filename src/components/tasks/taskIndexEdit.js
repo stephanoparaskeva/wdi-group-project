@@ -87,7 +87,6 @@ class TaskIndexEdit extends React.Component {
   }
 
   render() {
-    console.log('render')
     if (this.state.edit) {
       return(
         <div className="card">
@@ -192,26 +191,32 @@ class TaskIndexEdit extends React.Component {
     }
 
     return(
-      <div className="card">
-        <header className="card-header">
-          <p className="card-header-title">
+      <div className="column is-one-third">
+        <div className="card-large box">
+          <div className="card-header-title is-centered is-size-3">
             {this.props.name}
-          </p>
-        </header>
-        <div className="card-content">
-          <div className="content">
-            <p>{this.props.description}</p>
-            <br />
-            <p>Created by: Jess</p>
-            <p>{`Priority: ${this.props.priority}`}</p>
-            <p>{`Catgeory: ${this.props.categoryAssigned}`}</p>
           </div>
+          <hr />
+          <div className="has-text-centered is-size-5">
+            {this.props.description}
+          </div>
+          <br />
+          <p>{`Created by (Id): ${this.props.createdBy}`}</p>
+          <p>{`Priority: ${this.props.priority}`}</p>
+          <p>{`Catgeory: ${this.props.categoryAssigned}`}</p>
+          <p><strong>Last comment:</strong></p>
+          <p className="is-italic">Title: {this.props.comments[0].name}</p>
+          <p className="is-italic">Comment: {this.props.comments[0].description}</p>
+          <p className="is-italic">CreatedBy: {this.props.comments[0].createdBy}</p>
+          <p className="is-italic">CreatedBy: {this.props.comments[0].createdAt}</p>
+          <hr />
+          <footer className="card-footer">
+            <button className="button is-warning subtitle is-6 is-fullwidth" onClick={this.handleClick}>Edit</button>
+            <button className="button is-danger  subtitle is-6 is-fullwidth">Delete</button>
+          </footer>
         </div>
-        <footer className="card-footer">
-          <a className="card-footer-item" name="edit" onClick={this.handleClick}>Edit</a>
-          <a href="#" className="card-footer-item">Delete</a>
-        </footer>
       </div>
+
     )
   }
 }
