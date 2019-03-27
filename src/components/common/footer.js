@@ -10,11 +10,25 @@ class Footer extends React.Component {
 
   render() {
     return (
-      <footer>
+      <footer className="footer is-medium">
         <div className="container">
           <hr />
           <p className="subtitle is-6">Organise: Powered by General Assembly WDI39</p>
-          <br />
+          <div className="subtitle is -2 is-left">
+            <strong>Contact Us:</strong>
+            <span className="icon is-large is-left">
+              <i className="fas fa-envelope"></i>
+            </span>
+            <span className="icon is-large is-left">
+              <i className="fab fa-twitter"></i>
+            </span>
+            <span className="icon is-large is-left">
+              <i className="fab fa-facebook"></i>
+            </span>
+            <span className="icon is-large is-left">
+              <i className="fab fa-instagram"></i>
+            </span>
+          </div>
         </div>
       </footer>
     )

@@ -13,9 +13,18 @@ class Home extends React.Component {
       <section className="hero is-fullheight">
         <div className="hero-body">
           <div className="container">
-            <p className="title is-1">Organise/homepage</p>
+            <p className="title is-1">Organise/reviews</p>
             <hr />
-            <p className="subtitle is-4"><strong>Homepage content:</strong>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse eu ex ullamcorper, volutpat dolor sed, ultricies ligula. Etiam laoreet nisl semper mi scelerisque, molestie pellentesque metus pulvinar. Quisque consectetur venenatis neque et pellentesque. Phasellus laoreet sit amet elit quis finibus. Mauris eu elit odio. Vivamus ac mauris ligula. Fusce nibh urna, molestie eu magna quis, dictum congue metus. Integer vitae dignissim erat, et auctor erat. Sed ut finibus urna. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.
+            <p className="subtitle is-4"><strong>User Reviews/Testimonials:</strong><br/>
+              <br/>
+              <p><strong>"Organise</strong> is life-changing for planning events. It made organizing my bachelorette party a total breeze." -Jess, 25, London.</p>
+              <br/>
+              <p>
+                <strong>"Organise</strong> enabled me to coordinate the boys for my 30th birthday party trip to Ibiza. Who knew planning an international event could be so simple?" -Matt, 30, Dubai.
+              </p>
+              <br/>
+              <p className="subtitle is-4"><strong>Media Coverage:</strong></p>
+              <p><strong>As featured in:</strong> Wired, Tech Crunch, Hello Magazine, Conde Naste Traveller and more! Click here for more reviews.</p>
             </p>
           </div>
         </div>

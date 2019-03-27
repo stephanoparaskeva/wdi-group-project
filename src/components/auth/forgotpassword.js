@@ -63,7 +63,7 @@ class LostPassword extends React.Component {
                         onChange={this.handleChange}
                       />
                       <span className="icon is-small is-left">
-                        <i className="fas fa-lock"></i>
+                        <i className="fas fa-envelope"></i>
                       </span>
                       <span className="icon is-small is-right">
                         <i className="fas fa-check"></i>
