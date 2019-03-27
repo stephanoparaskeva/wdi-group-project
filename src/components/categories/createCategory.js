@@ -82,18 +82,19 @@ class CreateCategory extends React.Component {
   }
 
   render() {
+    console.log(this.state)
     return(
       <div>
         <form onSubmit={this.handleSubmit}>
-          <label className="label">Category Name</label>
+          <label className="label">Add an extra category</label>
           <input
             className="input"
             name="name"
-            placeholder="Group Name"
+            placeholder="Name"
             value={this.state.data.name}
             onChange={this.handleChange}
           />
-          <a href="./groups" className="card-footer-item" onClick={this.handleSubmit}>create category</a>
+          <button href="./groups" className="card-footer-item" onClick={this.handleSubmit}>create category</button>
         </form>
         {this.state.categories.data && this.filterCategory().map((category, i) => (
           <div key={i}>

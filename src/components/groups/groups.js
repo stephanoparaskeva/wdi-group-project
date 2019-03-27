@@ -47,9 +47,9 @@ class Groups extends React.Component {
   render() {
     if(!this.state.groups) return null
     return(
-      <div className="section">
-        <div className="container">
-          <div className="columns is-mobile is-multiline">
+      <div className="container">
+        <div className="section">
+          <div className="columns is-multiline">
             {this.state.groups.map(group =>
               <Group {...group} key={group._id} rerender={this.childRerendersPage} />
             )}
