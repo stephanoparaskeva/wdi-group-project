@@ -17,17 +17,18 @@ class Group extends React.Component {
   }
 
   handleDelete() {
-    axios.delete(`/api/groups/${this.props.match.params.id}`,
+    axios.delete(`/api/groups/${this.props._id}`,
       { headers: { Authorization: `Bearer ${Auth.getToken()}`}})
       .then(() => this.props.history.push('/groups'))
       .catch(err => console.log(err.message))
   }
 
   isOwner() {
-    return Auth.isAuthenticated() && this.state.group.user._id === Auth.getPayload().sub
+    return Auth.isAuthenticated() && this.props.createdBy === Auth.getPayload().sub
   }
 
   render() {
+    console.log(`Created by = ${this.props.createdBy}, Payload = ${Auth.getPayload().sub},  Authorised = ${Auth.isAuthenticated()},  Group name = ${this.props.name} `)
     return(
       <div className="card">
         <div className="card-header">
@@ -37,10 +38,6 @@ class Group extends React.Component {
         </div>
         <div className="card-content">
           <CreateCategory groupId={this.props._id}>Create Category</CreateCategory>
-        </div>
-        <div className="card-footer">
-          <a href="#" className="card-footer-item">Edit</a>
-          <a href="#" className="card-footer-item">Delete</a>
         </div>
         <footer className="card-footer">
           {this.isOwner() && <a href="#" className="card-footer-item"><strong>Edit</strong></a>}
