@@ -31,7 +31,6 @@ class Login extends React.Component {
     e.preventDefault()
     axios.post('/api/login', this.state.data)
       .then(res => {
-        console.log(res.data.token)
         Auth.setToken(res.data.token)
         this.props.history.push('/')
       })
@@ -41,7 +40,6 @@ class Login extends React.Component {
   }
 
   render() {
-    console.log(this.state.data.email)
     return (
       <section className="hero is-fullheight">
         <div className="hero-body">
