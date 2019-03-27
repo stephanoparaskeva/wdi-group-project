@@ -44,9 +44,13 @@ class Group extends React.Component {
     }
     return(
       <div className="column is-one-third">
-        <div className="card-large">
-          <div className="card-header-title is-centered is-size-4">
+        <div className="card-large box">
+          <div className="card-header-title is-centered is-size-3">
             {this.props.name}
+          </div>
+          <hr />
+          <div className="has-text-centered is-size-5">
+            {this.props.description}
           </div>
           <div className="card-content">
             <CreateCategory groupId={this.props._id}>Create Category</CreateCategory>
@@ -56,8 +60,8 @@ class Group extends React.Component {
             {this.isOwner() && <button className="button subtitle is-6 is-centered" onClick={this.handleDelete}>Delete</button>}
           </content>
           <footer className="card-footer">
-            <Link to={`/groups/${this.props._id}/tasks`} className="card-footer-item subtitle is-6">
-              <strong>Go to all Tasks</strong>
+            <Link to={`/groups/${this.props._id}/tasks`} className="button is-primary card-footer-item subtitle is-6 has-text-white ">
+              Go to all Tasks
             </Link>
           </footer>
         </div>
