@@ -2,7 +2,6 @@ import React from 'react'
 import axios from 'axios'
 
 import Auth from '../../lib/auth'
-import CreateGroup from './createGroup'
 
 class EditGroups extends React.Component {
   constructor() {
@@ -14,12 +13,9 @@ class EditGroups extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this)
   }
 
-  componentDidMount(){
-    console.log('123', this.state)
-    // const props = this.props
-    // const data = {...this.state.data, props}
-    // this.setState({ data })
-
+  buttonClicker(e){
+    e.preventDefault()
+      .then(() => this.props.history.push('/groups'))
   }
 
   handleChange({ target: { name, value }}) {
@@ -29,7 +25,7 @@ class EditGroups extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault()
-    axios.put(`/api/groups/${this.props_id}`,
+    axios.put(`/api/groups/${this.props.group.id}`,
       this.state.data,
       { headers: {Authorization: `Bearer ${Auth.getToken()}`}})
       .then(() => this.props.history.push('/groups'))
@@ -37,53 +33,50 @@ class EditGroups extends React.Component {
   }
 
   render() {
-    console.log('current state', this.state)
+    console.log(this.props.group.id)
     return (
-      <main className="section">
-        <div className="container">
-          <div className="card">
-            <header className="card-header">
-              <p className="card-header-title is-centered">
-                Edit {this.props.group.name}
-              </p>
-            </header>
-            <div className="card-content">
-              <div className="content">
-                <form onSubmit={this.handleSubmit}>
-                  <label className="label">Name</label>
-                  <input
-                    className="input"
-                    name="name"
-                    placeholder="Group Name"
-                    value={this.props.group.name || ''}
-                    onChange={this.handleChange}
-                  />
-                  <br />
-                  <br />
-                  <label className="label">Assign Users</label>
-                  <div>
-
-                  </div>
-                  <label className="label">Description</label>
-                  <input
-                    className="input"
-                    name="description"
-                    placeholder="Group Details"
-                    value={this.props.group.description || ''}
-                    onChange={this.handleChange}
-                  />
-                </form>
-                <p>{this.props.group.usersAssigned}</p>
-                <br />
-              </div>
-            </div>
-            <footer className="card-footer">
-              <a href="./groups" className="card-footer-item">Cancel</a>
-              <a href="./groups" className="card-footer-item" onClick={this.handleSubmit}>Edit</a>
-            </footer>
+      <div className="column is-one-third">
+        <div className="card-large box">
+          <div className="card-header-title is-centered is-size-3">
+            {this.props.group.name}
           </div>
+          <div className="card-header-title is-centered is-size-5">
+            <strong className="has-text-warning">Editing...</strong>
+          </div>
+          <hr />
+          <div className="card-content">
+            <div className="content">
+              <form onSubmit={this.handleSubmit}>
+                <label className="subtitle is-6">Update name</label>
+                <input
+                  className="input"
+                  name="name"
+                  placeholder="Group Name"
+                  value={this.props.group.name || ''}
+                  onChange={this.handleChange}
+                />
+                <br />
+                <label className="subtitle is-6">Assign Users</label>
+                <div>
+                </div>
+                <label className="subtitle is-6">Update description</label>
+                <input
+                  className="input"
+                  name="description"
+                  placeholder="Group Details"
+                  value={this.props.group.description || ''}
+                  onChange={this.handleChange}
+                />
+                <br />
+              </form>
+            </div>
+          </div>
+          <footer className="card-footer">
+            <button href="/groups" className="button is-warning subtitle is-6 is-fullwidth"><strong className="has-text-white">Cancel</strong></button>
+            <button href="/groups" className="button is-primary subtitle is-6 is-fullwidth" onClick={this.handleSubmit}><strong className="has-text-white">Update</strong></button>
+          </footer>
         </div>
-      </main>
+      </div>
     )
   }
 }

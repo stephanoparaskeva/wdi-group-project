@@ -55,14 +55,16 @@ class Group extends React.Component {
           <div className="card-content">
             <CreateCategory groupId={this.props._id}>Create Category</CreateCategory>
           </div>
-          <content className="is-centered">
-            {this.isOwner() && <button className="button subtitle is-6 is-centered" onClick={this.reRender}>Edit</button>}
-            {this.isOwner() && <button className="button subtitle is-6 is-centered" onClick={this.handleDelete}>Delete</button>}
-          </content>
+          <div>
+
+          </div>
+          <hr />
           <footer className="card-footer">
-            <Link to={`/groups/${this.props._id}/tasks`} className="button is-primary card-footer-item subtitle is-6 has-text-white ">
-              Go to all Tasks
+            <Link to={`/groups/${this.props._id}/tasks`} className="button is-link card-footer-item subtitle is-6 has-text-white">
+              <strong className="has-text-white">Go to all Tasks</strong>
             </Link>
+            {this.isOwner() && <button className="button is-warning subtitle is-6" onClick={this.reRender}><strong className="has-text-white">Edit</strong></button>}
+            {this.isOwner() && <button className="button is-danger  subtitle is-6" onClick={this.handleDelete}><strong className="has-text-white">Delete</strong></button>}
           </footer>
         </div>
       </div>

@@ -42,7 +42,6 @@ class CreateGroup extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault()
-    console.log(this.state.data.name, 'state')
     axios.post('/api/groups',
       this.state.data,
       { headers: {Authorization: `Bearer ${Auth.getToken()}`}})
@@ -54,65 +53,61 @@ class CreateGroup extends React.Component {
   render() {
     const accepted = this.state.accepted.data
     return(
-      <div className="card">
-        <header className="card-header">
-          <p className="card-header-title is-centered">
+      <div className="column is-one-third">
+        <div className="card-large box">
+          <div className="card-header-title is-centered is-size-3">
           Create New Group
-          </p>
-        </header>
-        <div className="card-content">
-          <div className="content">
-            <form onSubmit={this.handleSubmit}>
-              <label className="label">Name</label>
-              <input
-                className="input"
-                name="name"
-                placeholder="Group Name"
-                value={this.state.data.name || ''}
-                onChange={this.handleChange}
-              />
-              <br />
-              <br />
-              <label className="label">Assign Users</label>
-              <div>
-                <div>
-                  {accepted && accepted.map((user, i) => (
-                    <div  key={i}>
-                      <a
-                        className="dropdown-item"
-                        onClick={(e) => {
-                          e.preventDefault()
-                          this.assignUsers(user._id)
-                        }}
-                      >{user.friend.username}
-                      </a>
-                    </div>
-                  ))}
-                </div>
-              </div>
-              <label className="label">Description</label>
-              <input
-                className="input"
-                name="description"
-                placeholder="Group Details"
-                value={this.state.data.description || ''}
-                onChange={this.handleChange}
-              />
-            </form>
-            <p>{this.props.usersAssigned}</p>
-            <br />
           </div>
+          <hr />
+          <div className="card-content">
+            <div className="content">
+              <form onSubmit={this.handleSubmit}>
+                <label className="subtitle is-6">Name</label>
+                <input
+                  className="input"
+                  name="name"
+                  placeholder="Group Name"
+                  value={this.state.data.name || ''}
+                  onChange={this.handleChange}
+                />
+                <label className="subtitle is-6">Assign Users</label>
+                <div>
+                  <div>
+                    {accepted && accepted.map((user, i) => (
+                      <div  key={i}>
+                        <a
+                          className="dropdown-item"
+                          onClick={(e) => {
+                            e.preventDefault()
+                            this.assignUsers(user._id)
+                          }}
+                        >{user.friend.username}
+                        </a>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+                <label className="subtitle is-6">Description</label>
+                <input
+                  className="input"
+                  name="description"
+                  placeholder="Group Details"
+                  value={this.state.data.description || ''}
+                  onChange={this.handleChange}
+                />
+              </form>
+              <p>{this.props.usersAssigned}</p>
+              <br />
+            </div>
+          </div>
+          <footer className="card-footer">
+            <button href="/groups" className="button is-warning subtitle is-6 is-fullwidth"><strong className="has-text-white">Cancel</strong></button>
+            <button href="/groups" className="button is-primary subtitle is-6 is-fullwidth" onClick={this.handleSubmit}><strong className="has-text-white">Create</strong></button>
+          </footer>
         </div>
-        <footer className="card-footer">
-          <a href="./groups" className="card-footer-item">Cancel</a>
-          <a href="./groups" className="card-footer-item" onClick={this.handleSubmit}>Create</a>
-        </footer>
       </div>
     )
   }
 }
-
-
-
 
 export default CreateGroup
