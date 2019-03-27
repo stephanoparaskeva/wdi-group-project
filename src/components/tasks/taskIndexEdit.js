@@ -105,6 +105,7 @@ class TaskIndexEdit extends React.Component {
           <div className="card-content">
             <div className="content">
               <p className="card-header-title">
+                <h2>Description</h2>
                 <input
                   className="input"
                   name="description"
@@ -114,9 +115,9 @@ class TaskIndexEdit extends React.Component {
                 />
               </p>
               <br />
-              <p>Priority</p>
               <div className={`dropdown ${this.state.priorityMenu}`}>
                 <div className="dropdown-trigger">
+                  <h2>Priority</h2>
                   <button type="button" className="button" aria-haspopup="true" aria-controls="dropdown-menu" onClick={this.togglePriorityClick}>
                     <span>{this.state.priority || 'Choose'}</span>
                     <span className="icon is-small">
