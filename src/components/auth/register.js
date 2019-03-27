@@ -133,7 +133,7 @@ class Register extends React.Component {
                         className="input is-medium"
                         name="passwordConfirmation"
                         type="password"
-                        placeholder="Password Confirmation"
+                        placeholder="Confirm Password"
                         value={this.state.data.passwordConfirmation}
                         onChange={this.handleChange}
                       />

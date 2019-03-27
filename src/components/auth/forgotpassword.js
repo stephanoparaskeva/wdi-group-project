@@ -46,24 +46,32 @@ class LostPassword extends React.Component {
           <div className="modal-background"></div>
           <div className="modal-card">
             <header className="modal-card-head">
-              <p className="modal-card-title"><strong>Forgot password</strong></p>
+              <p className="modal-card-title"><strong>Forgot Password?</strong></p>
               <button className="delete" aria-label="close" onClick={this.handleDone}></button>
             </header>
             <section className="modal-card-body">
               <form onSubmit={this.handleSubmit}>
-                <h1 className="subtitle is-5">Submit your email address below to get an email reminder of your password</h1>
+                <h1 className="subtitle is-5">Please submit your email address below to recieve an email reminder of your password</h1>
                 <div className="field">
-                  <div className="control">
-                    <input
-                      className="input is-medium"
-                      name="email"
-                      placeholder="Email"
-                      value={this.state.data.email}
-                      onChange={this.handleChange}
-                    />
+                  <div className="control has-icons-left has-icons-right">
+                    <div className="control">
+                      <input
+                        className="input is-medium"
+                        name="email"
+                        placeholder="Email"
+                        value={this.state.data.email}
+                        onChange={this.handleChange}
+                      />
+                      <span className="icon is-small is-left">
+                        <i className="fas fa-envelope"></i>
+                      </span>
+                      <span className="icon is-small is-right">
+                        <i className="fas fa-check"></i>
+                      </span>
+                    </div>
                   </div>
                 </div>
-                <button className="button is-info is-fullwidth"><strong>Reset password</strong></button>
+                <button className="button is-info is-fullwidth"><strong>Reset Password</strong></button>
               </form>
             </section>
             <footer className="modal-card-foot">
