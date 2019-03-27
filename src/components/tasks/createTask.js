@@ -12,7 +12,7 @@ class CreateTask extends React.Component {
         name: '',
         description: '',
         priority: '',
-        categoryAssigned: {},
+        categoryAssigned: '',
         usersAssigned: [{ _id: Auth.getPayload().sub }]
       },
       accepted: [],
@@ -28,6 +28,7 @@ class CreateTask extends React.Component {
     this.assignCategory = this.assignCategory.bind(this)
   }
 
+
   handleChange({ target: { name, value }}) {
     const data = {...this.state.data, [name]: value }
     this.setState({ data })
@@ -35,13 +36,10 @@ class CreateTask extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault()
-    console.log(this.state.data)
     axios.post(`/api/groups/${this.props.match.params.groupId}/tasks`, this.state.data, {
       headers: {Authorization: `Bearer ${Auth.getToken()}`}
     })
       .then(() => {
-
-        // this.props.history.push(`/groups/${this.props.match.params.groupId}/tasks`)
         this.props.onFetchTasks()
       })
       .catch(err => console.log(err.message))
@@ -75,7 +73,16 @@ class CreateTask extends React.Component {
     this.setState({ data })
   }
 
+  // categoryAssigned: filters the prop "categories" sent down from tasks. It then checks that the Id matches the state of
+  //   categoryAssigned (which is the category id assigned) which is set when a user clicks a category in the drop down and
+  //   returns an aray of that category if so.
+
+  //categoryName: checks that the length of the array is larger than zero to make sure we can get something. If so, we set
+  //    categoryName as the name of the first item in the category assigned array OR we display 'Choose'
+
   render() {
+    const categoryAssigned = this.props.categories.filter(category => category._id === this.state.data.categoryAssigned)
+    const categoryName = categoryAssigned.length > 0 ? categoryAssigned[0].name : 'Choose'
     return(
       <div className="card">
         <form>
@@ -147,8 +154,7 @@ class CreateTask extends React.Component {
               <div className={`dropdown ${this.state.categoryMenu}`}>
                 <div className="dropdown-trigger">
                   <button type="button" className="button" aria-haspopup="true" aria-controls="dropdown-menu" onClick={this.toggleCategoryClick}>
-                    <span>{this.state.data.categoryAssigned.name || 'Choose'}</span>
-                    <span>{this.state.categoryAssigned || 'Choose'}</span>
+                    <span>{categoryName}</span>
                     <span className="icon is-small">
                       <i className="fas fa-angle-down" aria-hidden="true"></i>
                     </span>
@@ -156,15 +162,18 @@ class CreateTask extends React.Component {
                 </div>
                 <div className="dropdown-menu" id="dropdown-menu" role="menu">
                   <div className="dropdown-content">
-                    <a
-                      className="dropdown-item"
-                      onClick={(e) => {
-                        e.preventDefault()
-                        this.assignCategory(['5c9932da6c66107990de9029'])
-                      }}
-                    >
-                      Category 1
-                    </a>
+                    {this.props.categories.map(category =>
+                      <a
+                        key={category._id}
+                        className="dropdown-item"
+                        onClick={(e) => {
+                          e.preventDefault()
+                          this.assignCategory(category._id)
+                        }}
+                      >
+                        {category.name}
+                      </a>
+                    )}
                   </div>
                 </div>
               </div>
