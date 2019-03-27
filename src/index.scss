@@ -23,8 +23,12 @@ header.card-header {
   background-color: #00d1b2;
 }
 
-div.card {
-  max-width: 30%;
+.card {overflow:hidden}
+.card-large {
+height: 500px;
+-webkit-backface-visibility: hidden;
+backface-visibility: initial;
+border-radius: 5px;
 }
 
 input {

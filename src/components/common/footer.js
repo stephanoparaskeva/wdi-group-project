@@ -1,7 +1,7 @@
 import React from 'react'
 import 'bulma'
 
-class Home extends React.Component {
+class Footer extends React.Component {
   constructor() {
     super()
 
@@ -13,7 +13,7 @@ class Home extends React.Component {
       <footer>
         <div className="container">
           <hr />
-          <p className="subtitle is-6">Organise: powered by General Assembly WDI39 - </p>
+          <p className="subtitle is-6">Organise: powered by General Assembly WDI39</p>
           <br />
         </div>
       </footer>
@@ -21,4 +21,4 @@ class Home extends React.Component {
   }
 }
 
-export default Home
+export default Footer
