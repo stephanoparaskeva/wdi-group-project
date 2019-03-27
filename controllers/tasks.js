@@ -5,6 +5,7 @@ const permissions = require('../lib/permissions')
 function tasksIndexRoute(req, res, next) {
   Task
     .find()
+    .sort({'_id': -1})
     .populate('category')
     .then(tasks => res.status(200).json(tasks))
     .catch(next)

@@ -56,6 +56,10 @@ class Tasks extends React.Component {
         console.log(task)
         return this.state.selectedCategory === task.categoryAssigned
       })
+      .filter(task => {
+        if (!this.state.selectedPriority) return true
+        return this.state.selectedPriority === task.priority
+      })
   }
 
   filterCategories() {
@@ -70,6 +74,9 @@ class Tasks extends React.Component {
       <Fragment>
         <nav className="navbar is-warning tasks-nav">
           <div className="container">
+            <div className="navbar-item">
+              <h2><b> Filter by: </b></h2>
+            </div>
             <div className="navbar-item has-dropdown is-hoverable">
               <a className="navbar-link">
                 {categoryName}
@@ -82,7 +89,7 @@ class Tasks extends React.Component {
                 </a>
                 {this.filterCategories().map(category =>
                   <a
-                    onClick={() => this.setState({ selectedCategory: category._id })}
+                    onClick={() => this.setState({ selectedCategory: category._id, selectedPriority: null })}
                     key={category._id}
                     className="navbar-item">
                     {category.name}
@@ -92,16 +99,30 @@ class Tasks extends React.Component {
             </div>
             <div className="navbar-item has-dropdown is-hoverable">
               <a className="navbar-link">
-                Your Priorities
+                {this.state.selectedPriority || 'All Priorities'}
               </a>
               <div className="navbar-dropdown">
-                <a className="navbar-item">
+                <a
+                  className="navbar-item"
+                  onClick={() => this.setState({ selectedPriority: null })}
+                >
+                  All Priorities
+                </a>
+                <a
+                  className="navbar-item"
+                  onClick={() => this.setState({ selectedPriority: 'high', selectedCategory: null })}
+                >
                   High
                 </a>
-                <a className="navbar-item">
+                <a
+                  className="navbar-item"
+                  onClick={() => this.setState({ selectedPriority: 'medium', selectedCategory: null })}>
                   Medium
                 </a>
-                <a className="navbar-item">
+                <a
+                  className="navbar-item"
+                  onClick={() => this.setState({ selectedPriority: 'low', selectedCategory: null })}
+                >
                   Low
                 </a>
               </div>
@@ -112,7 +133,7 @@ class Tasks extends React.Component {
           <div className="hero-body">
             <div className="container has-text-centered">
               <h1 className="title">
-                {categoryName}
+                {this.state.selectedPriority || categoryName}
               </h1>
             </div>
           </div>
