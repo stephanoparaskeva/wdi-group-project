@@ -68,8 +68,8 @@ class Tasks extends React.Component {
       <div className="container">
         <div className="section">
           <div className="columns is-multiline">
-            {this.filterTask().map(task => <TaskIndexEdit {...task} categories={this.filterCategories()} key={task._id} onFetchTasks={this.fetchTasks} /> )}
             <CreateTask {...this.props} onFetchTasks={this.fetchTasks} categories={this.filterCategories()} />
+            {this.filterTask().map(task => <TaskIndexEdit {...task} categories={this.filterCategories()} key={task._id} onFetchTasks={this.fetchTasks} /> )}
           </div>
         </div>
       </div>
