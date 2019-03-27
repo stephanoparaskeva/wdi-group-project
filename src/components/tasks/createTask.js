@@ -92,27 +92,9 @@ class CreateTask extends React.Component {
               />
             </p>
           </header>
-          <label className="label">Assign Users</label>
-          <div>
-            <div>
-              {accepted && accepted.map((user, i) => (
-                <div  key={i}>
-                  <a
-                    className="dropdown-item"
-                    onClick={(e) => {
-                      e.preventDefault()
-                      this.assignUsers(user._id)
-                    }}
-                  >{user.friend.username}
-                  </a>
-                </div>
-              ))}
-            </div>
-          </div>
           <div className="card-content">
             <div className="content">
               <p>{this.props.description}</p>
-              <br />
               <p>Priority:</p>
               <div className={`dropdown ${this.state.priorityMenu}`}>
                 <div className="dropdown-trigger">
