@@ -4,14 +4,15 @@ _README_
 
 #Organize - MERN Full Stack App
 ---
-
 ###About Organise
 
-Organise is an organisational tool that allows users to increase their productivity on a given task by effectively organizing the planning of events in a clear and methodical way. 
+'Organise' is an organisational tool that allows users to increase their productivity on a given task by effectively organizing the planning of events in a clear and methodical way.
 
-This simple and intuitive app allows its users to create groups and assign users to work under these groups on a given task.
+This simple and intuitive app allows its users to create groups and assign users to work under these groups on a given task. In addition to storing your events, 'Organise' provides you with a bright and structured interface few ways to structure these tasks. You can add in specific categories with tasks nested within them, allowing you to prioritize an item.
 
+'Organise' also implements a friend feature that allows users to see all of their friends within the app and those who are assigned to the same task as them. Users are marked as active or inactive based on their status.
 
+The comments feature allows users to leave notes for each other, making communication and 'on-the-go' interaction quick and seamless.
 
 ###Technical Requirements
 

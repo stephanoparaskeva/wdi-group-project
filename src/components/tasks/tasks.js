@@ -3,7 +3,7 @@ import 'bulma'
 import axios from 'axios'
 import Task from './task'
 import CreateTask from './createTask'
-import Auth from '../../../lib/auth'
+import Auth from '../../lib/auth'
 
 class Tasks extends React.Component {
   constructor() {
@@ -26,7 +26,7 @@ class Tasks extends React.Component {
       })
       .then(accepted => this.setState({ accepted }))
   }
-  
+
   componentDidMount() {
     console.log(this.props)
     this.fetchTasks()
