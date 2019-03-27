@@ -4,6 +4,15 @@ _README_
 
 #Organize - MERN Full Stack App
 ---
+###About Organise
+
+'Organise' is an organisational tool that allows users to increase their productivity on a given task by effectively organizing the planning of events in a clear and methodical way.
+
+This simple and intuitive app allows its users to create groups and assign users to work under these groups on a given task. In addition to storing your events, 'Organise' provides you with a bright and structured interface few ways to structure these tasks. You can add in specific categories with tasks nested within them, allowing you to prioritize an item.
+
+'Organise' also implements a friend feature that allows users to see all of their friends within the app and those who are assigned to the same task as them. Users are marked as active or inactive based on their status.
+
+The comments feature allows users to leave notes for each other, making communication and 'on-the-go' interaction quick and seamless.
 
 ###Technical Requirements
 
@@ -33,7 +42,7 @@ After implementation began, the wireframes were further developed to reflect the
 
 ##App Overview
 
-The Organize app is a organizational tool that allows users to create events and add contributors to these events. In short, the tool allows users to effectively manage tasks and assign responsibilities accordingly.
+The Organise app is a organizational tool that allows users to create events and add contributors to these events. In short, the tool allows users to effectively manage tasks and assign responsibilities accordingly.
 
 _Event Example_
 Take for example, the event of 'Jess's Hen Do'. User: Stephano creates this event in Organize and adds in contributors: Mary, Matt and Jess to the event. He then creates main categories such as 'Travel', 'Transfers', 'Party Favors', etc. with additional tasks in each. For example: Travel holds the tasks of book flights, buy travel insurance, arrange airport drop off. Stephano can assign 'buy travel insurance' to Mary, book flights to Matt etc.
@@ -72,7 +81,7 @@ If they do not already have an account, they are directed to click on the link w
   _Category specific dashboard showing all tasks in card form of a specific category_
 
 ### organise.net/group/group:id/tasks
-  _Filtered tasks page(shows all as standard), used for muliple task views. Eg organise.net/group/group:id/tasks?priority=high&owner=123_
+  _Filtered tasks page(shows all as standard), used for multiple task views. Eg organise.net/group/group:id/tasks?priority=high&owner=123_
 ---
 
 ## Database - Organise

@@ -43,14 +43,9 @@ class Group extends React.Component {
           <a href="#" className="card-footer-item">Delete</a>
         </div>
         <footer className="card-footer">
-
-
-
-          <button className="card-footer-item is-onethird" onClick={this.reRender}>Edit</button>
-
-          <button className="card-footer-item is-onethird" onClick={this.handleDelete}>Delete</button>
-
-          <Link to={`/groups/${this.props._id}`} className="card-footer-item is-onethird">
+          {this.isOwner() && <a href="#" className="card-footer-item"><strong>Edit</strong></a>}
+          {this.isOwner() && <a href="/groups" className="card-footer-item" onClick={this.handleDelete}><strong>Delete</strong></a>}
+          <Link to={`/groups/${this.props._id}/tasks`} className="card-footer-item">
             <strong>Tasks</strong>
           </Link>
         </footer>

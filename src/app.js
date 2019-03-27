@@ -14,6 +14,11 @@ import Groups from './components/groups/groups'
 import Users from './components/users/usersIndex'
 import UsersRequest from './components/users/usersRequest'
 import MyProfile from './components/users/myProfile'
+import Home from './components/common/home'
+import About from './components/common/about'
+import Pricing from './components/common/pricing'
+import Features from './components/common/features'
+import Footer from './components/common/footer'
 
 const App = () => {
   return (
@@ -29,8 +34,13 @@ const App = () => {
           <Route path="/forgotpassword" component={ForgotPassword} />
           <Route exact path="/groups/:groupId" component={Tasks}/>
           <Route path="/groups" component={Groups} />
+          <Route path="/pricing" component={Pricing} />
+          <Route path="/features" component={Features} />
+          <Route path="/about" component={About} />
+          <Route path="/" component={Home} />
         </Switch>
         <br />
+        <Footer />
       </div>
     </Browser>
   )
