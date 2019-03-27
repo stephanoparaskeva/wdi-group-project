@@ -13,7 +13,7 @@ class Footer extends React.Component {
       <footer>
         <div className="container">
           <hr />
-          <p className="subtitle is-6">Organise: powered by General Assembly WDI39</p>
+          <p className="subtitle is-6">Organise: Powered by General Assembly WDI39</p>
           <br />
         </div>
       </footer>

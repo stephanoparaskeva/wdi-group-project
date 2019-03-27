@@ -16,7 +16,9 @@ class About extends React.Component {
           <div className="container">
             <p className="title is-1">Organise/about</p>
             <hr />
-            <p className="subtitle is-4"><strong>About content:</strong>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse eu ex ullamcorper, volutpat dolor sed, ultricies ligula. Etiam laoreet nisl semper mi scelerisque, molestie pellentesque metus pulvinar. Quisque consectetur venenatis neque et pellentesque. Phasellus laoreet sit amet elit quis finibus. Mauris eu elit odio. Vivamus ac mauris ligula. Fusce nibh urna, molestie eu magna quis, dictum congue metus. Integer vitae dignissim erat, et auctor erat. Sed ut finibus urna. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.
+            <p className="subtitle is-4"><strong>About Us:</strong><br/><br/>
+              <p><strong>Organise</strong> is an group organisational tool that allows users to increase their productivity on a given task and effectively organize the planning of events in a clear and methodical way.
+              </p>
             </p>
           </div>
         </div>

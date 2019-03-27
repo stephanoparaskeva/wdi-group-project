@@ -16,7 +16,10 @@ class Features extends React.Component {
           <div className="container">
             <p className="title is-1">Organise/features</p>
             <hr />
-            <p className="subtitle is-4"><strong>Features content:</strong>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse eu ex ullamcorper, volutpat dolor sed, ultricies ligula. Etiam laoreet nisl semper mi scelerisque, molestie pellentesque metus pulvinar. Quisque consectetur venenatis neque et pellentesque. Phasellus laoreet sit amet elit quis finibus. Mauris eu elit odio. Vivamus ac mauris ligula. Fusce nibh urna, molestie eu magna quis, dictum congue metus. Integer vitae dignissim erat, et auctor erat. Sed ut finibus urna. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.
+            <p className="subtitle is-4"><strong>Unique Features:</strong><p><br/>
+              <strong>Organise</strong> is a simple and intuitive app that allows its users to create groups and assign users to work under these groups on a given task. In addition to storing your events, <strong>Organise</strong> provides you with a bright and structured interface few ways to structure these tasks. You can add in specific categories with tasks nested within them, allowing you to prioritize an item.</p>
+            <br />
+            <p><strong>Organise</strong> also implements a friend feature that allows users to see all of their friends within the app and those who are assigned to the same task as them. Users are marked as active or inactive based on their status.The comments feature allows users to leave notes for each other, making communication and on-the-go interaction quick and seamless.</p>
             </p>
           </div>
         </div>
