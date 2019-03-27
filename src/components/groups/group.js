@@ -4,7 +4,7 @@ import axios from 'axios'
 import { Link } from 'react-router-dom'
 
 import Auth from '../../lib/auth'
-import CreateCategory from '../categories1/createCategory.js'
+import CreateCategory from '../categories/createCategory'
 import EditGroups from './editGroups'
 
 class Group extends React.Component {
@@ -18,7 +18,9 @@ class Group extends React.Component {
     this.reRender = this.reRender.bind(this)
 
   }
-
+  isOwner() {
+    return Auth.isAuthenticated() && this.props.createdBy === Auth.getPayload().sub
+  }
   handleDelete() {
     if (this.props.createdBy === Auth.getPayload().sub) {
       axios.delete(`/api/groups/${this.props._id}`,
@@ -33,41 +35,32 @@ class Group extends React.Component {
     const { edit } = this.state
     this.setState({ edit: !edit })
   }
-
   removeFromState(){
-
   }
 
   render() {
-    console.log(this.props)
     if (this.state.edit) {
       return  <EditGroups  group={this.props}/>
     }
-    console.log(this.state.createdBy, 'createdBy')
     return(
-      <div className="card">
-        <div className="card-header">
-          <div className="card-header-title is-centered is-size-3">
+      <div className="column is-one-third">
+        <div className="card-large">
+          <div className="card-header-title is-centered is-size-4">
             {this.props.name}
           </div>
+          <div className="card-content">
+            <CreateCategory groupId={this.props._id}>Create Category</CreateCategory>
+          </div>
+          <content className="is-centered">
+            {this.isOwner() && <button className="button subtitle is-6 is-centered" onClick={this.reRender}>Edit</button>}
+            {this.isOwner() && <button className="button subtitle is-6 is-centered" onClick={this.handleDelete}>Delete</button>}
+          </content>
+          <footer className="card-footer">
+            <Link to={`/groups/${this.props._id}/tasks`} className="card-footer-item subtitle is-6">
+              <strong>Go to all Tasks</strong>
+            </Link>
+          </footer>
         </div>
-        <div className="card-content">
-          <CreateCategory groupId={this.props._id}>Create Category</CreateCategory>
-        </div>
-        <div className="card-footer">
-        </div>
-
-        <footer className="card-footer">
-
-          <button className="card-footer-item is-onethird" onClick={this.reRender}>Edit</button>
-
-          <button className="card-footer-item is-onethird" onClick={this.handleDelete}>Delete</button>
-
-          <Link to={`/groups/${this.props._id}/tasks`} className="card-footer-item is-onethird">
-            <strong>Tasks</strong>
-          </Link>
-
-        </footer>
       </div>
     )
   }
