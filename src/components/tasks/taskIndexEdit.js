@@ -109,9 +109,9 @@ class TaskIndexEdit extends React.Component {
         <div className="column is-one-third">
           <div className="card-large box">
             <form>
-              <div className="card-header-title is-centered is-size-3">
+              <div className="edit card-header-title is-centered is-size-3">
                 <input
-                  className="input card-header-title is-centered is-size-3"
+                  className="edit input card-header-title is-centered is-size-3"
                   name="name"
                   placeholder="Task Name"
                   value={this.state.data.name}

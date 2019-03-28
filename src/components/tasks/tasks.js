@@ -40,6 +40,7 @@ class Tasks extends React.Component {
     this.fetchTasks()
     this.getFriends()
     this.fetchCategories()
+    this.fetchGroups()
   }
   fetchTasks() {
     axios.get(`/api/groups/${this.props.match.params.groupId}/tasks`, {
@@ -69,7 +70,7 @@ class Tasks extends React.Component {
     console.log(this.state.group, 'group')
     return(
       <Fragment>
-        <nav className="navbar is-warning tasks-nav">
+        <nav className="navbar is-primary tasks-nav">
           <div className="container">
             <div className="navbar-item">
               <h2><b> Filter by: </b></h2>
@@ -129,18 +130,13 @@ class Tasks extends React.Component {
         <section className="hero">
           <div className="hero-body">
             <div className="container has-text-centered">
-              <h1 className="title">
-                {this.state.group}
-              </h1>
               <div className="title">
                 <i className="fas fa-tasks"></i>
-                <div>
-                Tasks
-                </div>
+                <h1 className="title">
+                  {this.state.group}
+                </h1>
               </div>
-              <h2 className="subtitle">
-                {this.state.selectedPriority || categoryName}
-              </h2>
+              <h2 className="subtitle"><b> Filtered by: </b>{this.state.selectedPriority || categoryName}</h2>
             </div>
           </div>
         </section>
