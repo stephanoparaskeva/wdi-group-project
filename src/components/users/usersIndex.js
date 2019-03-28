@@ -23,25 +23,37 @@ class Users extends React.Component {
   render() {
     const users = this.state.users.data
     return(
-      <div>
-        {users && users.map(user =>
-          <div key={user._id} className="card">
-            <header className="card-header">
-              <p className="card-header-title">
-                {user.username}
-              </p>
-            </header>
-            <div className="card-content">
-              <div className="content">
-                <p>{user.email}</p>
+      <div className="container">
+        <div className="section">
+          <div className="columns is-multiline">
+            {users && users.map(user =>
+              <div key={user._id} className="column is-one-third">
+                <div className="card-large box">
+                  <div className="card-header-title is-centered is-size-3">
+                  Friend?
+                  </div>
+                  <hr />
+                  <div className="card-content">
+                    <div className="content">
+                      <p><strong>Name: </strong>{user.name}</p>
+                      <p><strong>Email Address: </strong>{user.email}</p>
+                      <p><strong>Username: </strong>{user.username}</p>
+                    </div>
+                    <hr />
+                    <p><strong>Created Date: </strong>{user.createdAt}</p>
+                    <p><strong>User ID: </strong>{user._id}</p>
+                    <hr />
+                    <footer className="card-footer">
+                      <button href="#" className="button is-warning subtitle is-6 is-fullwidth">Edit</button>
+                      <Link className="button is-primary subtitle is-6 is-fullwidth" to={`/users/${user._id}`}>Request</Link>
+                      <button href="#" className="button is-danger subtitle is-6 is-fullwidth">Delete</button>
+                    </footer>
+                  </div>
+                </div>
               </div>
-            </div>
-            <footer className="card-footer">
-              <a href="#" className="card-footer-item">Edit</a>
-              <Link to={`/users/${user._id}`}>Request</Link>
-              <a href="#" className="card-footer-item">Delete</a>
-            </footer>
-          </div>)}
+            )}
+          </div>
+        </div>
       </div>
     )
   }

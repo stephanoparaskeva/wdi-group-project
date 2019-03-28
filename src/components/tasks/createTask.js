@@ -13,7 +13,8 @@ class CreateTask extends React.Component {
         description: '',
         priority: '',
         categoryAssigned: null,
-        usersAssigned: [{ _id: Auth.getPayload().sub }]
+        usersAssigned: [{ _id: Auth.getPayload().sub }],
+        isCurrent: true
       },
       accepted: [],
       priorityMenu: '',
