@@ -99,22 +99,22 @@ class TaskIndexEdit extends React.Component {
       const categoryName = categoryAssigned.length > 0 ? categoryAssigned[0].name : 'Choose'
       return(
         <div className="column is-one-third">
-          <div className="card">
-            <header className="card-header">
-              <p className="card-header-title">
-                <input
-                  className="input"
-                  name="name"
-                  placeholder="Task Name"
-                  value={this.state.data.name}
-                  onChange={this.handleChange}
-                />
-              </p>
+          <div className="card-large box">
+            <header className="card-header-title is-centered is-size-3">
+              <input
+                className="input"
+                name="name"
+                placeholder="Task Name"
+                value={this.state.data.name}
+                onChange={this.handleChange}
+              />
+
             </header>
             <div className="card-content">
               <div className="content">
-                <p className="card-header-title">
-                  <h2>Description</h2>
+                <div className="card-header-title is-centered is-size-6">
+                  <label className="label">Description</label>
+                  <hr />
                   <input
                     className="input"
                     name="description"
@@ -122,7 +122,7 @@ class TaskIndexEdit extends React.Component {
                     value={this.state.data.description}
                     onChange={this.handleChange}
                   />
-                </p>
+                </div>
                 <br />
                 <div className={`dropdown ${this.state.priorityMenu}`}>
                   <div className="dropdown-trigger">
@@ -197,8 +197,8 @@ class TaskIndexEdit extends React.Component {
               </div>
             </div>
             <footer className="card-footer">
-              <a className="card-footer-item" name="edit" onClick={this.handleSubmit}>Save</a>
-              <a href="#" className="card-footer-item">Delete</a>
+              <button className="button is-danger subtitle is-6 is-fullwidth">Cancel</button>
+              <button className="button is-primary subtitle is-6 is-fullwidth" onClick={this.handleSubmit}>Update</button>
             </footer>
           </div>
         </div>
