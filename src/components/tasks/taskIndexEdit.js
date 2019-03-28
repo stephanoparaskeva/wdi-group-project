@@ -99,106 +99,102 @@ class TaskIndexEdit extends React.Component {
       return(
         <div className="column is-one-third">
           <div className="card-large box">
-            <header className="card-header-title is-centered is-size-3">
+            <form>
+              <div className="card-header-title is-centered is-size-3">
+                <input
+                  className="input card-header-title is-centered is-size-3"
+                  name="name"
+                  placeholder="Task Name"
+                  value={this.state.data.name}
+                  onChange={this.handleChange}
+                />
+              </div>
+              <hr/>
+              <p>Description</p>
               <input
                 className="input"
-                name="name"
-                placeholder="Task Name"
-                value={this.state.data.name}
+                name="description"
+                placeholder="Description"
+                value={this.state.data.description}
                 onChange={this.handleChange}
               />
-
-            </header>
-            <div className="card-content">
-              <div className="content">
-                <div className="card-header-title is-centered is-size-6">
-                  <label className="label">Description</label>
-                  <hr />
-                  <input
-                    className="input"
-                    name="description"
-                    placeholder="Description"
-                    value={this.state.data.description}
-                    onChange={this.handleChange}
-                  />
+              <div className={`dropdown ${this.state.priorityMenu}`}>
+                <div className="dropdown-trigger">
+                  <p>Priority</p>
+                  <button type="button" className="button" aria-haspopup="true" aria-controls="dropdown-menu" onClick={this.togglePriorityClick}>
+                    <span>{this.state.data.priority || 'Choose'}</span>
+                    <span className="icon is-small">
+                      <i className="fas fa-angle-down" aria-hidden="true"></i>
+                    </span>
+                  </button>
                 </div>
-                <br />
-                <div className={`dropdown ${this.state.priorityMenu}`}>
-                  <div className="dropdown-trigger">
-                    <h2>Priority</h2>
-                    <button type="button" className="button" aria-haspopup="true" aria-controls="dropdown-menu" onClick={this.togglePriorityClick}>
-                      <span>{this.state.data.priority || 'Choose'}</span>
-                      <span className="icon is-small">
-                        <i className="fas fa-angle-down" aria-hidden="true"></i>
-                      </span>
-                    </button>
-                  </div>
-                  <div className="dropdown-menu" id="dropdown-menu" role="menu">
-                    <div className="dropdown-content">
-                      <a
-                        className="dropdown-item"
-                        onClick={(e) => {
-                          e.preventDefault()
-                          this.assignPriority('high')
-                        }}
-                      >
-                        High
-                      </a>
-                      <a
-                        className="dropdown-item"
-                        onClick={(e) => {
-                          e.preventDefault()
-                          this.assignPriority('medium')
-                        }}
-                      >
-                        Medium
-                      </a>
-                      <a
-                        className="dropdown-item"
-                        onClick={(e) => {
-                          e.preventDefault()
-                          this.assignPriority('low')
-                        }}
-                      >
-                        Low
-                      </a>
-                    </div>
-                  </div>
-                </div>
-
-                <p>Catgeory:</p>
-                <div className={`dropdown ${this.state.categoryMenu}`}>
-                  <div className="dropdown-trigger">
-                    <button type="button" className="button" aria-haspopup="true" aria-controls="dropdown-menu" onClick={this.toggleCategoryClick}>
-                      <span>{categoryName}</span>
-                      <span className="icon is-small">
-                        <i className="fas fa-angle-down" aria-hidden="true"></i>
-                      </span>
-                    </button>
-                  </div>
-                  <div className="dropdown-menu" id="dropdown-menu" role="menu">
-                    <div className="dropdown-content">
-                      {this.props.categories.map(category =>
-                        <a
-                          key={category._id}
-                          className="dropdown-item"
-                          onClick={(e) => {
-                            e.preventDefault()
-                            this.assignCategory(category._id)
-                          }}
-                        >
-                          {category.name}
-                        </a>
-                      )}
-                    </div>
+                <div className="dropdown-menu" id="dropdown-menu" role="menu">
+                  <div className="dropdown-content">
+                    <a
+                      className="dropdown-item"
+                      onClick={(e) => {
+                        e.preventDefault()
+                        this.assignPriority('high')
+                      }}
+                    >
+                      High
+                    </a>
+                    <a
+                      className="dropdown-item"
+                      onClick={(e) => {
+                        e.preventDefault()
+                        this.assignPriority('medium')
+                      }}
+                    >
+                      Medium
+                    </a>
+                    <a
+                      className="dropdown-item"
+                      onClick={(e) => {
+                        e.preventDefault()
+                        this.assignPriority('low')
+                      }}
+                    >
+                      Low
+                    </a>
                   </div>
                 </div>
               </div>
-            </div>
-            <footer className="card-footer">
-              <button className="button is-danger subtitle is-6 is-fullwidth">Cancel</button>
-              <button className="button is-primary subtitle is-6 is-fullwidth" onClick={this.handleSubmit}>Update</button>
-            </footer>
+
+              <p>Catgeory:</p>
+              <div className={`dropdown ${this.state.categoryMenu}`}>
+                <div className="dropdown-trigger">
+                  <button type="button" className="button" aria-haspopup="true" aria-controls="dropdown-menu" onClick={this.toggleCategoryClick}>
+                    <span>{categoryName}</span>
+                    <span className="icon is-small">
+                      <i className="fas fa-angle-down" aria-hidden="true"></i>
+                    </span>
+                  </button>
+                </div>
+                <div className="dropdown-menu" id="dropdown-menu" role="menu">
+                  <div className="dropdown-content">
+                    {this.props.categories.map(category =>
+                      <a
+                        key={category._id}
+                        className="dropdown-item"
+                        onClick={(e) => {
+                          e.preventDefault()
+                          this.assignCategory(category._id)
+                        }}
+                      >
+                        {category.name}
+                      </a>
+                    )}
+                  </div>
+                </div>
+              </div>
+              <br/>
+              <br/>
+              <footer className="card-footer">
+                <button className="button is-danger subtitle is-6 is-fullwidth">Cancel</button>
+                <button className="button is-primary subtitle is-6 is-fullwidth" onClick={this.handleSubmit}>Update</button>
+              </footer>
+            </form>
           </div>
         </div>
       )
@@ -237,7 +233,6 @@ class TaskIndexEdit extends React.Component {
           </footer>
         </div>
       </div>
-
     )
   }
 }
