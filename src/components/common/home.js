@@ -24,7 +24,7 @@ class Home extends React.Component {
               </p>
               <br/>
               <p className="subtitle is-4"><strong>Media Coverage:</strong></p>
-              <p><strong>As featured in:</strong> Wired, Tech Crunch, Hello Magazine, Conde Naste Traveller and more! Click here for more reviews.</p>
+              <p><strong>As featured in:</strong> Wired, Tech Crunch, Stuff Magazine and more! Click here for more reviews.</p>
             </p>
           </div>
         </div>
