@@ -14,6 +14,7 @@ class TaskIndexEdit extends React.Component {
         description: props.description,
         priority: props.priority,
         categoryAssigned: props.categoryAssigned,
+        isCurrent: false,
         error: ''
       },
 
@@ -39,12 +40,20 @@ class TaskIndexEdit extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault()
+    e.persist()
+    if(e.target.name === 'done' && this.state.data.isCurrent === false) {
+      this.setState({ data: {isCurrent: true} })
+    } else if (e.target.name === 'done' && this.state.data.isCurrent === true) {
+      this.setState({ data: {isCurrent: false} })
+    }
     axios.put(`/api/groups/${this.props.group}/tasks/${this.props._id}`, this.state.data, {
       headers: {Authorization: `Bearer ${Auth.getToken()}`}
     })
       .then(() => {
         this.props.onFetchTasks()
-        this.handleClick()
+        if (e.target.name !== 'done') {
+          this.handleClick()
+        }
       })
       .catch(err => console.log(err.message))
   }
@@ -93,6 +102,7 @@ class TaskIndexEdit extends React.Component {
   }
 
   render() {
+    console.log(this.props, 'props')
     if (this.state.edit) {
       const categoryAssigned = this.props.categories.filter(category => category._id === this.state.data.categoryAssigned)
       const categoryName = categoryAssigned.length > 0 ? categoryAssigned[0].name : 'Choose'
@@ -205,9 +215,12 @@ class TaskIndexEdit extends React.Component {
 
     return(
       <div className="column is-one-third">
+
         <div className="card-large box">
+          {this.props.isCurrent && <div className="has-text-centered"><i className="fas fa-check"></i></div>}
           <div className="card-header-title is-centered is-size-3">
             {this.props.name}
+
           </div>
           <hr />
           <div className="has-text-centered is-size-5">
@@ -234,6 +247,7 @@ class TaskIndexEdit extends React.Component {
           <footer className="card-footer">
             <button className="button is-warning subtitle is-6 is-fullwidth" onClick={this.handleClick}>Edit</button>
             <button className="button is-danger subtitle is-6 is-fullwidth" name="delete" onClick={this.handleDelete}>Delete</button>
+            <button className="button is-info subtitle is-6 is-fullwidth" name="done" onClick={this.handleSubmit}>Done</button>
           </footer>
         </div>
       </div>
