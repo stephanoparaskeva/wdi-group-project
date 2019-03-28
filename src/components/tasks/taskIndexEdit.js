@@ -14,6 +14,7 @@ class TaskIndexEdit extends React.Component {
         description: props.description,
         priority: props.priority,
         categoryAssigned: props.categoryAssigned,
+        isCurrent: false,
         error: ''
       },
 
@@ -39,12 +40,19 @@ class TaskIndexEdit extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault()
+    if (e.target.name === 'done' && this.state.data.isCurrent === true) {
+      this.setState({ data: {isCurrent: false} })
+    } else if(e.target.name === 'done' && this.state.data.isCurrent === false) {
+      this.setState({ data: {isCurrent: true} })
+    }
     axios.put(`/api/groups/${this.props.group}/tasks/${this.props._id}`, this.state.data, {
       headers: {Authorization: `Bearer ${Auth.getToken()}`}
     })
       .then(() => {
         this.props.onFetchTasks()
-        this.handleClick()
+        if (e.target.name !== 'done') {
+          this.handleClick()
+        }
       })
       .catch(err => console.log(err.message))
   }
@@ -93,6 +101,7 @@ class TaskIndexEdit extends React.Component {
   }
 
   render() {
+    console.log(this.props, 'props')
     if (this.state.edit) {
       const categoryAssigned = this.props.categories.filter(category => category._id === this.state.data.categoryAssigned)
       const categoryName = categoryAssigned.length > 0 ? categoryAssigned[0].name : 'Choose'
@@ -110,7 +119,7 @@ class TaskIndexEdit extends React.Component {
                 />
               </div>
               <hr/>
-              <p>Description</p>
+              <p><strong>Description</strong></p>
               <input
                 className="input"
                 name="description"
@@ -120,7 +129,7 @@ class TaskIndexEdit extends React.Component {
               />
               <div className={`dropdown ${this.state.priorityMenu}`}>
                 <div className="dropdown-trigger">
-                  <p>Priority</p>
+                  <p><strong>Priority</strong></p>
                   <button type="button" className="button" aria-haspopup="true" aria-controls="dropdown-menu" onClick={this.togglePriorityClick}>
                     <span>{this.state.data.priority || 'Choose'}</span>
                     <span className="icon is-small">
@@ -161,7 +170,7 @@ class TaskIndexEdit extends React.Component {
                 </div>
               </div>
 
-              <p>Catgeory:</p>
+              <p><strong>Category:</strong></p>
               <div className={`dropdown ${this.state.categoryMenu}`}>
                 <div className="dropdown-trigger">
                   <button type="button" className="button" aria-haspopup="true" aria-controls="dropdown-menu" onClick={this.toggleCategoryClick}>
@@ -205,18 +214,21 @@ class TaskIndexEdit extends React.Component {
 
     return(
       <div className="column is-one-third">
+
         <div className="card-large box">
+          {!this.props.isCurrent && <div className="has-text-centered"><i className="fas fa-check"></i></div>}
           <div className="card-header-title is-centered is-size-3">
             {this.props.name}
+
           </div>
           <hr />
           <div className="has-text-centered is-size-5">
             {this.props.description}
           </div>
           <br />
-          <p>{`Created by (Id): ${this.props.createdBy}`}</p>
-          <p>{`Priority: ${this.props.priority}`}</p>
-          <p>{`Category: ${categoryName}`}</p>
+          <p><strong>Created by (Id):</strong>{`${this.props.createdBy}`}</p>
+          <p><strong>Priority:</strong> {`${this.props.priority}`}</p>
+          <p><strong>Category:</strong>{`${categoryName}`}</p>
           <p><strong>Last comment:</strong></p>
           {this.props.comments.length > 0 && (
             <div>
@@ -234,6 +246,7 @@ class TaskIndexEdit extends React.Component {
           <footer className="card-footer">
             <button className="button is-warning subtitle is-6 is-fullwidth" onClick={this.handleClick}>Edit</button>
             <button className="button is-danger subtitle is-6 is-fullwidth" name="delete" onClick={this.handleDelete}>Delete</button>
+            <button className="button is-info subtitle is-6 is-fullwidth" name="done" onClick={this.handleSubmit}>Done</button>
           </footer>
         </div>
       </div>

@@ -13,7 +13,8 @@ class CreateTask extends React.Component {
         description: '',
         priority: '',
         categoryAssigned: null,
-        usersAssigned: [{ _id: Auth.getPayload().sub }]
+        usersAssigned: [{ _id: Auth.getPayload().sub }],
+        isCurrent: true
       },
       accepted: [],
       priorityMenu: '',
@@ -97,7 +98,7 @@ class CreateTask extends React.Component {
               />
             </div>
             <hr / >
-            <p>Description</p>
+            <p><strong>Description</strong></p>
             <input
               className="input"
               name="description"
@@ -107,7 +108,7 @@ class CreateTask extends React.Component {
             />
             <div className={`dropdown ${this.state.priorityMenu}`}>
               <div className="dropdown-trigger">
-                <p>Priority</p>
+                <p><strong>Priority</strong></p>
                 <button type="button" className="button" aria-haspopup="true" aria-controls="dropdown-menu" onClick={this.togglePriorityClick}>
                   <span>{this.state.data.priority || 'Choose'}</span>
                   <span className="icon is-small">
@@ -148,7 +149,7 @@ class CreateTask extends React.Component {
               </div>
             </div>
 
-            <p>Catgeory</p>
+            <p><strong>Category</strong></p>
             <div className={`dropdown ${this.state.categoryMenu}`}>
               <div className="dropdown-trigger">
                 <button type="button" className="button" aria-haspopup="true" aria-controls="dropdown-menu" onClick={this.toggleCategoryClick}>
