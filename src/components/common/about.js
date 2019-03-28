@@ -11,7 +11,7 @@ class About extends React.Component {
 
   render() {
     return (
-      <section className="hero is-fullheight">
+      <section className="hero is-fullheight is-primary is-bold">
         <div className="hero-body">
           <div className="container">
             <p className="title is-1">Organise/about</p>

@@ -10,7 +10,7 @@ class Home extends React.Component {
 
   render() {
     return (
-      <section className="hero is-fullheight">
+      <section className="hero is-fullheight is-primary is-bold">
         <div className="hero-body">
           <div className="container">
             <p className="title is-1">Organise/reviews</p>
@@ -24,7 +24,7 @@ class Home extends React.Component {
               </p>
               <br/>
               <p className="subtitle is-4"><strong>Media Coverage:</strong></p>
-              <p><strong>As featured in:</strong> Wired, Tech Crunch, Hello Magazine, Conde Naste Traveller and more! Click here for more reviews.</p>
+              <p><strong>As featured in:</strong> Wired, Tech Crunch, Stuff Magazine and more! Click here for more reviews.</p>
             </p>
           </div>
         </div>
