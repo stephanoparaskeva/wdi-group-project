@@ -1,6 +1,4 @@
 const Task = require('../models/task')
-const Group = require('../models/group')
-const permissions = require('../lib/permissions')
 
 function tasksIndexRoute(req, res, next) {
   Task

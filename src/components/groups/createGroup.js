@@ -45,7 +45,9 @@ class CreateGroup extends React.Component {
     axios.post('/api/groups',
       this.state.data,
       { headers: {Authorization: `Bearer ${Auth.getToken()}`}})
-      .then(() => this.props.rerender())
+      .then(() => {
+        this.props.onFetchGroups()
+      })
       .catch(err => console.log(err.message))
 
   }

@@ -4,18 +4,18 @@ import axios from 'axios'
 import Auth from '../../lib/auth'
 
 class EditGroups extends React.Component {
-  constructor() {
+  constructor(props) {
     super()
 
-    this.state = { data: this.props }
+    this.state = {
+      data: {
+        name: props.group.name,
+        description: props.group.description
+      }
+    }
 
     this.handleChange = this.handleChange.bind(this)
     this.handleSubmit = this.handleSubmit.bind(this)
-  }
-
-  buttonClicker(e){
-    e.preventDefault()
-      .then(() => this.props.history.push('/groups'))
   }
 
   handleChange({ target: { name, value }}) {
@@ -28,12 +28,14 @@ class EditGroups extends React.Component {
     axios.put(`/api/groups/${this.props.group.id}`,
       this.state.data,
       { headers: {Authorization: `Bearer ${Auth.getToken()}`}})
-      .then(() => this.props.history.push('/groups'))
+      .then(() => {
+        this.props.onFetchGroups()
+        this.props.onCancel()
+      })
       .catch(err => console.log(err.message))
   }
 
   render() {
-    console.log(this.props.group.id)
     return (
       <div className="column is-one-third">
         <div className="card-large box">
@@ -52,7 +54,7 @@ class EditGroups extends React.Component {
                   className="input"
                   name="name"
                   placeholder="Group Name"
-                  value={this.props.group.name || ''}
+                  value={this.state.data.name}
                   onChange={this.handleChange}
                 />
                 <br />
@@ -64,7 +66,7 @@ class EditGroups extends React.Component {
                   className="input"
                   name="description"
                   placeholder="Group Details"
-                  value={this.props.group.description || ''}
+                  value={this.state.data.description}
                   onChange={this.handleChange}
                 />
                 <br />
@@ -72,7 +74,7 @@ class EditGroups extends React.Component {
             </div>
           </div>
           <footer className="card-footer">
-            <button href="/groups" className="button is-warning subtitle is-6 is-fullwidth"><strong className="has-text-white">Cancel</strong></button>
+            <button href="/groups" className="button is-warning subtitle is-6 is-fullwidth" onClick={this.props.onCancel}><strong className="has-text-white">Cancel</strong></button>
             <button href="/groups" className="button is-primary subtitle is-6 is-fullwidth" onClick={this.handleSubmit}><strong className="has-text-white">Update</strong></button>
           </footer>
         </div>

@@ -12,35 +12,37 @@ class Group extends React.Component {
     super()
 
     this.state = {
-      createdBy: {}
+      edit: false
     }
     this.handleDelete = this.handleDelete.bind(this)
-    this.reRender = this.reRender.bind(this)
-
+    this.handleEdit = this.handleEdit.bind(this)
+    this.isOwner = this.isOwner.bind(this)
   }
+
   isOwner() {
     return Auth.isAuthenticated() && this.props.createdBy === Auth.getPayload().sub
   }
+
   handleDelete() {
     if (this.props.createdBy === Auth.getPayload().sub) {
       axios.delete(`/api/groups/${this.props._id}`,
         { headers: { Authorization: `Bearer ${Auth.getToken()}`}})
-        .then(() => this.props.rerender())
+        .then(() => {
+          this.props.onFetchGroups()
+        })
         .catch(err => console.log(err.message))
     } else {
       console.log('not yours!')
     }
   }
-  reRender() {
-    const { edit } = this.state
-    this.setState({ edit: !edit })
-  }
-  removeFromState(){
+
+  handleEdit() {
+    this.setState({ edit: !this.state.edit })
   }
 
   render() {
     if (this.state.edit) {
-      return  <EditGroups  group={this.props}/>
+      return  <EditGroups onFetchGroups={this.props.onFetchGroups} group={this.props} onCancel={this.handleEdit}/>
     }
     return(
       <div className="column is-one-third">
@@ -63,7 +65,7 @@ class Group extends React.Component {
             <Link to={`/groups/${this.props._id}/tasks`} className="button is-link card-footer-item subtitle is-6 has-text-white">
               <strong className="has-text-white">Go to all Tasks</strong>
             </Link>
-            {this.isOwner() && <button className="button is-warning subtitle is-6" onClick={this.reRender}><strong className="has-text-white">Edit</strong></button>}
+            {this.isOwner() && <button className="button is-warning subtitle is-6" onClick={this.handleEdit}><strong className="has-text-white">Edit</strong></button>}
             {this.isOwner() && <button className="button is-danger  subtitle is-6" onClick={this.handleDelete}><strong className="has-text-white">Delete</strong></button>}
           </footer>
         </div>

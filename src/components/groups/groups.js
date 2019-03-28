@@ -13,8 +13,6 @@ class Groups extends React.Component {
     }
 
     this.getAllGroups = this.getAllGroups.bind(this)
-    this.getAllGroupsForUpdate = this.getAllGroupsForUpdate.bind(this)
-    this.childRerendersPage = this.childRerendersPage.bind(this)
   }
 
   getAllGroups() {
@@ -23,25 +21,8 @@ class Groups extends React.Component {
       .then(res => this.setState({ groups: res.data }))
   }
 
-  getAllGroupsForUpdate() {
-    axios.get('/api/groups', {
-    })
-      .then(res => {
-        if(res.data.length !== this.state.groups.length) {
-          this.setState({ groups: res.data })
-        }
-      })
-  }
-
   componentDidMount() {
     this.getAllGroups()
-  }
-  componentDidUpdate() {
-    this.getAllGroupsForUpdate()
-  }
-
-  childRerendersPage() {
-    this.setState(this.state)
   }
 
   render() {
@@ -50,9 +31,9 @@ class Groups extends React.Component {
       <div className="container">
         <div className="section">
           <div className="columns is-multiline">
-            <CreateGroup rerender={this.childRerendersPage}/>
+            <CreateGroup onFetchGroups={this.getAllGroups}/>
             {this.state.groups.map(group =>
-              <Group {...group} key={group._id} rerender={this.childRerendersPage} />
+              <Group {...group} key={group._id} onFetchGroups={this.getAllGroups} />
             )}
           </div>
         </div>

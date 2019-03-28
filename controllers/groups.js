@@ -3,6 +3,7 @@ const Group = require('../models/group')
 function groupsIndex(req, res, next) {
   Group
     .find()
+    .sort({'_id': -1})
     .populate('groupTasks')
     .then(groups => res.status(200).json(groups))
     .catch(next)
