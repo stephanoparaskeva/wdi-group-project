@@ -10,7 +10,7 @@ class Footer extends React.Component {
 
   render() {
     return (
-      <footer className="footer is-medium">
+      <footer className="footer is-small">
         <div className="container">
           <hr />
           <p className="subtitle is-6">Organise: Powered by General Assembly WDI39</p>
