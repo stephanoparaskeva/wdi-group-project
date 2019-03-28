@@ -47,7 +47,6 @@ class Tasks extends React.Component {
     this.fetchTasks()
     this.getFriends()
     this.fetchCategories()
-    this.fetchGroups()
   }
 
   fetchTasks() {
@@ -141,9 +140,18 @@ class Tasks extends React.Component {
         <section className="hero">
           <div className="hero-body">
             <div className="container has-text-centered">
+<<<<<<< HEAD
               <h1 className="title">
                 {this.state.group}
               </h1>
+=======
+              <div className="title">
+                <i className="fas fa-tasks"></i>
+                <div>
+                Tasks
+                </div>
+              </div>
+>>>>>>> development
               <h2 className="subtitle">
                 {this.state.selectedPriority || categoryName}
               </h2>

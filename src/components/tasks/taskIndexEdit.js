@@ -40,11 +40,10 @@ class TaskIndexEdit extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault()
-    e.persist()
-    if(e.target.name === 'done' && this.state.data.isCurrent === false) {
-      this.setState({ data: {isCurrent: true} })
-    } else if (e.target.name === 'done' && this.state.data.isCurrent === true) {
+    if (e.target.name === 'done' && this.state.data.isCurrent === true) {
       this.setState({ data: {isCurrent: false} })
+    } else if(e.target.name === 'done' && this.state.data.isCurrent === false) {
+      this.setState({ data: {isCurrent: true} })
     }
     axios.put(`/api/groups/${this.props.group}/tasks/${this.props._id}`, this.state.data, {
       headers: {Authorization: `Bearer ${Auth.getToken()}`}
@@ -217,7 +216,7 @@ class TaskIndexEdit extends React.Component {
       <div className="column is-one-third">
 
         <div className="card-large box">
-          {this.props.isCurrent && <div className="has-text-centered"><i className="fas fa-check"></i></div>}
+          {!this.props.isCurrent && <div className="has-text-centered"><i className="fas fa-check"></i></div>}
           <div className="card-header-title is-centered is-size-3">
             {this.props.name}
 
