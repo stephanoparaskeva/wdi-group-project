@@ -95,7 +95,7 @@ class TaskIndexEdit extends React.Component {
   render() {
     if (this.state.edit) {
       const categoryAssigned = this.props.categories.filter(category => category._id === this.state.data.categoryAssigned)
-      const categoryName =  categoryAssigned.length > 0 ? categoryAssigned[0].name : 'Choose'
+      const categoryName = categoryAssigned.length > 0 ? categoryAssigned[0].name : 'Choose'
       return(
         <div className="column is-one-third">
           <div className="card">
@@ -222,12 +222,16 @@ class TaskIndexEdit extends React.Component {
           <p>{`Priority: ${this.props.priority}`}</p>
           <p>{`Category: ${categoryName}`}</p>
           <p><strong>Last comment:</strong></p>
-          {this.props.comments > 0 && (
+          {this.props.comments.length > 0 && (
             <div>
-              <p className="is-italic">Title: {this.props.comments[0].name}</p>
-              <p className="is-italic">Comment: {this.props.comments[0].description}</p>
-              <p className="is-italic">CreatedBy: {this.props.comments[0].createdBy}</p>
-              <p className="is-italic">CreatedBy: {this.props.comments[0].createdAt}</p>
+              {this.props.comments.map(comment => (
+                <div key={comment._id}>
+                  <p className="is-italic">Title: {comment.name}</p>
+                  <p className="is-italic">Comment: {comment.description}</p>
+                  <p className="is-italic">CreatedBy: {comment.createdBy}</p>
+                  <p className="is-italic">CreatedBy: {comment.createdAt}</p>
+                </div>
+              ))}
             </div>
           )}
           <hr />
