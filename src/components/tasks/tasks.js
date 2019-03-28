@@ -36,10 +36,17 @@ class Tasks extends React.Component {
       .then(res => this.setState({ categories: res.data }))
   }
 
+  fetchGroups() {
+    axios
+      .get(`/api/groups/${this.props.match.params.groupId}`)
+      .then(res => this.setState({ group: res.data }))
+  }
+
   componentDidMount() {
     this.fetchTasks()
     this.getFriends()
     this.fetchCategories()
+    this.fetchGroups()
   }
 
   fetchTasks() {
@@ -70,6 +77,7 @@ class Tasks extends React.Component {
     if(!this.state.tasks) return null
     const categoryAssigned = this.state.categories.filter(category => category._id === this.state.selectedCategory)
     const categoryName = categoryAssigned.length > 0 ? categoryAssigned[0].name : 'All Categories'
+    console.log(this.state.group)
     return(
       <Fragment>
         <nav className="navbar is-warning tasks-nav">
@@ -133,7 +141,7 @@ class Tasks extends React.Component {
           <div className="hero-body">
             <div className="container has-text-centered">
               <h1 className="title">
-                Tasks
+                {this.state.selectedPriority || categoryName}
               </h1>
               <h2 className="subtitle">
                 {this.state.selectedPriority || categoryName}
