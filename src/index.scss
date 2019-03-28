@@ -78,74 +78,12 @@ button.is-fullwidth {
     font-size: 3em;
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-.user-to-assign {
-  background-color: #00d1b2;
-  width: 6em;
-  margin: 0.5em;
-  border-radius: 0.25em;
-  border-left: 0.5em blue solid;
-}
-.user {
-  background-color: #ff3860;
-  border-left: 0.25em yellow solid;
-  width: 6em;
-  margin: 0.5em;
-  border-radius: 0.25em;
+.card-header-title.is-centered.is-size-3 {
+  background-image: url(./assets/group-image-colour.jpg);
+  background-size: cover;
+  margin: -20px;
+  border-radius: 5px 5px 0 0;
+  height: 150px;
+  color: white;
+  // text-shadow: 1px 1px 1px rgba(0,0,0,1);
 }
