@@ -110,7 +110,7 @@ class TaskIndexEdit extends React.Component {
                 />
               </div>
               <hr/>
-              <p>Description</p>
+              <p><strong>Description</strong></p>
               <input
                 className="input"
                 name="description"
@@ -120,7 +120,7 @@ class TaskIndexEdit extends React.Component {
               />
               <div className={`dropdown ${this.state.priorityMenu}`}>
                 <div className="dropdown-trigger">
-                  <p>Priority</p>
+                  <p><strong>Priority</strong></p>
                   <button type="button" className="button" aria-haspopup="true" aria-controls="dropdown-menu" onClick={this.togglePriorityClick}>
                     <span>{this.state.data.priority || 'Choose'}</span>
                     <span className="icon is-small">
@@ -161,7 +161,7 @@ class TaskIndexEdit extends React.Component {
                 </div>
               </div>
 
-              <p>Catgeory:</p>
+              <p><strong>Category:</strong></p>
               <div className={`dropdown ${this.state.categoryMenu}`}>
                 <div className="dropdown-trigger">
                   <button type="button" className="button" aria-haspopup="true" aria-controls="dropdown-menu" onClick={this.toggleCategoryClick}>
@@ -214,9 +214,9 @@ class TaskIndexEdit extends React.Component {
             {this.props.description}
           </div>
           <br />
-          <p>{`Created by (Id): ${this.props.createdBy}`}</p>
-          <p>{`Priority: ${this.props.priority}`}</p>
-          <p>{`Category: ${categoryName}`}</p>
+          <p><strong>Created by (Id):</strong>{`${this.props.createdBy}`}</p>
+          <p><strong>Priority:</strong> {`${this.props.priority}`}</p>
+          <p><strong>Category:</strong>{`${categoryName}`}</p>
           <p><strong>Last comment:</strong></p>
           {this.props.comments.length > 0 && (
             <div>
