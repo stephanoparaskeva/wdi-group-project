@@ -47,13 +47,8 @@ class Nav extends React.Component {
               {!Auth.isAuthenticated() && <Link to="/about" className="navbar-item">About</Link>}
               {!Auth.isAuthenticated() && <Link to="/pricing" className="navbar-item">Pricing</Link>}
               {!Auth.isAuthenticated() && <Link to="/features" className="navbar-item">Features</Link>}
-              <div className="navbar-item has-dropdown is-hoverable">
-                {Auth.isAuthenticated() && <Link to="#" className="navbar-link">New</Link>}
-                <div className="navbar-dropdown">
-                  <Link to="/tasks" className="navbar-item">Task</Link>
-                  <Link to="/categories " className="navbar-item">Category</Link>
-                  <Link to="/groups" className="navbar-item">Group</Link>
-                </div>
+              <div className="navbar-end">
+                {Auth.isAuthenticated() && <Link to="/groups" className="navbar-item is-primary "><strong>Groups</strong></Link>}
               </div>
               <div className="navbar-end">
                 {!Auth.isAuthenticated() && <Link to="/login" className="navbar-item">Login/Register</Link>}
@@ -69,9 +64,7 @@ class Nav extends React.Component {
                   <Link to="/" className="navbar-item" onClick={Auth.logout}>Logout</Link>
                 </div>
               </div>
-              <div className="navbar-end">
-                {Auth.isAuthenticated() && <Link to="/groups/:groupId/tasks" className="navbar-item is-primary "><strong>New Task</strong></Link>}
-              </div>
+
               <div className="navbar-end">
               </div>
             </div>

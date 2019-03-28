@@ -120,7 +120,7 @@ class CreateCategory extends React.Component {
             </div>
           </div>
           {this.state.categories.data && this.filterCategory().map((category, i) => (
-            <div key={i}>
+            <div className="category-display category" key={i}>
               <p className="category-name">{category.name}</p>
               <a
                 className="delete delete-category"
