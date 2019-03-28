@@ -95,7 +95,7 @@ class TaskIndexEdit extends React.Component {
   render() {
     if (this.state.edit) {
       const categoryAssigned = this.props.categories.filter(category => category._id === this.state.data.categoryAssigned)
-      const categoryName = categoryAssigned.length > 0 ? categoryAssigned[0].name : 'Choose'
+      const categoryName =  categoryAssigned.length > 0 ? categoryAssigned[0].name : 'Choose'
       return(
         <div className="column is-one-third">
           <div className="card">
