@@ -16,7 +16,10 @@ class Pricing extends React.Component {
           <div className="container">
             <p className="title is-1">Organise/pricing</p>
             <hr />
-            <p className="subtitle is-4"><strong>Pricing Structure:</strong> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse eu ex ullamcorper, volutpat dolor sed, ultricies ligula. Etiam laoreet nisl semper mi scelerisque, molestie pellentesque metus pulvinar. Quisque consectetur venenatis neque et pellentesque. Phasellus laoreet sit amet elit quis finibus. Mauris eu elit odio. Vivamus ac mauris ligula. Fusce nibh urna, molestie eu magna quis, dictum congue metus. Integer vitae dignissim erat, et auctor erat. Sed ut finibus urna. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.
+            <p className="subtitle is-4"><strong>Free Users:</strong><br/>Organise is free service that lets users work with an unlimited number of group boards, category lists and task cards. Free users can add add and connect with their friends as there are no restrictions on the number of people users can collaborate with through the free version of Organise.</p>
+
+            <p className="subtitle is-4"><strong>For Business:</strong><br/>
+             Businesses with more extensive needs can opt for Organises Enterprise plan, which offers features designed for large companies that must coordinate projects across multiple teams. This plan includes features of Organise Business such as single sign-on access and additional security features, such as two-factor authentication, file encryption and intrusion detection.
             </p>
           </div>
         </div>
