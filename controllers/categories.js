@@ -1,6 +1,4 @@
 const Category = require('../models/category')
-const Group = require('../models/group')
-const permissions = require('../lib/permissions')
 
 function categoriesIndexRoute(req, res, next) {
   Category
@@ -39,6 +37,8 @@ function categoriesUpdateRoute(req, res, next) {
 }
 
 function categoriesDeleteRoute(req, res, next) {
+  req.body.group = req.params.groupId
+  req.body.createdBy = req.currentUser
   Category
     .findById(req.params.categoryId)
     .then(category => category.remove())

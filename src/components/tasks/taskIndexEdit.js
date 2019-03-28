@@ -23,6 +23,7 @@ class TaskIndexEdit extends React.Component {
 
     this.handleChange = this.handleChange.bind(this)
     this.handleSubmit = this.handleSubmit.bind(this)
+    this.handleDelete = this.handleDelete.bind(this)
     this.togglePriorityClick = this.togglePriorityClick.bind(this)
     this.assignPriority = this.assignPriority.bind(this)
     this.toggleCategoryClick = this.toggleCategoryClick.bind(this)
@@ -44,6 +45,17 @@ class TaskIndexEdit extends React.Component {
       .then(() => {
         this.props.onFetchTasks()
         this.handleClick()
+      })
+      .catch(err => console.log(err.message))
+  }
+
+  handleDelete(e) {
+    e.preventDefault()
+    axios.delete(`/api/groups/${this.props.group}/tasks/${this.props._id}`, {
+      headers: {Authorization: `Bearer ${Auth.getToken()}`}
+    })
+      .then(() => {
+        this.props.onFetchTasks()
       })
       .catch(err => console.log(err.message))
   }
@@ -222,7 +234,7 @@ class TaskIndexEdit extends React.Component {
           <hr />
           <footer className="card-footer">
             <button className="button is-warning subtitle is-6 is-fullwidth" onClick={this.handleClick}>Edit</button>
-            <button className="button is-danger  subtitle is-6 is-fullwidth">Delete</button>
+            <button className="button is-danger subtitle is-6 is-fullwidth" name="delete" onClick={this.handleDelete}>Delete</button>
           </footer>
         </div>
       </div>
