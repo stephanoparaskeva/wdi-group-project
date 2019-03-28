@@ -29,7 +29,7 @@ class Nav extends React.Component {
         <div className="container">
           <div className="navbar-brand">
             <Link className="navbar-item" to="/">
-              <img className="logo" src="../assets/36x36.png" />
+              <img className="logo" src="../../assets/36x36.png" />
               <p className="is-size-4"><strong>Organise</strong></p>
             </Link>
             <a role="button"
@@ -58,8 +58,6 @@ class Nav extends React.Component {
                 <div className="navbar-dropdown">
                   <a href="/myProfile" className="navbar-item">My Profile</a>
                   <a href="/users" className="navbar-item">Find friends</a>
-                  <a href="/invitefriends" className="navbar-item">Invite a friend</a>
-                  <a href="/help" className="navbar-item">Help</a>
                   <hr className="navbar-divider" />
                   <Link to="/" className="navbar-item" onClick={Auth.logout}>Logout</Link>
                 </div>
