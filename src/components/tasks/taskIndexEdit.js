@@ -73,7 +73,6 @@ class TaskIndexEdit extends React.Component {
   assignCategory(value) {
     this.setState({ data: { ...this.state.data, categoryAssigned: value }})
     this.toggleCategoryClick()
-    console.log('categoryAssigned: ' + value)
   }
 
   handleClick() {
