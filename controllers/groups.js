@@ -5,6 +5,7 @@ function groupsIndex(req, res, next) {
     .find()
     .sort({'_id': -1})
     .populate('groupTasks')
+    .populate('usersAssigned')
     .then(groups => res.status(200).json(groups))
     .catch(next)
 }

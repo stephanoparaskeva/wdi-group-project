@@ -3,6 +3,8 @@ import axios from 'axios'
 import 'bulma'
 import Auth from '../../lib/auth'
 
+let myArray
+
 class CreateGroup extends React.Component {
   constructor() {
     super()
@@ -14,7 +16,8 @@ class CreateGroup extends React.Component {
         usersAssigned: [{ _id: Auth.getPayload().sub }]
       },
       accepted: [],
-      stateChange: ''
+      stateChange: '',
+      toggle: false
     }
 
     this.handleChange = this.handleChange.bind(this)
@@ -36,8 +39,10 @@ class CreateGroup extends React.Component {
   }
 
   assignUsers(value) {
-    const data = {...this.state.data, usersAssigned: [...this.state.data.usersAssigned, {_id: value}]}
-    this.setState({ data })
+    if (this.state.data.usersAssigned.every(user => user._id !== value)) {
+      const data = {...this.state.data, usersAssigned: [...this.state.data.usersAssigned, {_id: value}]}
+      this.setState({ data })
+    }
   }
 
   handleSubmit(e) {
@@ -76,12 +81,22 @@ class CreateGroup extends React.Component {
                 <div>
                   <div>
                     {accepted && accepted.map((user, i) => (
-                      <div  key={i}>
+                      <div  className="user-to-assign" key={i}>
                         <a
                           className="dropdown-item"
+                          name={user._id}
                           onClick={(e) => {
+                            e.target.classList.toggle('user')
                             e.preventDefault()
                             this.assignUsers(user._id)
+                            myArray = this.state.data.usersAssigned.filter(function( obj ) {
+                              return obj._id !== e.target.name
+                            })
+
+                            if (this.state.toggle) {
+                              this.setState({ data: { usersAssigned: myArray}})
+                            }
+                            this.setState({toggle: !this.state.toggle })
                           }}
                         >{user.friend.username}
                         </a>

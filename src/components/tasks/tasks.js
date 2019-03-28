@@ -4,17 +4,14 @@ import axios from 'axios'
 import TaskIndexEdit from './taskIndexEdit'
 import CreateTask from './createTask'
 import Auth from '../../lib/auth'
-
 class Tasks extends React.Component {
   constructor() {
     super()
-
     this.state = {
       tasks: [],
       accepted: [],
       categories: []
     }
-
     this.filterTask = this.filterTask.bind(this)
     this.filterCategories = this.filterCategories.bind(this)
     this.fetchTasks = this.fetchTasks.bind(this)
@@ -22,7 +19,6 @@ class Tasks extends React.Component {
     this.fetchGroups = this.fetchGroups.bind(this)
     this.getFriends = this.getFriends.bind(this)
   }
-
   getFriends() {
     axios
       .post('/api/users/accepted', this.state.user, {
@@ -30,31 +26,27 @@ class Tasks extends React.Component {
       })
       .then(accepted => this.setState({ accepted }))
   }
-
   fetchCategories() {
     axios
       .get(`/api/groups/${this.props.match.params.groupId}/categories`)
       .then(res => this.setState({ categories: res.data }))
   }
-
   fetchGroups() {
     axios
       .get(`/api/groups/${this.props.match.params.groupId}`)
       .then(res => this.setState({ group: res.data.name }))
   }
-
   componentDidMount() {
     this.fetchTasks()
     this.getFriends()
     this.fetchCategories()
+    this.fetchGroups()
   }
-
   fetchTasks() {
     axios.get(`/api/groups/${this.props.match.params.groupId}/tasks`, {
     })
       .then(res => this.setState({ tasks: res.data }))
   }
-
   filterTask() {
     return this.state.tasks
       .filter(task => task.group === this.props.match.params.groupId)
@@ -68,11 +60,9 @@ class Tasks extends React.Component {
         return this.state.selectedPriority === task.priority
       })
   }
-
   filterCategories() {
     return this.state.categories.filter(category => category.group === this.props.match.params.groupId)
   }
-
   render() {
     if(!this.state.tasks) return null
     const categoryAssigned = this.state.categories.filter(category => category._id === this.state.selectedCategory)
@@ -80,7 +70,7 @@ class Tasks extends React.Component {
     console.log(this.state.group, 'group')
     return(
       <Fragment>
-        <nav className="navbar is-warning tasks-nav">
+        <nav className="navbar is-primary tasks-nav">
           <div className="container">
             <div className="navbar-item">
               <h2><b> Filter by: </b></h2>
@@ -140,19 +130,13 @@ class Tasks extends React.Component {
         <section className="hero">
           <div className="hero-body">
             <div className="container has-text-centered">
-              <h1 className="title">
-                {this.state.group}
-              </h1>
               <div className="title">
                 <i className="fas fa-tasks"></i>
-                <div>
-                Tasks
-                </div>
+                <h1 className="title">
+                  {this.state.group}
+                </h1>
               </div>
-              <h2 className="subtitle">
-                {this.state.selectedPriority || categoryName}
-              </h2>
-
+              <h2 className="subtitle"><b> Filtered by: </b>{this.state.selectedPriority || categoryName}</h2>
             </div>
           </div>
         </section>
@@ -168,5 +152,4 @@ class Tasks extends React.Component {
     )
   }
 }
-
 export default Tasks

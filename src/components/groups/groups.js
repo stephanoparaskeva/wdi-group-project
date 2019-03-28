@@ -3,6 +3,7 @@ import 'bulma'
 import axios from 'axios'
 import Group from './group'
 import CreateGroup from './createGroup'
+import Auth from '../../lib/auth'
 
 class Groups extends React.Component {
   constructor() {
@@ -13,6 +14,7 @@ class Groups extends React.Component {
     }
 
     this.getAllGroups = this.getAllGroups.bind(this)
+    this.filterGroups = this.filterGroups.bind(this)
   }
 
   getAllGroups() {
@@ -23,6 +25,18 @@ class Groups extends React.Component {
 
   componentDidMount() {
     this.getAllGroups()
+  }
+
+  filterGroups() {
+    let filteredArr = []
+    this.state.groups.map(group => {
+      group.usersAssigned.forEach(user => {
+        if (user._id === Auth.getPayload().sub) {
+          filteredArr.push(group)
+        } else return
+      })
+    })
+    return filteredArr
   }
 
   render() {
@@ -43,7 +57,7 @@ class Groups extends React.Component {
           <div className="section">
             <div className="columns is-multiline">
               <CreateGroup onFetchGroups={this.getAllGroups}/>
-              {this.state.groups.map(group =>
+              {this.filterGroups().map(group =>
                 <Group {...group} key={group._id} onFetchGroups={this.getAllGroups} />
               )}
             </div>
