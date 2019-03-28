@@ -216,7 +216,7 @@ class TaskIndexEdit extends React.Component {
       <div className="column is-one-third">
 
         <div className="card-large box">
-          {!this.props.isCurrent && <div className="has-text-centered"><i className="fas fa-check"></i></div>}
+          {!this.props.isCurrent && <div className="has-text-centered"><i className="fas fa-check done-tick"></i></div>}
           <div className="card-header-title is-centered is-size-3">
             {this.props.name}
 
