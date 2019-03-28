@@ -40,3 +40,26 @@ input {
   min-width: 50%;
   width: 50%;
 }
+
+div.category-display.category {
+  display: flex;
+  justify-content: space-between;
+  padding: 1.5%;
+}
+
+p.category-name {
+  display: flex;
+}
+
+.delete.delete-category {
+  background-color: #ff3760;
+  display: flex;
+}
+
+.group-title.title {
+  display: block;
+}
+
+.fas.fa-users {
+  display: block;
+}
