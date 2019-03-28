@@ -10,16 +10,18 @@ class Footer extends React.Component {
 
   render() {
     return (
+      <section className="section">
+      <section className="container">
       <nav className="level">
         <div className="level-left">
           <div className="level-item has-text-centered">
-                <p className="subtitle is-6">Organise: Powered by General Assembly WDI39 </p>
-                </div>
-                </div>
-                <div className="level-right">
-                <div className="level-item has-text-centered">
-                <div className="subtitle is -2 is-right">
-                  <strong>Contact Us:</strong>
+            <p className="subtitle is-6">Organise: Powered by General Assembly WDI39 </p>
+          </div>
+        </div>
+        <div className="level-right">
+          <div className="level-item has-text-centered">
+            <div className="subtitle is -2 is-right">
+              <strong>Contact Us:</strong>
             </div>
             <span className="icon is-large is-left">
               <i className="fas fa-envelope"></i>
@@ -35,8 +37,9 @@ class Footer extends React.Component {
             </span>
             </div>
             </div>
-
         </nav>
+        </section>
+        </section>
     )
   }
 }
