@@ -32,10 +32,10 @@ class Groups extends React.Component {
         <section className="hero">
           <div className="hero-body">
             <div className="container has-text-centered">
-              <h1 className="title group-title">
+              <div className="title group-title">
                 <i className="fas fa-users"></i>
-                Your Groups
-              </h1>
+                <div>Your Groups</div>
+              </div>
             </div>
           </div>
         </section>
