@@ -132,9 +132,12 @@ class Tasks extends React.Component {
         <section className="hero">
           <div className="hero-body">
             <div className="container has-text-centered">
-              <h1 className="title">
+              <div className="title">
+                <i className="fas fa-tasks"></i>
+                <div>
                 Tasks
-              </h1>
+                </div>
+              </div>
               <h2 className="subtitle">
                 {this.state.selectedPriority || categoryName}
               </h2>
