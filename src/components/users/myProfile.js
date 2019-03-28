@@ -115,25 +115,6 @@ class Users extends React.Component {
                 </div>
               </div>
             ))}
-            {tasks && this.filterTasks().map(task => (
-              <div key={task._id} className="column is-one-third">
-                <div className="card-large box">
-                  <div className="card-header-title is-centered is-size-3">
-                    {task.name}
-                  </div>
-                  <hr />
-                  <div className="has-text-centered is-size-5">
-                    {task.description}
-                  </div>
-                  <br />
-                  <p>{`Created by (Id): ${task.createdBy}`}</p>
-                  <p>{`Priority: ${task.priority}`}</p>
-                  <hr />
-                  <footer className="card-footer">
-                  </footer>
-                </div>
-              </div>
-            ))}
           </div>
         </div>
       </div>

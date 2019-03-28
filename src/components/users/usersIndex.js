@@ -44,9 +44,7 @@ class Users extends React.Component {
                     <p><strong>User ID: </strong>{user._id}</p>
                     <hr />
                     <footer className="card-footer">
-                      <button href="#" className="button is-warning subtitle is-6 is-fullwidth">Edit</button>
                       <Link className="button is-primary subtitle is-6 is-fullwidth" to={`/users/${user._id}`}>Request</Link>
-                      <button href="#" className="button is-danger subtitle is-6 is-fullwidth">Delete</button>
                     </footer>
                   </div>
                 </div>
