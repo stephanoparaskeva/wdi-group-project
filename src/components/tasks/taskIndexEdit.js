@@ -109,9 +109,9 @@ class TaskIndexEdit extends React.Component {
         <div className="column is-one-third">
           <div className="card-large box">
             <form>
-              <div className="card-header-title is-centered is-size-3">
+              <div className="edit card-header-title is-centered is-size-3">
                 <input
-                  className="input card-header-title is-centered is-size-3"
+                  className="edit input card-header-title is-centered is-size-3"
                   name="name"
                   placeholder="Task Name"
                   value={this.state.data.name}
@@ -214,12 +214,10 @@ class TaskIndexEdit extends React.Component {
 
     return(
       <div className="column is-one-third">
-
         <div className="card-large box">
           {!this.props.isCurrent && <div className="has-text-centered"><i className="fas fa-check done-tick"></i></div>}
           <div className="card-header-title is-centered is-size-3">
             {this.props.name}
-
           </div>
           <hr />
           <div className="has-text-centered is-size-5">

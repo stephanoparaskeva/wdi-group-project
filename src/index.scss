@@ -28,7 +28,10 @@ header.card-header {
   background-color: #00d1b2;
 }
 
-.card {overflow:hidden}
+.card {
+  overflow: hidden;
+}
+
 .card-large {
 min-height: 460px;
 -webkit-backface-visibility: hidden;
@@ -69,11 +72,27 @@ div.card-footer, footer.card-footer {
 }
 
 button.is-fullwidth {
-  margin: 0 20px;
+  margin: 0 3%;
 }
 
 .done-tick {
   color: #18b086;
     text-shadow: 1px 1px 1px #ccc;
-    font-size: 3em;
+    font-size: 4em;
+    margin: -50px;
+    position: absolute;
+}
+
+.card-header-title.is-centered.is-size-3:not(.edit){
+  background-image: url(./assets/group-image-colour.jpg);
+  background-size: cover;
+  margin: -20px;
+  border-radius: 5px 5px 0 0;
+  height: 150px;
+  color: white;
+  // text-shadow: 1px 1px 1px rgba(0,0,0,1);
+}
+
+.zoom:hover {
+  transform: scale(1.5); /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
 }

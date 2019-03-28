@@ -140,6 +140,9 @@ class Tasks extends React.Component {
         <section className="hero">
           <div className="hero-body">
             <div className="container has-text-centered">
+              <h1 className="title">
+                {this.state.group}
+              </h1>
               <div className="title">
                 <i className="fas fa-tasks"></i>
                 <div>
