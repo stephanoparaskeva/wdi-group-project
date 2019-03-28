@@ -30,7 +30,7 @@ header.card-header {
 
 .card {overflow:hidden}
 .card-large {
-height: 500px;
+min-height: 500px;
 -webkit-backface-visibility: hidden;
 backface-visibility: initial;
 border-radius: 5px;
