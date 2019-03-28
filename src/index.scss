@@ -63,3 +63,11 @@ p.category-name {
 .fas.fa-users {
   display: block;
 }
+
+div.card-footer, footer.card-footer {
+  border-top: 0px solid white;
+}
+
+button.is-fullwidth {
+  margin: 0 20px;
+}
