@@ -20,6 +20,7 @@ class CreateCategory extends React.Component {
 
     this.handleChange = this.handleChange.bind(this)
     this.handleSubmit = this.handleSubmit.bind(this)
+    this.handleDelete = this.handleDelete.bind(this)
     this.getTasksForGroup = this.getTasksForGroup.bind(this)
     this.getAllCategoriesForUpdate = this.getAllCategoriesForUpdate.bind(this)
     // this.assignUsers = this.assignUsers.bind(this)
@@ -42,10 +43,13 @@ class CreateCategory extends React.Component {
   }
 
   componentDidMount() {
+    this.getGroups()
+  }
+
+  getGroups() {
     axios
       .get(`/api/groups/${this.props.groupId}/categories`)
-      .then(categories => this.setState({ categories }))
-    this.getTasksForGroup()
+      .then(categories => this.setState({ categories }, this.getTasksForGroup))
   }
 
   componentDidUpdate() {
@@ -70,6 +74,17 @@ class CreateCategory extends React.Component {
     })
       .then(() => {
         this.setState(this.state)
+      })
+      .catch(err => console.log(err.message))
+  }
+
+  handleDelete(e, category) {
+    e.preventDefault()
+    axios.delete(`/api/groups/${this.props.groupId}/categories/${category._id}`, {
+      headers: {Authorization: `Bearer ${Auth.getToken()}`}
+    })
+      .then(() => {
+        this.getGroups()
       })
       .catch(err => console.log(err.message))
   }
@@ -106,7 +121,11 @@ class CreateCategory extends React.Component {
           </div>
           {this.state.categories.data && this.filterCategory().map((category, i) => (
             <div key={i}>
-              <p>{category.name}</p>
+              <p className="category-name">{category.name}</p>
+              <a
+                className="delete delete-category"
+                onClick={(e) => this.handleDelete(e, category)}
+              ></a>
             </div>
           ))}
         </form>
