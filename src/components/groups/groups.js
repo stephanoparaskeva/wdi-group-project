@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {Fragment} from 'react'
 import 'bulma'
 import axios from 'axios'
 import Group from './group'
@@ -28,16 +28,27 @@ class Groups extends React.Component {
   render() {
     if(!this.state.groups) return null
     return(
-      <div className="container">
-        <div className="section">
-          <div className="columns is-multiline">
-            <CreateGroup onFetchGroups={this.getAllGroups}/>
-            {this.state.groups.map(group =>
-              <Group {...group} key={group._id} onFetchGroups={this.getAllGroups} />
-            )}
+      <Fragment>
+        <section className="hero">
+          <div className="hero-body">
+            <div className="container has-text-centered">
+              <h1 className="title">
+                Your Groups
+              </h1>
+            </div>
+          </div>
+        </section>
+        <div className="container">
+          <div className="section">
+            <div className="columns is-multiline">
+              <CreateGroup onFetchGroups={this.getAllGroups}/>
+              {this.state.groups.map(group =>
+                <Group {...group} key={group._id} onFetchGroups={this.getAllGroups} />
+              )}
+            </div>
           </div>
         </div>
-      </div>
+      </Fragment>
     )
   }
 }
