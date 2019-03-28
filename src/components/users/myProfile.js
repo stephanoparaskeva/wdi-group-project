@@ -48,83 +48,94 @@ class Users extends React.Component {
     const accepted = this.state.accepted.data
     const tasks = this.state.tasks.data
     return(
-      <div>My Profile
-        {user &&
-          <div>
-            <div>
-              <div className="card">
-                <header className="card-header">
-                  <p className="card-header-title">
-                    {user.username}
-                  </p>
-                </header>
-                <div className="card-content">
-                  <div className="content">
-                    <p>{user.email}</p>
+      <div className="container">
+        <div className="section">
+          <div className="columns is-multiline">
+            {user &&
+          <div className="column is-one-third">
+            <div className="card-large box">
+              <div className="card-header-title is-centered is-size-3">
+                Your Profile
+              </div>
+              <hr />
+              <div className="card-content">
+                <div className="content">
+                  <p><strong>Name: </strong>{user.name}</p>
+                  <p><strong>Email Address: </strong>{user.email}</p>
+                  <p><strong>Username: </strong>{user.username}</p>
+                  <p><strong>Newsletter: </strong>{user.newsletter}</p>
+                </div>
+                <hr />
+                <p><strong>Created Date: </strong>{user.createdAt}</p>
+                <p><strong>User ID: </strong>{user._id}</p>
+              </div>
+            </div>
+          </div>
+            }
+            {pending && pending.map(user => (
+              <div key={user.friend._id} className="column is-one-third">
+                <div className="card-large box">
+                  <div className="card-header-title is-centered is-size-3">
+                  Pending friend
+                  </div>
+                  <hr />
+                  <div className="card-content">
+                    <div className="content">
+                      <p><strong>Name: </strong>{user.friend.name}</p>
+                      <p><strong>Email Address: </strong>{user.friend.email}</p>
+                      <p><strong>Username: </strong>{user.friend.username}</p>
+                      <p><strong>Newsletter: </strong>{user.friend.newsletter}</p>
+                    </div>
+                    <hr />
+                    <p><strong>Created Date: </strong>{user.friend.createdAt}</p>
+                    <p><strong>User ID: </strong>{user.friend._id}</p>
+                    <Link to={`/users/${user._id}`}>Add</Link>
                   </div>
                 </div>
-                <footer className="card-footer">
-                </footer>
               </div>
-            </div>
-          </div>}
-        <hr/><h1>Pending</h1><hr/>
-        {pending && pending.map(user => (
-          <div key={user.friend._id}>
-            <div className="card">
-              <header className="card-header">
-                <p className="card-header-title">
-                  {user.friend.username}
-                </p>
-              </header>
-              <div className="card-content">
-                <div className="content">
-                  <p>{user.friend.email}</p>
+            ))}
+            {accepted && accepted.map(user => (
+              <div key={user.friend._id} className="column is-one-third">
+                <div className="card-large box">
+                  <div className="card-header-title is-centered is-size-3">
+                  Accepted friend
+                  </div>
+                  <hr />
+                  <div className="card-content">
+                    <div className="content">
+                      <p><strong>Name: </strong>{user.friend.name}</p>
+                      <p><strong>Email Address: </strong>{user.friend.email}</p>
+                      <p><strong>Username: </strong>{user.friend.username}</p>
+                      <p><strong>Newsletter: </strong>{user.friend.newsletter}</p>
+                    </div>
+                    <hr />
+                    <p><strong>Created Date: </strong>{user.friend.createdAt}</p>
+                    <p><strong>User ID: </strong>{user.friend._id}</p>
+                  </div>
                 </div>
               </div>
-              <footer className="card-footer">
-              </footer>
-              <Link to={`/users/${user._id}`}>Add</Link>
-            </div>
-          </div>
-        ))}
-        <hr/><h1>Friends</h1><hr/>
-        {accepted && accepted.map(user => (
-          <div key={user.friend._id}>
-            <div className="card">
-              <header className="card-header">
-                <p className="card-header-title">
-                  {user.friend.username}
-                </p>
-              </header>
-              <div className="card-content">
-                <div className="content">
-                  <p>{user.friend.email}</p>
+            ))}
+            {tasks && this.filterTasks().map(task => (
+              <div key={task._id} className="column is-one-third">
+                <div className="card-large box">
+                  <div className="card-header-title is-centered is-size-3">
+                    {task.name}
+                  </div>
+                  <hr />
+                  <div className="has-text-centered is-size-5">
+                    {task.description}
+                  </div>
+                  <br />
+                  <p>{`Created by (Id): ${task.createdBy}`}</p>
+                  <p>{`Priority: ${task.priority}`}</p>
+                  <hr />
+                  <footer className="card-footer">
+                  </footer>
                 </div>
               </div>
-              <footer className="card-footer">
-              </footer>
-            </div>
+            ))}
           </div>
-        ))}
-        {tasks && this.filterTasks().map(task => (
-          <div key={task._id}>
-            <div className="card">
-              <header className="card-header">
-                <p className="card-header-title">
-                  {task.name}
-                </p>
-              </header>
-              <div className="card-content">
-                <div className="content">
-                  <p>{task.description}</p>
-                </div>
-              </div>
-              <footer className="card-footer">
-              </footer>
-            </div>
-          </div>
-        ))}
+        </div>
       </div>
     )
   }
