@@ -10,12 +10,17 @@ class Footer extends React.Component {
 
   render() {
     return (
-      <footer className="footer is-small">
-        <div className="container">
-          <hr />
-          <p className="subtitle is-6">Organise: Powered by General Assembly WDI39</p>
-          <div className="subtitle is -2 is-left">
-            <strong>Contact Us:</strong>
+      <nav className="level">
+        <div className="level-left">
+          <div className="level-item has-text-centered">
+                <p className="subtitle is-6">Organise: Powered by General Assembly WDI39 </p>
+                </div>
+                </div>
+                <div className="level-right">
+                <div className="level-item has-text-centered">
+                <div className="subtitle is -2 is-right">
+                  <strong>Contact Us:</strong>
+            </div>
             <span className="icon is-large is-left">
               <i className="fas fa-envelope"></i>
             </span>
@@ -28,9 +33,10 @@ class Footer extends React.Component {
             <span className="icon is-large is-left">
               <i className="fab fa-instagram"></i>
             </span>
-          </div>
-        </div>
-      </footer>
+            </div>
+            </div>
+
+        </nav>
     )
   }
 }
