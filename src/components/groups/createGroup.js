@@ -36,8 +36,10 @@ class CreateGroup extends React.Component {
   }
 
   assignUsers(value) {
-    const data = {...this.state.data, usersAssigned: [...this.state.data.usersAssigned, {_id: value}]}
-    this.setState({ data })
+    if (this.state.data.usersAssigned.every(user => user._id !== value)) {
+      const data = {...this.state.data, usersAssigned: [...this.state.data.usersAssigned, {_id: value}]}
+      this.setState({ data })
+    }
   }
 
   handleSubmit(e) {
@@ -46,11 +48,13 @@ class CreateGroup extends React.Component {
       this.state.data,
       { headers: {Authorization: `Bearer ${Auth.getToken()}`}})
       .then(() => {
+        this.setState( {data: {usersAssigned: [{ _id: Auth.getPayload().sub }]}})
         this.props.onFetchGroups()
       })
       .catch(err => console.log(err.message))
-
   }
+
+
 
   render() {
     const accepted = this.state.accepted.data
@@ -72,7 +76,7 @@ class CreateGroup extends React.Component {
                   value={this.state.data.name || ''}
                   onChange={this.handleChange}
                 />
-                <label className="subtitle is-6"><strong>Assign Users</strong></label>
+                {accepted && accepted.length > 0 && <label className="label">Assign Users</label>}
                 <div>
                   <div>
                     {accepted && accepted.map((user, i) => (
