@@ -42,7 +42,7 @@ class Nav extends React.Component {
               <span aria-hidden="true"></span>
             </a>
           </div>
-          <div id="navbarMenu" className="navbar-menu">
+          <div className={`navbar-menu ${this.state.navbarOpen ? 'is-active' : ''}`}>
             <div className="navbar-end">
               {!Auth.isAuthenticated() && <Link to="/about" className="navbar-item">About</Link>}
               {!Auth.isAuthenticated() && <Link to="/pricing" className="navbar-item">Pricing</Link>}
