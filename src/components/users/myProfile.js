@@ -3,6 +3,8 @@ import axios from 'axios'
 import Auth from '../../lib/auth'
 import { Link } from 'react-router-dom'
 
+import UsersIndex from './usersIndex'
+
 class Users extends React.Component {
   constructor() {
     super()
@@ -46,80 +48,82 @@ class Users extends React.Component {
     const user = this.state.user.data
     const pending = this.state.pending.data
     const accepted = this.state.accepted.data
-    const tasks = this.state.tasks.data
     return(
       <div className="container">
         <div className="section">
-          <div className="columns is-multiline">
+          <div className="rows is-multiline">
             {user &&
-          <div className="column is-one-third">
-            <div className="card-large box">
+          <div className="is-one-third">
+            <div >
               <div className="card-header-title is-centered is-size-3">
-                Your Profile
+                Me
               </div>
               <hr />
               <div className="card-content">
                 <div className="content">
-                  <p><strong>Name: </strong>{user.name}</p>
-                  <p><strong>Email Address: </strong>{user.email}</p>
                   <p><strong>Username: </strong>{user.username}</p>
-                  <p><strong>Newsletter: </strong>{user.newsletter}</p>
+                  <p><strong>Email Address: </strong>{user.email}</p>
                 </div>
                 <hr />
-                <p><strong>Created Date: </strong>{user.createdAt}</p>
-                <p><strong>User ID: </strong>{user._id}</p>
               </div>
             </div>
           </div>
             }
-            {pending && pending.map(user => (
-              <div key={user.friend._id} className="column is-one-third">
-                <div className="card-large box">
-                  <div className="card-header-title is-centered is-size-3">
-                  Pending friend
-                  </div>
-                  <hr />
-                  <div className="card-content">
-                    <div className="content">
-                      <p><strong>Name: </strong>{user.friend.name}</p>
-                      <p><strong>Email Address: </strong>{user.friend.email}</p>
-                      <p><strong>Username: </strong>{user.friend.username}</p>
-                      <p><strong>Newsletter: </strong>{user.friend.newsletter}</p>
-                    </div>
-                    <hr />
-                    <p><strong>Created Date: </strong>{user.friend.createdAt}</p>
-                    <p><strong>User ID: </strong>{user.friend._id}</p>
-                    <Link to={`/users/${user._id}`}>Add</Link>
-                  </div>
-                </div>
+            <nav className="panel">
+              <p className="panel-heading">
+                Friend Requests
+              </p>
+              <div  className="panel-block">
+                <p className="control has-icons-left">
+                  <span className="icon is-small is-left">
+                  </span>
+                </p>
               </div>
-            ))}
-            {accepted && accepted.map(user => (
-              <div key={user.friend._id} className="column is-one-third">
-                <div className="card-large box">
-                  <div className="card-header-title is-centered is-size-3">
-                  Accepted friend
-                  </div>
-                  <hr />
-                  <div className="card-content">
-                    <div className="content">
-                      <p><strong>Name: </strong>{user.friend.name}</p>
-                      <p><strong>Email Address: </strong>{user.friend.email}</p>
-                      <p><strong>Username: </strong>{user.friend.username}</p>
-                      <p><strong>Newsletter: </strong>{user.friend.newsletter}</p>
-                    </div>
-                    <hr />
-                    <p><strong>Created Date: </strong>{user.friend.createdAt}</p>
-                    <p><strong>User ID: </strong>{user.friend._id}</p>
-                  </div>
-                </div>
+              {pending && pending.map(user => (
+                <a key={user.friend._id} className="panel-block is-active">
+                  <span className="panel-icon">
+                    <i className="fas fa-user" aria-hidden="true"></i>
+                  </span>
+                  <p><strong>{`${user.friend.username} `}<br/></strong></p>
+                  <p>{` ${user.friend.email} `}<br/></p>
+                  <Link to={`/users/${user._id}`}>add</Link>
+                </a>
+              ))}
+              <div className="panel-block">
               </div>
-            ))}
+            </nav>
+            <nav className="panel">
+              <p className="panel-heading">
+                Friends
+              </p>
+              <div  className="panel-block">
+                <p className="control has-icons-left">
+                  <span className="icon is-small is-left">
+                  </span>
+                </p>
+              </div>
+              {accepted && accepted.map(user => (
+                <a key={user.friend._id} className="panel-block is-active">
+                  <span className="panel-icon">
+                    <i className="fas fa-user" aria-hidden="true"></i>
+                  </span>
+                  <p><strong>{`${user.friend.username} `}<br/></strong></p>
+                  <p>{` ${user.friend.email} `}<br/></p>
+                </a>
+              ))}
+              <div className="panel-block">
+              </div>
+            </nav>
+            <UsersIndex />
           </div>
         </div>
+
       </div>
+
     )
   }
 }
+
+
 
 export default Users

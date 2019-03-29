@@ -99,7 +99,9 @@ class CreateGroup extends React.Component {
                             this.setState({toggle: !this.state.toggle })
                           }}
                         >{user.friend.username}
+
                         </a>
+
                       </div>
                     ))}
                   </div>
