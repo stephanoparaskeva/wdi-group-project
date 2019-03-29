@@ -46,7 +46,6 @@ class Users extends React.Component {
     const user = this.state.user.data
     const pending = this.state.pending.data
     const accepted = this.state.accepted.data
-    const tasks = this.state.tasks.data
     return(
       <div className="container">
         <div className="section">
