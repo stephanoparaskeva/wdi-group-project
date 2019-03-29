@@ -40,9 +40,6 @@ class About extends React.Component {
               <p className="is-4 is-italic">
                 <strong>&apos;Organise&apos;</strong> enabled me to coordinate with the boys for my 30th birthday trip to Ibiza. Who knew planning an international event could be so simple?&apos; -Matt, 30, Dubai.
               </p>
-              <br/>
-              <p className="subtitle is-4"><strong>Media Coverage:</strong></p>
-              <p><strong>As featured in:</strong> Wired, Tech Crunch, Hello Magazine, Conde Naste Traveller and more!</p>
             </div>
           </div>
         </div>
