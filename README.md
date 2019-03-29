@@ -1,18 +1,32 @@
-Matthew Whaley-Update2
-=======
 _README_
 
-#Organize - MERN Full Stack App
+###Organize - MERN Full Stack App
 ---
-###About Organise
+###About Organise - An Overview
 
 'Organise' is an organisational tool that allows users to increase their productivity on a given task by effectively organizing the planning of events in a clear and methodical way.
 
-This simple and intuitive app allows its users to create groups and assign users to work under these groups on a given task. In addition to storing your events, 'Organise' provides you with a bright and structured interface few ways to structure these tasks. You can add in specific categories with tasks nested within them, allowing you to prioritize an item.
+This simple and intuitive app allows its users to create groups and assign users to work under these groups on a given task. In addition to storing your events, 'Organise' provides you with a bright and structured interface, offering multiple ways to structure these tasks. You can add in specific categories with tasks nested within them, allowing you to prioritize an item.
 
 'Organise' also implements a friend feature that allows users to see all of their friends within the app and those who are assigned to the same task as them. Users are marked as active or inactive based on their status.
 
 The comments feature allows users to leave notes for each other, making communication and 'on-the-go' interaction quick and seamless.
+
+### Timeframe
+
+* 7 days
+
+###Technologies Used
+
+* React
+* Node.js
+* MongoDB
+* Express
+* Redux
+* JavaScript (ES6) + jQuery
+* HTML5
+* CSS
+* GitHub
 
 ###Technical Requirements
 
@@ -25,21 +39,23 @@ The comments feature allows users to leave notes for each other, making communic
 * **Have a visually impressive design**.
 * **Be deployed online** so it's publicly accessible.
 * **Have automated tests** for at least one RESTful resource on the back-end.
-
 ---
-
 ###Wireframes
 
 During the planning phase, the group came up with the following rough sketches of how the app would look:
 
-(add here)
+![Drag Racing](keyboard.jpg)
+![]()
+![]()
+![]()
+![]()
+![]()
 
 After implementation began, the wireframes were further developed to reflect the final product design, below:
 
 (add here)
 
 ---
-
 ##App Overview
 
 The Organise app is a organizational tool that allows users to create events and add contributors to these events. In short, the tool allows users to effectively manage tasks and assign responsibilities accordingly.
@@ -63,7 +79,6 @@ The login modal uses a Bulma template with a basic login form to a modal, which 
 If they do not already have an account, they are directed to click on the link which directs them to the Register modal popup. These two are interconnected for an easier user experience.
 
 ---
-
 ##Backend Overview
 
 ## URL Structure
@@ -83,7 +98,6 @@ If they do not already have an account, they are directed to click on the link w
 ### organise.net/group/group:id/tasks
   _Filtered tasks page(shows all as standard), used for multiple task views. Eg organise.net/group/group:id/tasks?priority=high&owner=123_
 ---
-
 ## Database - Organise
 
 The database is broken down into the following Schemas:
@@ -98,8 +112,7 @@ The database is broken down into the following Schemas:
 * isActive: _boolean_
 * isDormant: _boolean_
 
-___
-
+---
 ### Group
 * name: _string_
 * decription: _string_
@@ -108,8 +121,7 @@ ___
 * createdDate: _timeStamp created by Mongo_
 * mongo_Id - _assigned by default_
 
-___
-
+---
 ### Category
 * name: _string_
 * decription: _string_
@@ -119,8 +131,7 @@ ___
 * createdDate: _timeStamp created by mongo_
 * mongo_Id - _assigned by default_
 
-___
-
+---
 ### Task
 * name: _string_
 * decription: _string_
@@ -133,11 +144,11 @@ ___
 * createdDate: _timeStamp created by mongo_
 * mongo_Id - _assigned by default_
 
+---
 #### Comments
   * name: _string_
   * decription: _string_
   * userCreated: _mongo_Id_
   * createdDate: _timeStamp created by mongo_
   * mongo_Id - _assigned by default_
-___
->>>>>>> 7b45cf7b2723bd2c0f1b50499d8c2a0c7673ec26
+---

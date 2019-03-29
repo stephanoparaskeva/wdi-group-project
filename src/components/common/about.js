@@ -38,11 +38,8 @@ class About extends React.Component {
               <p className="is-italic"><strong>&apos;Organise&apos;</strong> is life-changing for planning events. It made organizing my bachelorette party a total breeze.&apos; -Jess, 25, London.</p>
               <br/>
               <p className="is-4 is-italic">
-                <strong>&apos;Organise&apos;</strong> enabled me to coordinate the boys for my 30th birthday party trip to Ibiza. Who knew planning an international event could be so simple?&apos; -Matt, 30, Dubai.
+                <strong>&apos;Organise&apos;</strong> enabled me to coordinate with the boys for my 30th birthday trip to Ibiza. Who knew planning an international event could be so simple?&apos; -Matt, 30, Dubai.
               </p>
-              <br/>
-              <p className="subtitle is-4"><strong>Media Coverage:</strong></p>
-              <p><strong>As featured in:</strong> Wired, Tech Crunch, Hello Magazine, Conde Naste Traveller and more!</p>
             </div>
           </div>
         </div>

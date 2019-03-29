@@ -28,7 +28,7 @@ class Groups extends React.Component {
   }
 
   filterGroups() {
-    let filteredArr = []
+    const filteredArr = []
     this.state.groups.map(group => {
       group.usersAssigned.forEach(user => {
         if (user._id === Auth.getPayload().sub) {

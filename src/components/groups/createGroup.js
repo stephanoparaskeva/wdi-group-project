@@ -66,11 +66,11 @@ class CreateGroup extends React.Component {
           <div className="card-header-title is-centered is-size-3">
           Create New Group
           </div>
-          <hr />
+          <br />
           <div className="card-content">
             <div className="content">
               <form onSubmit={this.handleSubmit}>
-                <label className="subtitle is-6"><strong>Name</strong></label>
+                <label className="subtitle is-6">Name</label>
                 <input
                   className="input"
                   name="name"
@@ -78,7 +78,7 @@ class CreateGroup extends React.Component {
                   value={this.state.data.name || ''}
                   onChange={this.handleChange}
                 />
-                <label className="subtitle is-6"><strong>Assign Users</strong></label>
+                <label className="subtitle is-6">Assign Users</label>
                 <div>
                   <div>
                     {accepted && accepted.map((user, i) => (

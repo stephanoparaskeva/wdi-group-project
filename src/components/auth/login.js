@@ -47,7 +47,9 @@ class Login extends React.Component {
             <div className="column is-4 is-offset-4">
               <h3 className="title has-text-grey">Organise</h3>
               <p className="subtitle has-text-grey">Please login to proceed.</p>
-
+              <figure className="image is2by1">
+                <img src="./assets/iphone-mock-up.png"></img>
+              </figure>
 
               <div className="box">
                 <form onSubmit={this.handleSubmit}>
