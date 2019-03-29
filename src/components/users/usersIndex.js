@@ -23,36 +23,30 @@ class Users extends React.Component {
   render() {
     const users = this.state.users.data
     return(
-      <div className="container">
-        <div className="section">
-          <div className="columns is-multiline">
-            {users && users.map(user =>
-              <div key={user._id} className="column is-one-third">
-                <div className="card-large box">
-                  <div className="card-header-title is-centered is-size-3">
-                  Friend?
-                  </div>
-                  <hr />
-                  <div className="card-content">
-                    <div className="content">
-                      <p><strong>Name: </strong>{user.name}</p>
-                      <p><strong>Email Address: </strong>{user.email}</p>
-                      <p><strong>Username: </strong>{user.username}</p>
-                    </div>
-                    <hr />
-                    <p><strong>Created Date: </strong>{user.createdAt}</p>
-                    <p><strong>User ID: </strong>{user._id}</p>
-                    <hr />
-                    <footer className="card-footer">
-                      <Link className="button is-primary subtitle is-6 is-fullwidth" to={`/users/${user._id}`}>Request</Link>
-                    </footer>
-                  </div>
-                </div>
-              </div>
-            )}
-          </div>
+      <nav className="panel">
+        <p className="panel-heading">
+          Find Friends
+        </p>
+        <div  className="panel-block">
+          <p className="control has-icons-left">
+            <span className="icon is-small is-left">
+            </span>
+          </p>
         </div>
-      </div>
+        {users && users.map(user =>
+          <a key={user._id} className="panel-block is-active">
+            <span className="panel-icon">
+              <i className="fas fa-user" aria-hidden="true"></i>
+            </span>
+            <p><strong>{`${user.username} `}<br/></strong></p>
+            <p>{` ${user.email} `}<br/></p>
+            <Link to={`/users/${user._id}`}>Request</Link>
+          </a>
+        )}
+        <div className="panel-block">
+        </div>
+      </nav>
+
     )
   }
 }

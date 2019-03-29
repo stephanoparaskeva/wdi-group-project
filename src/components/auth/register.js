@@ -38,7 +38,6 @@ class Register extends React.Component {
     this.setState({ newsletter: !this.state.newsletter })
   }
 
-
   handleSubmit(e) {
     e.preventDefault()
     axios.post('/api/register', this.state.data)
