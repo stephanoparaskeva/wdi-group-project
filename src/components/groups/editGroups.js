@@ -42,10 +42,10 @@ class EditGroups extends React.Component {
           <div className="card-header-title is-centered is-size-3">
             {this.props.group.name}
           </div>
+          <br />
           <div className="card-header-title is-centered is-size-5">
             <strong className="has-text-warning">Editing...</strong>
           </div>
-          <hr />
           <div className="card-content">
             <div className="content">
               <form onSubmit={this.handleSubmit}>

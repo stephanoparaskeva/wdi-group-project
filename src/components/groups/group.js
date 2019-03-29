@@ -50,7 +50,7 @@ class Group extends React.Component {
           <div className="card-header-title is-centered is-size-3">
             {this.props.name}
           </div>
-          <hr />
+          <br />
           <div className="has-text-centered is-size-5">
             {this.props.description}
           </div>
