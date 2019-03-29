@@ -15,6 +15,9 @@ class Home extends React.Component {
           <div className="container">
             <p className="title is-1">Welcome to Organise.</p>
             <hr />
+            <figure className="image is3by1">
+              <img src="./assets/iphone-mock-up.png"></img>
+            </figure>
           </div>
         </div>
       </section>
