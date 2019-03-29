@@ -9,7 +9,6 @@ const app = express()
 const router = require('./config/routes')
 
 mongoose.connect(dbURI, { useNewUrlParser: true })
-console.log(dbURI)
 
 app.use(function (req, res, next) {
   res.setHeader('Access-Control-Allow-Origin', 'http://localhost:8000')
@@ -17,11 +16,15 @@ app.use(function (req, res, next) {
   next()
 })
 
+app.use(express.static(`${__dirname}/dist`))
+
 app.use(bodyParser.json())
 
 app.use('/api', router)
 
 app.use(errHandler)
+
+app.get('/*', (req, res) => res.sendFile(`${__dirname}/dist/index.html`))
 
 app.listen(port, () => console.log(`App is listening on port ${port}`))
 
