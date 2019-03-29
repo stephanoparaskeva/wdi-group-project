@@ -3,7 +3,7 @@ import axios from 'axios'
 import 'bulma'
 import Auth from '../../lib/auth'
 
-let myArray
+
 
 class CreateGroup extends React.Component {
   constructor() {
@@ -58,6 +58,7 @@ class CreateGroup extends React.Component {
   }
 
   render() {
+    console.log(this.state.data.usersAssigned)
     const accepted = this.state.accepted.data
     return(
       <div className="column is-one-third">
@@ -89,7 +90,7 @@ class CreateGroup extends React.Component {
                             e.target.classList.toggle('user')
                             e.preventDefault()
                             this.assignUsers(user._id)
-                            myArray = this.state.data.usersAssigned.filter(function( obj ) {
+                            let myArray = this.state.data.usersAssigned.filter(function( obj ) {
                               return obj._id !== e.target.name
                             })
 
