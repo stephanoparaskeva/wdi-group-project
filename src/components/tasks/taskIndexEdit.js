@@ -14,7 +14,7 @@ class TaskIndexEdit extends React.Component {
         description: props.description,
         priority: props.priority,
         categoryAssigned: props.categoryAssigned,
-        isCurrent: false,
+        isCurrent: props.isCurrent,
         error: ''
       },
 
@@ -30,6 +30,7 @@ class TaskIndexEdit extends React.Component {
     this.toggleCategoryClick = this.toggleCategoryClick.bind(this)
     this.assignCategory = this.assignCategory.bind(this)
     this.handleClick = this.handleClick.bind(this)
+    this.handleDone = this.handleDone.bind(this)
   }
 
   handleChange({ target: { name, value }}) {
@@ -40,19 +41,23 @@ class TaskIndexEdit extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault()
-    if (e.target.name === 'done' && this.state.data.isCurrent === true) {
-      this.setState({ data: {isCurrent: false} })
-    } else if(e.target.name === 'done' && this.state.data.isCurrent === false) {
-      this.setState({ data: {isCurrent: true} })
-    }
     axios.put(`/api/groups/${this.props.group}/tasks/${this.props._id}`, this.state.data, {
       headers: {Authorization: `Bearer ${Auth.getToken()}`}
     })
       .then(() => {
         this.props.onFetchTasks()
-        if (e.target.name !== 'done') {
-          this.handleClick()
-        }
+        this.handleClick()
+      })
+      .catch(err => console.log(err.message))
+  }
+
+  handleDone() {
+    axios.put(`/api/groups/${this.props.group}/tasks/${this.props._id}`, { ...this.state.data, isCurrent: !this.state.data.isCurrent }, {
+      headers: {Authorization: `Bearer ${Auth.getToken()}`}
+    })
+      .then(() => {
+        this.props.onFetchTasks()
+        this.setState({ data: { ...this.state.data, isCurrent: !this.state.data.isCurrent }})
       })
       .catch(err => console.log(err.message))
   }
@@ -200,8 +205,8 @@ class TaskIndexEdit extends React.Component {
               <br/>
               <br/>
               <footer className="card-footer">
-                <button className="button is-danger subtitle is-6 is-fullwidth">Cancel</button>
-                <button className="button is-primary subtitle is-6 is-fullwidth" onClick={this.handleSubmit}>Update</button>
+                <button type="button" className="button is-danger subtitle is-6 is-fullwidth" onClick={this.handleClick}>Cancel</button>
+                <button type="button" className="button is-primary subtitle is-6 is-fullwidth" onClick={this.handleSubmit}>Update</button>
               </footer>
             </form>
           </div>
@@ -244,7 +249,7 @@ class TaskIndexEdit extends React.Component {
           <footer className="card-footer">
             <button className="button is-warning subtitle is-6 is-fullwidth" onClick={this.handleClick}>Edit</button>
             <button className="button is-danger subtitle is-6 is-fullwidth" name="delete" onClick={this.handleDelete}>Delete</button>
-            <button className="button is-info subtitle is-6 is-fullwidth" name="done" onClick={this.handleSubmit}>Done</button>
+            <button className="button is-info subtitle is-6 is-fullwidth" name="done" onClick={this.handleDone}>Done</button>
           </footer>
         </div>
       </div>
