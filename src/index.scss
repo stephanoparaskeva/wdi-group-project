@@ -136,3 +136,8 @@ div.hero-body {
   background-image: url(./assets/keyboard.jpg);
   background-size: cover;
 }
+
+hero-container {
+  display: flex;
+  align-items: center;
+}

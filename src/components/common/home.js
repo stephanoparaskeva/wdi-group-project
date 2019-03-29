@@ -12,7 +12,8 @@ class Home extends React.Component {
     return (
       <section className="hero is-fullheight has-bg-img">
         <div className="hero-body is-1">
-          <div className="container">
+          <div className="container hero-container">
+            <img src="./assets/72x72.png" />
             <p className="title is-1 is-left">Welcome to Organise.</p>
           </div>
         </div>
