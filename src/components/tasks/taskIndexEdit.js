@@ -229,22 +229,8 @@ class TaskIndexEdit extends React.Component {
             {this.props.description}
           </div>
           <br />
-          <p><strong>Created by (Id):</strong>{`${this.props.createdBy}`}</p>
           <p><strong>Priority:</strong> {`${this.props.priority}`}</p>
           <p><strong>Category:</strong>{`${categoryName}`}</p>
-          <p><strong>Last comment:</strong></p>
-          {this.props.comments.length > 0 && (
-            <div>
-              {this.props.comments.map(comment => (
-                <div key={comment._id}>
-                  <p className="is-italic">Title: {comment.name}</p>
-                  <p className="is-italic">Comment: {comment.description}</p>
-                  <p className="is-italic">CreatedBy: {comment.createdBy}</p>
-                  <p className="is-italic">CreatedBy: {comment.createdAt}</p>
-                </div>
-              ))}
-            </div>
-          )}
           <hr />
           <footer className="card-footer">
             <button className="button is-warning subtitle is-6 is-fullwidth" onClick={this.handleClick}>Edit</button>
