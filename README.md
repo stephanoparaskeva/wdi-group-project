@@ -40,5 +40,11 @@ We decided the best approach to be one that takes inspiration from platforms lik
 ### Walkthrough:
 1. Before any functionality is available, the user must log in. This is because the entire user experience depends on a persistant account of that user's Groups.
  ![](https://i.imgur.com/rV6asRE.png?1)
-2. Once a user has logged in, they are met with the Groups screen. Here a user can create Groups for events, Categories for the tasks of each Group and assign any friends they have made.
+2. The user can now access their personal profile, which shows their details and allows the user to make friend requests or add any other user that has requested to be their friend. Only the creator of a Group and those assigned to a Group can see that group, therefore any Groups that are created by someone else but assigned to you, will pop up and you will be able to work with another user, together within the Group.
+ ![](https://media.giphy.com/media/IbsQ4WGhzLAcYSvDWa/giphy.gif)
+3. If the user navigates to the Groups section, the user can create Groups for events, create Categories for the tasks of each Group and assign any friends they have made.
  ![](https://i.imgur.com/HAWfPLn.png?1)
+4. Clicking on the 'Go to all Tasks' button will take the user into the group where they can make Tasks to-do for the users in the Group and apply any Categories or Priorities to these Tasks. The user can also filter through the Tasks of the Group.
+ ![](https://i.imgur.com/pQrmVJk.png)
+5. Tasks can be edited and deleted. When a task is agreed to be complete, it is logged as 'Done'.
+ ![](https://media.giphy.com/media/L3QlXpiK3UGt1k5b0C/giphy.gif)
