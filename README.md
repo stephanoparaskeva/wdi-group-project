@@ -44,7 +44,7 @@ We decided the best approach to be one that takes inspiration from platforms lik
  ![](https://media.giphy.com/media/IbsQ4WGhzLAcYSvDWa/giphy.gif)
 3. If the user navigates to the Groups section, the user can create Groups for events, create Categories for the tasks of each Group and assign any friends they have made.
  ![](https://i.imgur.com/HAWfPLn.png?1)
-4. Clicking on the 'Go to all Tasks' button will take the user into the group where they can make Tasks to-do for the users in the Group and apply any Categories or Priorities to these Tasks. The user can also filter through the Tasks of the Group.
+4. Clicking on the 'Go to all Tasks' button will take the user to that Group where they can make Tasks to-do for the users in the Group and apply any Categories or Priorities to these Tasks. The user can also filter through the Tasks of the Group.
  ![](https://i.imgur.com/pQrmVJk.png)
 5. Tasks can be edited and deleted. When a task is agreed to be complete, it is logged as 'Done'.
  ![](https://media.giphy.com/media/L3QlXpiK3UGt1k5b0C/giphy.gif)
