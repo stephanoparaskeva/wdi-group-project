@@ -118,7 +118,44 @@ We decided to divide our tasks evenly in order to build the application from all
 5. Throughout our project, we utilised the Slack messaging platform to send eachother snippets of code we were working on in order to overcome problems and also discuss Version-Control to ensure the project ran smoothly with minimal conflicts.
  
  ![](https://i.imgur.com/ZZVm8SS.png?1)
-### Bugs
+
+### Testing:
+Utilising Mocha and Chai I developed automated code in order to produce a unit test for the Groups resource. This was done to ensure the resource worked in as many edge cases as possible. This step was necessary to prove the site worked under pressure and to reveal any weaknesses that can later be corrected. Testing using the Chai assertion library made my work simpler as the syntax was close to English and therefore very readable: 
+```javascript
+
+    it('should return a 200 response', done => {
+      api
+        .get('/api/groups')
+        .set('Accept', 'application/json')
+        .expect(200, done)
+    })
+
+
+    it('should return a JSON object', done => {
+      api
+        .get('/api/groups')
+        .set('Accept', 'application/json')
+        .end((err, res) => {
+          expect(res.header['content-type'])
+            .to.be.eq('application/json; charset=utf-8')
+          done()
+        })
+    })
+
+    it('should return an array', done => {
+      api
+        .get('/api/groups')
+        .set('Accept', 'application/json')
+        .end((err, res) => {
+          expect(res.body).to.be.an('array')
+          done()
+        })
+    })
+``` 
+ 
+This went hand-in-hand with Mocha as Mocha made results of testing far clearer and identified what went wrong and where, which helped me bug-fix later on. 
+ 
+### Bugs:
 *Below is a list of some of the known issues*:
 
 ---
@@ -152,5 +189,48 @@ groupSchema.set('toJSON', {
   virtuals: true
 })
 ```
-
 ---
+
+### Wins and Blockers:
+
+The biggest blocker for me was understanding the difference between the work that needed to be done in the back-end and the work needed to be done on the front-end. This blocked my efforts until I decided to talk to the team and ask questions on how the front-end and back-end would interact. This helped me put aside any doubt and continue working to produce a back-end that served the needs of the front-end.
+
+A win for the app was the permissions I created in the back-end to ensure only users assigned to Groups could interact with the Group which was done on the back-end, as an extra measure. On the front-end I made it so that users can only see Groups assigned to them. This double precaution meant that the site was more secure with information being more private:
+
+```javascript
+function groupLevelPermissions(req, res, next, action) {
+  req.body.group = req.params.groupId
+  req.body.createdBy = req.currentUser
+  Group
+    .findById(req.body.group)
+    .then(group => {
+      return group.usersAssigned.forEach(user => {
+        if (user.equals(req.body.createdBy._id)) {
+          console.log('true')
+          return action
+        } else {
+          return res.json('Unauthorized')
+        }
+      })
+    }).catch(next)
+}
+
+module.exports = {
+  groupLevel: groupLevelPermissions
+}
+```
+
+### Future Features:
+
+*Features we would like to add, include:*
+
+* Assigning Tasks to users as well as just assigning Groups.
+
+* A profile page for each user that can be accessed, so one can see the profile of others and not just themselves.
+
+* The ability to create categories when inside a group.
+
+* Functionality to remove or unassign users.
+
+### Key Learnings:
+
