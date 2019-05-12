@@ -224,13 +224,13 @@ module.exports = {
 
 *Features we would like to add, include:*
 
-* Assigning Tasks to users as well as just assigning Groups.
+* Assigning Tasks as well as just assigning Groups to users.
 
-* A profile page for each user that can be accessed, so one can see the profile of others and not just themselves.
+* A profile page for each user that can be accessed by other users, so one can see the profile of others and not just themselves.
 
 * The ability to create categories when inside a group.
 
 * Functionality to remove or unassign users.
 
 ### Key Learnings:
-
+This project was a fantastic opportunity to develop my teamworking ability. I learned how to work towards a deadline in a group of developers, where we all had a wide range of different skills and came together to produce a product that we were all proud of. This dive into shared responsibility gave me a chance to see how powerful the Agile workflow is and also help me learn the skills needed for working in an Agile environment.
