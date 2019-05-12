@@ -92,10 +92,11 @@ As we aspired for polish in this project, we chose to go with a ready-built CSS 
 ### Process:
 This was a group based project where I worked in a team with 3 other developers: [Jessica Barnes](https://github.com/jessicamarybarnes), [Mary Cherasa](https://github.com/MaryCerasa) and [Matt Whaley](https://github.com/mjwhaley). We worked together using Version-Control via Git on GitHub where Mary was the Git master. All of us would communicate on what we were doing at each point in time. We'd handle any Git conflicts together and discuss what we wanted to keep and what we didn't. Features were created on separate Git branches before being merged into the development branch.
 
-**Division of work**
- We decided to divide our tasks evenly in order to build the application from all angles. This was to increase efficiency and meant that no one was left without work to do. I focused on the back-end models, testing using Mocha & Chai and the REST routes for the Categories resource. The second developer focused on the REST routes for Tasks and Groups. The third focused on managing the planning, overseeing the work done and the seeds file. And the last developer focused on styling and wireframes.
+**Division of work**:
 
-**Methodology**
+We decided to divide our tasks evenly in order to build the application from all angles. This was to increase efficiency and meant that no one was left without work to do. I focused on the back-end models, testing using Mocha & Chai and the REST routes for the Categories resource. The second developer focused on the REST routes for Tasks and Groups. The third focused on managing the planning, overseeing the work done and the seeds file. And the last developer focused on styling and wireframes.
+
+**Methodology**:
 1. First I drew up the back-end models on a whiteboard while discussing with the team. Each gave feedback and helped structure the relationships
  
  ![](https://i.imgur.com/TthwseX.jpg)
@@ -122,14 +123,34 @@ This was a group based project where I worked in a team with 3 other developers:
 
 ---
 
-**Problem**: The portfolio graph will work when the user follows a specific order of posting or editing their transactions in order of time. If however the user adds a transaction with a date that is in between the dates of other transactions, this causes a problem. The graph and balance will not take into this into account and become misrepresentative.
+**Problem**: There is a list on the user profile of all users in order to add any user as a friend. There however is no filter or search bar and thus the page will become very hard to navigate as the number of users on the site increase.
 
-**Solution**: If the user adds a transaction in between their other transactions, all transactions after this point in time must change. If I were to build this app again I would instead add (add for a buy, subtract for a sell) the difference that this new transaction makes, to the 'end_of_day_balance' of all transactions that the user has made with a date that is after that point.
+**Solution**: As a solution, a search bar instead could be added in order for the user to search for the people they'd like to become friends with. This would mean the page will not display every user and thus be far more manageable.
 
 ---
 
-**Problem**: The transaction form requires a date and time to be selected, thus if the user picks a date only, the resulting transaction will not have correct information associated with it.
+**Problem**: After assigning users to Groups, there is no way to view which users are assigned to which Groups and thus no way to remove said users. This means that if a user makes a mistake or forgets the people assigned to a Group, they will have to delete the Group and restart.
 
-**Solution**: Going forward, I would have made a more robust feature of defaulting any date picked without a time to a specific hour of that day.
+**Solution**: Going forward, I would have provided functionality to remove users from Groups and functionality to view users assigned to Groups, the latter can be achieved by mapping the array of users assigned to a Group that is contained on the Group model:
+```javascript
+const groupSchema = new mongoose.Schema({
+  name: { type: String, required: true },
+  description: { type: String },
+  usersAssigned: [{ type: mongoose.Schema.ObjectId, ref: 'User' }],
+  createdBy: { type: mongoose.Schema.ObjectId, ref: 'User' }
+}, {
+  timestamps: true
+})
+
+groupSchema.virtual('groupTasks', {
+  ref: 'Task',
+  localField: '_id',
+  foreignField: 'group'
+})
+
+groupSchema.set('toJSON', {
+  virtuals: true
+})
+```
 
 ---
