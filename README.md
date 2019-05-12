@@ -1,4 +1,4 @@
-# General Assembly WDI Project 3
+# General Assembly WDI Project 3: MERN Stack App
 ## Organise
 [Deployed project](https://organise-ga.herokuapp.com)
 
