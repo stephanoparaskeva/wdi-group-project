@@ -8,8 +8,8 @@ ___
 A task management app similar to Trello that allows the user to create groups based on events, and tasks to-do. The user can make friends and allocate friends to the groups they own to create private parties.
 ___
 
-### Timeframe:
-    9 days
+### Timeframe & Team:
+    9 days, team of 4
 ### The Brief:
 
 * **Build a full-stack application** by creating the backend and front-end.
